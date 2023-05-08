@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  postgresql:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=litretro
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=litretro_development
+    ports:
+      - "5432:5432"
