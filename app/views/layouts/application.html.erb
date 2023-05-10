@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Litretro</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,47 +10,50 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Litretro</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Other</a>
-            </li>
-          </ul>
-          <p class="navbar-text float-right">
-          <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>
-            <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
-            <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-link" %>
-          <% else %>
-            <%= link_to "Sign up", new_user_registration_path, class: "navbar-link" %> |
-            <%= link_to "Login", new_user_session_path, class: "navbar-link" %>
-          <% end %>
-          </p>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Litretro</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/retro">Your retros</a>
+              </li>
+            </ul>
+            <p class="navbar-text float-right">
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
+              <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-link" %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, class: "navbar-link" %> |
+              <%= link_to "Login", new_user_session_path, class: "navbar-link" %>
+            <% end %>
+            </p>
+          </div>
         </div>
-      </div>
-    </nav>
-    <main class="d-flex flex-nowrap">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="aslert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-    </main>
-    <footer class="mt-5 text-center">
+      </nav>
+    </header>
+    <main class="flex-shrink-0">
       <div class="container">
-        Litretro
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="aslert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-body-secondary">
+          Litretro
+        </span>
       </div>
     </footer>
   </body>
