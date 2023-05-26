@@ -2,7 +2,7 @@ class RetrosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @retros = Retro.all
+    @retros = Retro.order(retro_date: :desc).limit(6)
   end
 
   def show
