@@ -1,8 +1,8 @@
-<div class="m-auto pt=5" style="max-width: 660px;">
+<div class="py-4 px-5">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
   
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h4>Edit <%= resource_name.to_s.humanize %></h4>
   
     <div class="field">
       <%= f.label :email %><br />
@@ -38,13 +38,15 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: "my-2" %>
     </div>
   <% end %>
   
-  <h3>Cancel my account</h3>
+  <%= link_to "Back", :back %>
+
+  <br />
+
+  <h4>Cancel my account</h4>
   
   <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-  
-  <%= link_to "Back", :back %>
 </div>

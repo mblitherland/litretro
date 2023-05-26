@@ -3,6 +3,7 @@ class RetrosController < ApplicationController
 
   def index
     @retros = Retro.order(retro_date: :desc).limit(6)
+    @guest_retros = []
   end
 
   def show

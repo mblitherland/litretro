@@ -1,8 +1,8 @@
-<div class="m-auto pt-5" style="max-width: 330px;">
+<div class="px-4 py-5">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
   
-    <h2>Sign up</h2>
+    <h4>Sign up</h4>
   
     <div class="field">
       <%= f.label :email %><br />
@@ -20,8 +20,10 @@
     </div>
 
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+  
+    <br />
   
     <div class="field">
       <%= f.label :password_confirmation %><br />
@@ -29,7 +31,7 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-sm btn-dark mt-2" %>
+      <%= f.submit "Sign up", class: "my-2" %>
     </div>
   <% end %>
   

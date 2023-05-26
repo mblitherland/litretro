@@ -1,6 +1,6 @@
-<div class="m-auto pt-5" style="max-width: 330px;">
+<div class="py-4 px-5">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h2>Log in</h2>
+    <h4>Log in</h4>
   
     <div class="field">
       <%= f.label :email %><br />
@@ -20,7 +20,7 @@
     <% end %>
   
     <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-sm btn-dark mt-2" %>
+      <%= f.submit "Log in", class: "my-2" %>
     </div>
   <% end %>
   

@@ -1,7 +1,7 @@
 <%= form_for @retro do |f| %>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description, autofocus: true, class: "w-100" %>
+    <%= f.text_field :description, autofocus: true, class: "w-75" %>
     <% @retro.errors.full_messages_for(:description).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="actions">
+    <%= f.submit class: "my-2" %>
   </div>
 <% end %>
