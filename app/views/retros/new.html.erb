@@ -1,0 +1,25 @@
+<div class="m-auto pt-5" style="max-width: 330px">
+  <%= form_for @retro do |f| %>
+    <h2>Create a new Retro</h2>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_field :description, autofocus: true, class: "w-100" %>
+      <% @retro.errors.full_messages_for(:description).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :retro_date %><br />
+      <%= f.date_field :retro_date %>
+      <% @retro.errors.full_messages_for(:retro_date).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
