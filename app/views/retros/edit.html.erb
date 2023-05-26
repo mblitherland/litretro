@@ -1,0 +1,9 @@
+<div class="m-auto pt-5" style="max-width: 330px">
+  <h2>Edit your Retro</h2>
+
+  <%= render "form", retro: @retro %>
+  <%= link_to "Delete all of this retro's data", retro_path(@retro), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+</div>

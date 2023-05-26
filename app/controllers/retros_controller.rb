@@ -23,6 +23,27 @@ class RetrosController < ApplicationController
     end
   end
 
+  def edit
+    @retro = Retro.find(params[:id])
+  end
+
+  def update
+    @retro = Retro.find(params[:id])
+
+    if @retro.update(retro_params)
+      redirect_to @retro
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @retro = Retro.find(params[:id])
+    @retro.destroy
+
+    redirect_to retros_path, status: :see_other
+  end
+
   private
 
   def retro_params
