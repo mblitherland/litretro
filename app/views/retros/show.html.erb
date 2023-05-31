@@ -3,7 +3,27 @@
 
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
-  <%= link_to "Edit retro", edit_retro_path(@retro) %>
 
+  <h6>Participants</h6>
+  <p class="opacity-75">
+  Add participants by email. They will have to create an account here that
+  matches.
+  </p>
+
+  <h6>Theme</h6>
+  <p class="opacity-75">
+  Set your retro theme.
+  </p>
+  
+  <h6>Ice-breaker</h6>
+  <p class="opacity-75">
+  Add an ice-breaker question if you wish, otherwise this portion of the retro
+  will be skipped.
+  </p>
+
+  <br />
+  <%= link_to "Edit retro", edit_retro_path(@retro) %>
+  <br />
+  <%= link_to "Back to all retros", retros_path %>
 
 </div>
