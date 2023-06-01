@@ -2,6 +2,7 @@ class Retro < ApplicationRecord
   validates :description, presence: true
   validates :retro_date, presence: true
 
+  belongs_to :user
   has_many :participants, dependent: :destroy
 
   enum :state, {

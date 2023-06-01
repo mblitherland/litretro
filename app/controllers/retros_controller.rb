@@ -2,7 +2,7 @@ class RetrosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @retros = Retro.order(retro_date: :desc).limit(6)
+    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
     @guest_retros = []
   end
 
