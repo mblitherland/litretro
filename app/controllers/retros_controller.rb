@@ -3,7 +3,11 @@ class RetrosController < ApplicationController
 
   def index
     @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
-    @guest_retros = []
+    # @guest_retros = []
+    @guest_retros = Retro
+      .joins(:participants)
+      .where(participants: { email: current_user.email })
+      .order(retro_date: :desc).limit(6)
   end
 
   def show
@@ -16,6 +20,7 @@ class RetrosController < ApplicationController
 
   def create
     @retro = Retro.new(retro_params)
+    @retro[:user_id] = current_user.id
 
     if @retro.save
       redirect_to @retro
@@ -31,7 +36,7 @@ class RetrosController < ApplicationController
   def update
     @retro = Retro.find(params[:id])
 
-    if @retro.update(retro_params)
+    if @retro[:user_id] == current_user.id && @retro.update(retro_params)
       redirect_to @retro
     else
       render :new, status: :unprocessable_entity
@@ -40,9 +45,12 @@ class RetrosController < ApplicationController
 
   def destroy
     @retro = Retro.find(params[:id])
-    @retro.destroy
-
-    redirect_to retros_path, status: :see_other
+    if @retro[:user_id] == current_user.id
+      @retro.destroy
+      redirect_to retros_path, status: :see_other
+    else
+      redirect_to retros_path, status: :forbidden
+    end
   end
 
   private
