@@ -5,9 +5,26 @@
   <p><%= @retro.retro_date %></p>
 
   <h6>Participants</h6>
-  <p class="opacity-75">
+  <ul>
+    <%= render @retro.participants %>
+  </ul>
+  
   Add participants by email. They will have to create an account here that
-  matches.
+  matches. <em>Separate multiples with a comma.</em>
+
+  <%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
+    <div class="field">
+      <%= f.label :email, "Email or emails:" %><br />
+      <%= f.text_area :email, class: "w-75" %>
+      <% @retro.errors.full_messages_for(:email).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "my-2" %>
+    </div>
+  <% end %>
   </p>
 
   <h6>Theme</h6>

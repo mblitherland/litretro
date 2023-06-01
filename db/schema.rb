@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_175651) do
   create_table "participants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "retro_id"
     t.string "email"
-    t.integer "user"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
