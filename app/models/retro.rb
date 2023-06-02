@@ -3,6 +3,7 @@ class Retro < ApplicationRecord
   validates :retro_date, presence: true
 
   belongs_to :user
+  has_one :icebreaker, dependent: :destroy
   has_many :participants, dependent: :destroy
 
   enum :state, {

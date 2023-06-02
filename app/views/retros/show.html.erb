@@ -5,9 +5,13 @@
   <p><%= @retro.retro_date %></p>
 
   <h6>Participants</h6>
-  <ul>
-    <%= render @retro.participants %>
-  </ul>
+  <% if @retro.participants.length > 0 %>
+    <ul>
+      <%= render @retro.participants %>
+    </ul>
+  <% else %>
+    <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
+  <% end %>
   
   Add participants by email. They will have to create an account here that
   matches. <em>Separate multiples with a comma.</em>
@@ -33,10 +37,30 @@
   </p>
   
   <h6>Ice-breaker</h6>
-  <p class="opacity-75">
+  <p>
+  <% if @retro.icebreaker %>
+    <%= @retro.icebreaker.question %>
+  <% else %>
+    <p class="opacity-75"><em>No ice-breaker set</em></p>
+  <% end %>
+  </p>
+
   Add an ice-breaker question if you wish, otherwise this portion of the retro
   will be skipped.
-  </p>
+
+  <%= form_with model: [ @retro, Icebreaker.new ] do |f| %>
+    <div class="field">
+      <%= f.label :question, "Question or discussion point:" %><br />
+      <%= f.text_area :question, class: "w-75" %>
+      <% @retro.errors.full_messages_for(:question).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "my-2" %>
+    </div>
+  <% end %>
 
   <br />
   <%= link_to "Edit retro", edit_retro_path(@retro) %>
