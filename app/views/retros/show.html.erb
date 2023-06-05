@@ -4,14 +4,16 @@
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
 
-  <h6>Participants</h6>
-  <% if @retro.participants.length > 0 %>
-    <ul>
-      <%= render @retro.participants %>
-    </ul>
-  <% else %>
-    <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
-  <% end %>
+  <h4>Participants</h4>
+  <div class="border rounded p-2 w-75">
+    <% if @retro.participants.length > 0 %>
+      <ul>
+        <%= render @retro.participants %>
+      </ul>
+    <% else %>
+      <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
+    <% end %>
+  </div>
   
   Add participants by email. They will have to create an account here that
   matches.</em>
@@ -31,19 +33,19 @@
   <% end %>
   </p>
 
-  <h6>Theme</h6>
-  <p class="opacity-75">
-  Set your retro theme.
-  </p>
+  <h4>Theme</h4>
+  <div class="border rounded p-2 w-75">
+    <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
+  </div>
   
-  <h6>Ice-breaker</h6>
-  <p>
-  <% if @retro.icebreaker %>
-    <%= @retro.icebreaker.question %>
-  <% else %>
-    <p class="opacity-75"><em>No ice-breaker set</em></p>
-  <% end %>
-  </p>
+  <h4>Ice-breaker</h4>
+  <div class="border rounded p-2 w-75">
+    <% if @retro.icebreaker %>
+      <%= @retro.icebreaker.question %>
+    <% else %>
+      <p class="opacity-75"><em>No ice-breaker set</em></p>
+    <% end %>
+  </div>
 
   Add an ice-breaker question if you wish, otherwise this portion of the retro
   will be skipped.
