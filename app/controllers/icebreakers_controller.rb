@@ -9,9 +9,11 @@ class IcebreakersController < ApplicationController
       if @retro.icebreaker.nil?
         @retro.icebreaker = Icebreaker.new
       end
-      @retro.icebreaker.question = params[:question]
+      @retro.icebreaker.question = params[:icebreaker][:question]
+      @retro.icebreaker.save
     else
       redirect_to retros_path, status: :forbidden
     end
+    redirect_to @retro
   end
 end

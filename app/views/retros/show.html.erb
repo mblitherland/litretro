@@ -14,11 +14,11 @@
   <% end %>
   
   Add participants by email. They will have to create an account here that
-  matches. <em>Separate multiples with a comma.</em>
+  matches.</em>
 
   <%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
     <div class="field">
-      <%= f.label :email, "Email or emails:" %><br />
+      <%= f.label :email, "Email or emails, separate multiples with a comma:" %><br />
       <%= f.text_area :email, class: "w-75" %>
       <% @retro.errors.full_messages_for(:email).each do |message| %>
         <div><%= message %></div>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit class: "my-2" %>
+      <%= f.submit "Add participant(s)", class: "my-2" %>
     </div>
   <% end %>
   </p>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit class: "my-2" %>
+      <%= f.submit "Create or update ice-breaker", class: "my-2" %>
     </div>
   <% end %>
 
