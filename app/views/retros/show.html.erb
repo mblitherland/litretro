@@ -31,7 +31,8 @@
       <%= f.submit "Add participant(s)", class: "my-2" %>
     </div>
   <% end %>
-  </p>
+
+  <hr class="w-75"/>
 
   <h4>Retro Theme</h4>
   <div class="border rounded p-2 w-75">
@@ -40,13 +41,19 @@
 
   <%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
     <div class="field">
-      <%= f.label :columns, "Select from a pre-defined theme:" %><br />
-      <%= f.select :columns, [ "Mad, Sad, Glad", "Liked, Lacked, Longed for, Learned" ] %>
+      <%= f.label :curated, "Select from a pre-defined theme:" %><br />
+      <%= f.select :curated, [ "Mad, Sad, Glad", "Liked, Lacked, Longed for, Learned" ] %>
+    </div>
+    <div class="field">
+      <%= f.label :supplied, "Or create one of your own, comma separated:" %><br />
+      <%= f.text_field :supplied, class: "w-75" %>
     </div>
     <div class="actions">
       <%= f.submit "Create or update theme", class: "my-2" %>
     </div>
   <% end %>
+
+  <hr class="w-75"/>
   
   <h4>Ice-breaker</h4>
   <div class="border rounded p-2 w-75">
