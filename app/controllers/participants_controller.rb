@@ -10,8 +10,7 @@ class ParticipantsController < ApplicationController
           user_id: user ? user[:id] : nil
         })
       end
-      # @participant = @retro.participants.create(participant_params)
-      redirect_to retro_path(@retro)
+      redirect_to @retro
     else
       redirect_to retros_path, status: :forbidden
     end

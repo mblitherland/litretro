@@ -36,7 +36,13 @@
 
   <h4>Retro Theme</h4>
   <div class="border rounded p-2 w-75">
-    <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
+    <% if @retro.columns.length > 0 %>
+      <ul>
+        <%= render @retro.columns.order(rank: :asc) %>
+      </ul>
+    <% else %>
+      <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
+    <% end %>
   </div>
 
   <%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
