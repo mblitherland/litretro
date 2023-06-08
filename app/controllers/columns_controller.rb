@@ -4,11 +4,12 @@ class ColumnsController < ApplicationController
     if @retro[:user_id] == current_user.id
       if params[:column][:supplied].empty?
         headers = params[:column][:curated].split(%r{,\s*})
-        puts(">>> curated: #{headers.to_yaml}")
       else
         headers = params[:column][:supplied].split(%r{,\s*})
-        puts(">>> supplied: #{headers.to_yaml}")
       end
+
+      # We're replacing the columns here if new ones were provided
+      @retro.columns.each(&:delete) if @retro.columns.length > 0
       i = 0
       headers.each do |header|
         @retro.columns.create({

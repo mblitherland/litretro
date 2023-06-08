@@ -48,7 +48,14 @@
   <%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
     <div class="field">
       <%= f.label :curated, "Select from a pre-defined theme:" %><br />
-      <%= f.select :curated, [ "Mad, Sad, Glad", "Liked, Lacked, Longed for, Learned" ] %>
+      <%= f.select :curated, [ 
+        "Mad, Sad, Glad",
+        "Liked, Lacked, Longed for, Learned",
+        "Drop, Add, Keep, Improve",
+        "What went well, What did not go as well, What will we do differently",
+        "Wind, Anchors, Rocks, Land",
+        "Start, Stop, Continue"
+      ] %>
     </div>
     <div class="field">
       <%= f.label :supplied, "Or create one of your own, comma separated:" %><br />
