@@ -4,19 +4,34 @@
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
 
-  <% if @retro.state == "setup" %>
-    <% if @retro.participants.length == 0 ||
-      @retro.columns.length == 0
-    %>
-      <div class="opacity-75">
-        <em>You must specify participants and a theme to start the retro</em>
+  <!-- TODO: make this a method in the model -->
+  <% if @retro.participants.length == 0 ||
+    @retro.columns.length == 0
+  %>
+    <div class="opacity-75">
+      <em>You must specify participants and a theme to start the retro</em>
+    </div>
+  <% else %>
+    <%= form_with model: @retro do |f| %>
+      <div class="field">
+        <%= f.label :state, "Select the state for the retro:" %>
+        <%= f.select :state, [
+          "setup",
+          "welcome",
+          "started",
+          "grouping",
+          "pointing",
+          "discussion",
+          "complete"
+        ] %>
       </div>
-    <% else %>
-
-      <div class="opacity-75">
-        <em>Starting the retro will finalize the settings below</em>
+      <div class="action">
+        <%= f.submit "Update state", class: "my-2" %>
       </div>
     <% end %>
+    <div class="opacity-75">
+      <em>Starting the retro will finalize the settings below</em>
+    </div>
   <% end %>
 
   <div class="border rounded w-75 p-3 mt-3">

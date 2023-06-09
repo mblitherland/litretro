@@ -9,7 +9,7 @@ class Retro < ApplicationRecord
 
   enum :state, {
     setup: 0,
-    icebreaker: 1,
+    welcome: 1,
     started: 2,
     grouping: 3,
     pointing: 4,

@@ -56,6 +56,6 @@ class RetrosController < ApplicationController
   private
 
   def retro_params
-    params.require(:retro).permit(:description, :retro_date)
+    params.require(:retro).permit(:description, :retro_date, :state)
   end
 end

@@ -1,4 +1,6 @@
 class IcebreakersController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @icebreaker = Icebreaker.new
   end

@@ -1,4 +1,6 @@
 class ColumnsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @retro = Retro.find(params[:retro_id])
     if @retro[:user_id] == current_user.id
