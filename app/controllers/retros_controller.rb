@@ -37,6 +37,16 @@ class RetrosController < ApplicationController
     @retro = Retro.find(params[:id])
 
     if @retro[:user_id] == current_user.id && @retro.update(retro_params)
+      @retro.participants.each do |participant|
+        if participant.user_id.nil?
+          user ||= User.where(email: participant.email).first
+          if user
+            participant.user_id = user.id
+            participant.save!
+          end
+        end
+      end
+
       redirect_to @retro
     else
       render :new, status: :unprocessable_entity

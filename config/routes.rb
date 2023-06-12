@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/active', to: 'active#index'
 
+  get '/welcome/:id', to: 'welcome#index'
+
   # Defines the root path route ("/")
   # root "articles#index"
   root 'home#index'

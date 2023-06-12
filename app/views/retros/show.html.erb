@@ -28,6 +28,7 @@
       <div class="action">
         <%= f.submit "Update state", class: "my-2" %>
       </div>
+      <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
     <% end %>
     <div class="opacity-75">
       <em>Starting the retro will finalize the settings below</em>
