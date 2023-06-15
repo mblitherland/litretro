@@ -9,12 +9,12 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: litretro
+  username: <%= ENV.fetch("LITRETRO_DATABASE_USER") { "litretro" } %>
   password: <%= ENV.fetch("LITRETRO_DATABASE_PASSWORD") { "password" } %>
 
 development:
   <<: *default
-  host: localhost
+  host: <%= ENV.fetch("LITRETRO_DATABASE_HOST") { "localhost" } %>
   database: litretro_development
 
 # Warning: The database defined as "test" will be erased and
@@ -22,7 +22,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
   database: litretro_test
 
 production:
