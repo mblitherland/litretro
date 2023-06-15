@@ -28,7 +28,9 @@
       <div class="action">
         <%= f.submit "Update state", class: "my-2" %>
       </div>
-      <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
+      <% if @retro.state != "setup" %>
+        <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
+      <% end %>
     <% end %>
     <div class="opacity-75">
       <em>Starting the retro will finalize the settings below</em>
@@ -107,7 +109,7 @@
       <% if @retro.icebreaker %>
         <%= @retro.icebreaker.question %>
       <% else %>
-        <p class="opacity-75"><em>No ice-breaker set</em></p>
+        <p class="opacity-75"><em>No ice-breaker set, how will the ice ever be broken?</em></p>
       <% end %>
     </div>
 
