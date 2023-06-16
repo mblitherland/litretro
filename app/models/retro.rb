@@ -16,4 +16,10 @@ class Retro < ApplicationRecord
     discussion: 5,
     complete: 6
   }
+
+  def user_allowed(user_id)
+    allowed_users = self.participants.map(&:user_id).reject(&:nil?)
+    allowed_users.append(self.user_id)
+    return allowed_users.include? user_id
+  end
 end

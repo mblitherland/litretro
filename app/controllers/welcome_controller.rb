@@ -4,6 +4,10 @@ class WelcomeController < ApplicationController
   def index
     @retro = Retro.find(params[:id])
 
-    # TODO: Make sure this user is actually allowed to access this retro
+    if @retro.user_allowed(current_user.id)
+      render
+    else
+      redirect_to "/retros", status: 403
+    end
   end
 end
