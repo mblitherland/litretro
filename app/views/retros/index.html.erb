@@ -6,19 +6,7 @@
       <h3>Retros you lead</h3>
       <div class="list-group">
         <% @retros.each do |retro| %>
-          <a href="<%= retro_path(retro) %>" class="list-group-item list-group-item-action d-flex gap-3 py-3">
-            <div class="d-flex gap-2 w-100 justify-content-between">
-              <div>
-                <h5 class="mb-0"><%= retro.description %></h5>
-                <p class="mb-0 opacity-75"><%= retro.retro_date %></p>
-                <p class="mb-0 opacity-75">Participants: <%= retro.participants.length %></p>
-              </div>
-              <div>
-                <p class="mb-1 opacity-75">Status:</p>
-                <p class="mb-1 opacity-50"><%= retro.state %></p>
-              </div>
-            </div>
-          </a>
+          <%= render partial: "summary", locals: { retro: retro, owner: true } %>
         <% end %>
       </div>
       <%= link_to "Why not create a new Retro?", new_retro_path %>
@@ -30,19 +18,7 @@
       <% else %>
         <div class="list-group">
           <% @guest_retros.each do |retro| %>
-            <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
-              <div class="d-flex gap-2 w-100 justify-content-between">
-                <div>
-                  <h5 class="mb-0"><%= retro.description %></h5>
-                  <p class="mb-0 opacity-75"><%= retro.retro_date %></p>
-                  <p class="mb-0 opacity-75">Participants: <%= retro.participants.length %></p>
-                </div>
-                <div>
-                  <p class="mb-1 opacity-75">Status:</p>
-                  <p class="mb-1 opacity-50"><%= retro.state %></p>
-                </div>
-              </div>
-            </div>
+            <%= render partial: "summary", locals: { retro: retro, owner: false } %>
           <% end %>
         </div>
       <% end %>

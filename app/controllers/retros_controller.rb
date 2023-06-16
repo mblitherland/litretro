@@ -37,6 +37,7 @@ class RetrosController < ApplicationController
     @retro = Retro.find(params[:id])
 
     if @retro[:user_id] == current_user.id && @retro.update(retro_params)
+      # If any participants haven't been verified yet, now's a good time to check
       @retro.participants.each do |participant|
         if participant.user_id.nil?
           user ||= User.where(email: participant.email).first
