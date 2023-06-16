@@ -38,15 +38,7 @@ class RetrosController < ApplicationController
 
     if @retro[:user_id] == current_user.id && @retro.update(retro_params)
       # If any participants haven't been verified yet, now's a good time to check
-      @retro.participants.each do |participant|
-        if participant.user_id.nil?
-          user ||= User.where(email: participant.email).first
-          if user
-            participant.user_id = user.id
-            participant.save!
-          end
-        end
-      end
+      verify_participants(@retro.participants)
 
       redirect_to @retro
     else
@@ -68,5 +60,17 @@ class RetrosController < ApplicationController
 
   def retro_params
     params.require(:retro).permit(:description, :retro_date, :state)
+  end
+
+  def verify_participants(participants)
+    participants.each do |participant|
+      if participant.user_id.nil?
+        user ||= User.where(email: participant.email).first
+        if user
+          participant.user_id = user.id
+          participant.save!
+        end
+      end
+    end
   end
 end
