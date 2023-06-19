@@ -40,6 +40,9 @@ class RetrosController < ApplicationController
       # If any participants haven't been verified yet, now's a good time to check
       verify_participants(@retro.participants)
 
+      # TODO: working here
+      @retro.broadcast_update_to("retro_#{@retro.id}", partial: 'welcome/show_redirect', locals: { message: @retro.state })
+
       redirect_to @retro
     else
       render :new, status: :unprocessable_entity

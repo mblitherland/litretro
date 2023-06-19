@@ -1,3 +1,5 @@
+<%= turbo_stream_from "retro_#{@retro.id}" %>
+
 <div class="px-4 py-5 my-5 text-center">
   <h4>Welcome to your retro</h4>
   <h1><%= @retro.description %></h1>
@@ -12,5 +14,13 @@
       </figcaption>
     </div>
   <% end %>
+
+  <p>TODO: working here</p>
+  <div id="retro_<%= @retro.id %>">
+  </div>
+  <!-- <%= turbo_stream.update "retro_#{@retro.id}" do %> -->
+  <!--   <p>Here's the turbo stream stuff: </p> -->
+  <!--   <%= render partial: "show_redirect", locals: { message: nil } %> -->
+  <!-- <% end %> -->
 
 </div>
