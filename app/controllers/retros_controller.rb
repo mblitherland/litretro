@@ -40,8 +40,16 @@ class RetrosController < ApplicationController
       # If any participants haven't been verified yet, now's a good time to check
       verify_participants(@retro.participants)
 
-      # TODO: working here
-      @retro.broadcast_update_to("retro_#{@retro.id}", partial: 'welcome/show_redirect', locals: { message: @retro.state })
+      redir_location = @retro.state == 'setup' ? '/retros' : "/#{retro.state}/#{retro.id}"
+
+      @retro.broadcast_update_to(
+        "retro_#{@retro.id}",
+        partial: 'common/show_redirect',
+        locals: {
+          state: @retro.state,
+          redir_location: redir_location
+        }
+      )
 
       redirect_to @retro
     else
