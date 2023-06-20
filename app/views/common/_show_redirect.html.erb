@@ -1,4 +1,6 @@
 <% if state != "setup" %>
   <!-- TODO: This works, but looks pretty ugly... -->
-  <%= button_to "Move to next stage", redir_location, method: :get %>
+  <div class="action">
+    <%= button_to "Move to current stage", redir_location, method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+  </div>
 <% end %>
