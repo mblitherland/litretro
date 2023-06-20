@@ -40,7 +40,7 @@ class RetrosController < ApplicationController
       # If any participants haven't been verified yet, now's a good time to check
       verify_participants(@retro.participants)
 
-      redir_location = @retro.state == 'setup' ? '/retros' : "/#{retro.state}/#{retro.id}"
+      redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
 
       @retro.broadcast_update_to(
         "retro_#{@retro.id}",
