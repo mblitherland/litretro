@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   get '/active', to: 'active#index'
-
   get '/welcome/:id', to: 'welcome#index'
+  get '/started/:id', to: 'started#index'
 
   # Defines the root path route ("/")
   # root "articles#index"
