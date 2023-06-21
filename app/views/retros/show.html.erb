@@ -4,7 +4,7 @@
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
 
-  <!-- TODO: make this a method in the model -->
+  <!-- TODO: make this a method in the model, maybe -->
   <% if @retro.participants.length == 0 ||
     @retro.columns.length == 0
   %>
@@ -13,8 +13,8 @@
     </div>
   <% else %>
     <%= form_with model: @retro do |f| %>
-      <div class="field">
-        <%= f.label :state, "Select the state for the retro:" %>
+      <div class="input-group">
+        <%= f.label :state, "Set retro stage:", class: "input-group-text" %>
         <%= f.select :state, [
           "setup",
           "welcome",
@@ -23,10 +23,10 @@
           "pointing",
           "discussion",
           "complete"
-        ] %>
+        ], {}, { class: "form-select" } %>
       </div>
-      <div class="action">
-        <%= f.submit "Update state", class: "my-2" %>
+      <div>
+        <%= f.submit "Update state", class: "my-2 btn btn-secondary" %>
       </div>
       <% if @retro.state != "setup" %>
         <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
@@ -39,30 +39,30 @@
 
   <div class="border rounded p-3 mt-3">
     <h4>Participants</h4>
-    <div class="border rounded p-2">
-      <% if @retro.participants.length > 0 %>
-        <ul>
-          <%= render @retro.participants %>
-        </ul>
-      <% else %>
+    <% if @retro.participants.length > 0 %>
+      <ul class="list-group">
+        <%= render @retro.participants %>
+      </ul>
+    <% else %>
+      <div class="border rounded p-2">
         <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     
     Add participants by email. They will have to create an account here that
     matches.</em>
 
     <%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
-      <div class="field">
-        <%= f.label :email, "Email or emails, separate multiples with a comma:" %><br />
-        <%= f.text_area :email %>
+      <div>
+        <%= f.label :email, "Email or emails, separate multiples with a comma:", class: "form-label" %><br />
+        <%= f.text_area :email, class: "form-control" %>
         <% @retro.errors.full_messages_for(:email).each do |message| %>
           <div><%= message %></div>
         <% end %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Add participant(s)", class: "my-2" %>
+      <div>
+        <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
       </div>
     <% end %>
   </div>
@@ -70,34 +70,34 @@
 
   <div class="border rounded p-3 mt-3">
     <h4>Retro Theme</h4>
-    <div class="border rounded p-2">
-      <% if @retro.columns.length > 0 %>
-        <ul>
-          <%= render @retro.columns.order(rank: :asc) %>
-        </ul>
-      <% else %>
+    <% if @retro.columns.length > 0 %>
+      <ul class="list-group">
+        <%= render @retro.columns.order(rank: :asc) %>
+      </ul>
+    <% else %>
+      <div class="border rounded p-2">
         <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
-      <div class="field">
-        <%= f.label :curated, "Select from a pre-defined theme:" %><br />
+      <div>
+        <%= f.label :curated, "Select from a pre-defined theme:", class: "form-label" %><br />
         <%= f.select :curated, [ 
           "Mad, Sad, Glad",
           "Liked, Lacked, Longed for, Learned",
           "Drop, Add, Keep, Improve",
-          # "What went well, What did not go as well, What will we do differently",
+          "What went well, What did not go as well, What will we do differently",
           "Wind, Anchors, Rocks, Land",
           "Start, Stop, Continue"
-        ] %>
+        ], {}, { class: "form-select" } %>
       </div>
-      <div class="field">
-        <%= f.label :supplied, "Or create one of your own, comma separated:" %><br />
-        <%= f.text_field :supplied %>
+      <div>
+        <%= f.label :supplied, "Or create one of your own, comma separated:", class: "form-label" %><br />
+        <%= f.text_field :supplied, class: "form-control" %>
       </div>
-      <div class="actions">
-        <%= f.submit "Create or update theme", class: "my-2" %>
+      <div>
+        <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary" %>
       </div>
     <% end %>
   </div>
@@ -106,27 +106,26 @@
   <div class="border rounded p-3 mt-3">
     <h4>Ice-breaker</h4>
     <div class="border rounded p-2">
-      <% if @retro.icebreaker %>
+      <% if @retro.icebreaker && !@retro.icebreaker.question.empty? %>
         <%= @retro.icebreaker.question %>
       <% else %>
         <p class="opacity-75"><em>No ice-breaker set, how will the ice ever be broken?</em></p>
       <% end %>
     </div>
 
-    Add an ice-breaker question if you wish, otherwise this portion of the retro
-    will be skipped.
+    Add an ice-breaker question if you wish.
 
     <%= form_with model: [ @retro, Icebreaker.new ] do |f| %>
-      <div class="field">
-        <%= f.label :question, "Question or discussion point:" %><br />
-        <%= f.text_area :question %>
+      <div>
+        <%= f.label :question, "Question or discussion point:", class: "form-label" %><br />
+        <%= f.text_area :question, class: "form-control" %>
         <% @retro.errors.full_messages_for(:question).each do |message| %>
           <div><%= message %></div>
         <% end %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Create or update ice-breaker", class: "my-2" %>
+      <div>
+        <%= f.submit "Create or update ice-breaker", class: "my-2 btn btn-secondary" %>
       </div>
     <% end %>
   </div>
