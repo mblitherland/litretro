@@ -1,10 +1,14 @@
 <%= turbo_stream_from "retro_#{@retro.id}" %>
+  
+<div id="retro_<%= @retro.id %>">
+</div>
 
 <div class="px-4 py-5 my-5 text-center">
   <h4>Welcome to your retro</h4>
+
   <h1><%= @retro.description %></h1>
   <p class="opacity-75"><%= @retro.retro_date %></p>
-  <% if @retro.icebreaker && @retro.icebreaker.question %>
+  <% if @retro.icebreaker && !@retro.icebreaker.question.empty? %>
     <div class="border rounded p-5 m-auto">
       <blockquote class="blockquote">
         <p><%= @retro.icebreaker.question %></p>
@@ -13,9 +17,11 @@
         your retro ice-breaker
       </figcaption>
     </div>
+  <% else %>
+    <div class="border rounded p-5 m-auto">
+      <blockquote class="blockquote">
+        <p>Your retro is about to start</p>
+      </blockquote>
+    </div>
   <% end %>
-
-  <div id="retro_<%= @retro.id %>">
-  </div>
-
 </div>
