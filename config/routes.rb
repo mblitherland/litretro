@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/active', to: 'active#index'
   get '/welcome/:id', to: 'welcome#index'
   get '/started/:id', to: 'started#index'
+  get '/pointing/:id', to: 'pointing#index'
+  get '/discussion/:id', to: 'discussion#index'
+  get '/complete/:id', to: 'complete#index'
 
   # Defines the root path route ("/")
   # root "articles#index"
