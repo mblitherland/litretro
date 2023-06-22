@@ -25,14 +25,6 @@
     </div>
   <% end %>
 
-  <% # TODO: This can be put into a partial, it'll be reused %>
-  <% if @retro.user_id == current_user.id %>
-    <%= form_with model: @retro do |f| %>
-      <div>
-        <%= f.hidden_field :state, value: "started" %>
-        <%= f.submit "Advance retro", class: "my-2 btn btn-success" %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render partial: '/common/advance_retro', locals: { next_state: 'started' } %>
   
 </div>
