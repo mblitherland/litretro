@@ -1,0 +1,11 @@
+<%= turbo_stream_from "retro_#{@retro.id}" %>
+
+<div id="retro_<%= @retro.id %>">
+</div>
+
+<div class="p-2 text-center">
+  <h4>Let's talk about your selections</h4>
+
+  <%= render partial: '/common/advance_retro', locals: { next_state: 'complete' } %>
+  
+</div>
