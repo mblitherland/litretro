@@ -4,7 +4,7 @@
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
 
-  <!-- TODO: make this a method in the model, maybe -->
+  <% # TODO: make this a method in the model, maybe %>
   <% if @retro.participants.length == 0 ||
     @retro.columns.length == 0
   %>

@@ -42,6 +42,7 @@ class RetrosController < ApplicationController
 
       redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
 
+      # TODO: move this to the model
       @retro.broadcast_update_to(
         "retro_#{@retro.id}",
         partial: 'common/show_redirect',
@@ -51,7 +52,7 @@ class RetrosController < ApplicationController
         }
       )
 
-      redirect_to @retro
+      redirect_to redir_location
     else
       render :new, status: :unprocessable_entity
     end
