@@ -1,6 +1,7 @@
 <% if @retro.user_id == current_user.id %>
   <%= form_with model: @retro do |f| %>
     <div>
+      <a href="/retros/<%= @retro.id %>" class="btn btn-secondary">Manage</a>
       <%= f.hidden_field :state, value: next_state %>
       <%= f.submit "Advance retro", class: "my-2 btn btn-success" %>
     </div>
