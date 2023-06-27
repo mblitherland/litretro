@@ -1,4 +1,5 @@
 <% if @retro.user_id == current_user.id %>
+  <hr />
   <%= form_with model: @retro do |f| %>
     <div>
       <a href="/retros/<%= @retro.id %>" class="btn btn-secondary">Manage</a>

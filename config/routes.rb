@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :retros do
-    resources :columns
+    resources :columns do
       resources :cards
+    end
     resources :icebreakers
     resources :participants
   end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   get '/pointing/:id', to: 'pointing#index'
   get '/discussion/:id', to: 'discussion#index'
   get '/complete/:id', to: 'complete#index'
+  post '/cards', to: 'cards#create'
 
   # Defines the root path route ("/")
   # root "articles#index"

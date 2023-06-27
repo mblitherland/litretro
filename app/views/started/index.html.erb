@@ -8,7 +8,8 @@
   <div class="row g-5">
     <div class="col-12 col-lg-6">
       <h5>Share a thought</h5>
-      <%= form_with model: @started['card'] do |f| %>
+      <%= form_with model: @card do |f| %>
+        <%= f.hidden_field :retro_id, value: @retro.id %>
         <div class="row mb-3">
           <% [ 'blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal' ].each do |c| %>
             <div class="col-4">
@@ -36,12 +37,13 @@
 
     <div class="col-12 col-lg-6">
       <h5>Your thoughts so far</h5>
+      <% if !@user_cards.nil? %>
+        <% @user_cards.each do |card| %>
+          <%= render partial: '/cards/card', locals: { card: card } %>
+        <% end %>
+      <% end %>
     </div>
 
-    <% @started['user_cards'].each do |card| %>
-      <p><%= card.title %></p>
-      <%= render partial: '/common/card', locals: { card: card } %>
-    <% end %>
   </div>
   <%= render partial: '/common/advance_retro', locals: { next_state: 'pointing' } %>
   
