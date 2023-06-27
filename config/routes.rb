@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :retros do
     resources :columns
+      resources :cards
     resources :icebreakers
     resources :participants
   end
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get '/active', to: 'active#index'
   get '/welcome/:id', to: 'welcome#index'
   get '/started/:id', to: 'started#index'
+  post '/started/:id', to: 'started#create'
   get '/pointing/:id', to: 'pointing#index'
   get '/discussion/:id', to: 'discussion#index'
   get '/complete/:id', to: 'complete#index'
