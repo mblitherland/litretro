@@ -1,10 +1,20 @@
 <%= turbo_stream_from "retro_#{@retro.id}" %>
+<% current_participant = @retro.current_participant(current_user.id) %>
+<% if !current_participant.nil? %>
+  <%= turbo_stream_from "participant_#{current_participant.id}" %>
+<% end %>
 
 <div id="retro_<%= @retro.id %>">
 </div>
 
 <div class="p-2 text-center">
-  <h4>Vote for what you'd like to discuss!</h4>
+  <% if !current_participant.nil? %>
+    <h4>Vote for what you'd like to discuss!</h4>
+    <div id="participant_<%= current_participant.id %>">
+      <%= render partial: 'points_remaining', locals: { votes_remaining: current_participant.votes } %>
+    </div>
+  <% end %>
+
   <div class="row">
     <% @retro.columns.each do |column| %>
       <div class="col-12 col-md-<%= @retro.grid_value %>">

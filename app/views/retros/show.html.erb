@@ -49,8 +49,10 @@
       </div>
     <% end %>
     
-    Add participants by email. They will have to create an account here that
-    matches.</em>
+    <p>
+      Add participants by email. They will have to create an account here that matches.<br />
+      <strong>Be sure to add yourself if you wish to add thoughts and vote!</strong>
+    </p>
 
     <%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
       <div>

@@ -17,6 +17,15 @@ class Retro < ApplicationRecord
     complete: 6
   }
 
+  def current_participant(user_id)
+    participants.each do |participant|
+      if participant.user_id == user_id
+        return participant
+      end
+    end
+    return nil
+  end
+
   # Do your best to give a reasonable Bootstrap grid value based upon the number
   # of columns for a full width display
   def grid_value
