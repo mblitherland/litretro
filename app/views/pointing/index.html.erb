@@ -5,7 +5,17 @@
 
 <div class="p-2 text-center">
   <h4>Vote for what you'd like to discuss!</h4>
-  <p>Or don't, I'm not a cop</p>
+  <div class="row">
+    <% @retro.columns.each do |column| %>
+      <div class="col-12 col-md-<%= @retro.grid_value %>">
+        <h4><%= column.name %></h4>
+        <% column.cards.each do |card| %>
+          <%= render partial: '/cards/card_pointed', locals: { card: card } %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>  
 
   <%= render partial: '/common/advance_retro', locals: { next_state: 'discussion' } %>
   

@@ -39,7 +39,7 @@
       <h5>Your thoughts so far</h5>
       <% if !@user_cards.nil? %>
         <% @user_cards.each do |card| %>
-          <%= render partial: '/cards/card', locals: { card: card } %>
+          <%= render partial: '/cards/card_category', locals: { card: card } %>
         <% end %>
       <% end %>
     </div>
