@@ -11,10 +11,10 @@ default: &default
   timeout: 5000
   username: <%= ENV.fetch("LITRETRO_DATABASE_USER") { "litretro" } %>
   password: <%= ENV.fetch("LITRETRO_DATABASE_PASSWORD") { "password" } %>
+  host: <%= ENV.fetch("LITRETRO_DATABASE_HOST") { "localhost" } %>
 
 development:
   <<: *default
-  host: <%= ENV.fetch("LITRETRO_DATABASE_HOST") { "localhost" } %>
   database: litretro_development
 
 # Warning: The database defined as "test" will be erased and

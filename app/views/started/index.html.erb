@@ -4,8 +4,47 @@
 </div>
 
 <div class="p-2 text-center">
-  <h4>Fill in your cards, please</h4>
+  <h4>What's on your mind?</h4>
+  <div class="row g-5">
+    <div class="col-12 col-lg-6">
+      <h5>Share a thought</h5>
+      <%= form_with model: @card do |f| %>
+        <%= f.hidden_field :retro_id, value: @retro.id %>
+        <div class="row mb-3">
+          <% [ 'blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal' ].each do |c| %>
+            <div class="col-4">
+              <div class="card-<%= c %> m-1 rounded">
+                <%= f.radio_button :color, c, value: c, class: "form-check-input my-3" %>
+                <%= f.label :color, c, class: "form-check-label my-3" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.label :column_desc, "Category:", class: "input-group-text" %>
+          <%= f.select :column_desc, @retro.columns.map{ |c| c.name }, {}, { class: "form-select" } %>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.label :title, "Your thought:", class: "input-group-text" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit "Share your thought", class: "my-2 btn btn-secondary" %>
+        </div>
 
+      <% end %>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h5>Your thoughts so far</h5>
+      <% if !@user_cards.nil? %>
+        <% @user_cards.each do |card| %>
+          <%= render partial: '/cards/card', locals: { card: card } %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
   <%= render partial: '/common/advance_retro', locals: { next_state: 'pointing' } %>
   
 </div>
