@@ -6,7 +6,7 @@ class CreateCards < ActiveRecord::Migration[7.0]
       t.string :color
       t.string :title
       t.string :discussion
-      t.integer :votes
+      t.integer :votes, :default => 0
       t.integer :user_id
 
       t.timestamps

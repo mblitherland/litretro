@@ -9,6 +9,7 @@
         <p class="mb-0 opacity-75 text-end">Status:</p>
         <p class="mb-0 opacity-50 text-end"><%= retro.state %></p>
 
+        <div class="text-end">
         <% if owner %>
           <a href="<%= retro_path(retro) %>">Manage</a>
           <% if retro.state != "setup" %>
@@ -16,8 +17,9 @@
           <% end %>
         <% end %>
         <% if retro.state != "setup" %>
-          <a href="/<%= retro.state %>/<%= retro.id %>" class="text-end">Join</a>
+          <a href="/<%= retro.state %>/<%= retro.id %>">Join</a>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

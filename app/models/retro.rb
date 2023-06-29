@@ -17,9 +17,40 @@ class Retro < ApplicationRecord
     complete: 6
   }
 
+  def current_participant(user_id)
+    participants.each do |participant|
+      if participant.user_id == user_id
+        return participant
+      end
+    end
+    return nil
+  end
+
+  # Do your best to give a reasonable Bootstrap grid value based upon the number
+  # of columns for a full width display
+  def grid_value
+    case columns.count
+    when 1
+      12
+    when 2
+      6
+    when 3
+      4
+    when 4
+      3
+    when 5..6
+      # 5 doesn't go into 12, so treat it the same as 6
+      2
+    else
+      # No good way to deal with a large number of columns in grid, so revert to
+      # something I'd consider 'optimal'
+      3
+    end
+  end
+
   def user_allowed(user_id)
-    allowed_users = self.participants.map(&:user_id).reject(&:nil?)
-    allowed_users.append(self.user_id)
+    allowed_users = participants.map(&:user_id).reject(&:nil?)
+    allowed_users.append(user_id)
     return allowed_users.include? user_id
   end
 end

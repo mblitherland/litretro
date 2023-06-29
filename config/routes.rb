@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/discussion/:id', to: 'discussion#index'
   get '/complete/:id', to: 'complete#index'
   post '/cards', to: 'cards#create'
+  get '/cards/:id/vote/:participant_id', to: 'cards#vote'
 
   # Defines the root path route ("/")
   # root "articles#index"
