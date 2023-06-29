@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_145057) do
     t.string "color"
     t.string "title"
     t.string "discussion"
-    t.integer "votes"
+    t.integer "votes", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

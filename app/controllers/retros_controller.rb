@@ -42,7 +42,7 @@ class RetrosController < ApplicationController
 
       redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
 
-      # TODO: move this to the model
+      # TODO: maybe move this to the model, except the redir_location needs implemented there
       @retro.broadcast_update_to(
         "retro_#{@retro.id}",
         partial: 'common/show_redirect',
