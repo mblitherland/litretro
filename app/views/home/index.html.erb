@@ -5,6 +5,7 @@
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
       <% if user_signed_in? %>
         <%= link_to "See your retros", "/retros", class: "btn btn-dark btn-lg px-4 gap-3" %>
+        <%= link_to "Join active retro", "/active", class: "btn btn-dark btn-lg px-4 gap-3" %>
       <% else %>
         <%= link_to "Log In", new_user_session_path, class: "btn btn-dark btn-lg px-4 gap-3" %>
         <%= link_to "Register", new_user_registration_path, class: "btn btn-dark btn-lg px-4 gap-3" %>

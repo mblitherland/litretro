@@ -5,6 +5,7 @@ class RetrosController < ApplicationController
     @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
     # @guest_retros = []
     @guest_retros = Retro
+      .where.not(user_id: current_user.id)
       .joins(:participants)
       .where(participants: { email: current_user.email })
       .order(retro_date: :desc).limit(6)
