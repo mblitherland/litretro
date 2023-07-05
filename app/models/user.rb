@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :retros
+  has_many :participants
   has_many :cards
+  has_many :comments
 end

@@ -6,6 +6,14 @@
 <div class="p-2 text-center">
   <h4>Let's talk about your selections</h4>
 
+  <% @all_cards.sort_by(&:votes).reverse.each do |card| %>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <%= render partial: "/cards/card_full", locals: { card: card } %>
+      </div>
+    </div>
+  <% end %>
+
   <%= render partial: '/common/advance_retro', locals: { next_state: 'complete' } %>
   
 </div>
