@@ -34,7 +34,6 @@ class CardsController < ApplicationController
     redirect_to "/pointing/#{card.column.retro.id}"
   end
 
-
   private
 
   def card_params

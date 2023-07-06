@@ -7,9 +7,22 @@
   <h4>Let's talk about your selections</h4>
 
   <% @all_cards.sort_by(&:votes).reverse.each do |card| %>
-    <div class="row">
+    <div class="row border-bottom mb-2">
       <div class="col-12 col-lg-4">
         <%= render partial: "/cards/card_full", locals: { card: card } %>
+      </div>
+      <div class="col-12 col-lg-8">
+        <%= turbo_stream_from "discussion_#{card.id}" %>
+
+        <%= form_with model: @comment do |f| %>
+          <div class="input-group mb-2">
+            <%= f.label :comment, "Comment:", class: "input-group-text" %>
+            <%= f.text_field :comment, class: "form-control" %>
+            <%= f.submit "Save", class: "btn btn-secondary" %>
+          </div>
+          <div id="discussion_<%= card.id %>">
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

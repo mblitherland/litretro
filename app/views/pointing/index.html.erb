@@ -22,10 +22,10 @@
         <% column.cards.sort_by{ |c| c.created_at.to_i }.each do |card| %>
           <% if !current_participant.nil? %>
             <a href="/cards/<%= card.id %>/vote/<%= current_participant.id %>" class="list-group-item list-group-item-action">
-          <% end %>
-          <%= render partial: '/cards/card_pointed', locals: { card: card } %>
-          <% if !current_participant.nil? %>
+              <%= render partial: '/cards/card_pointed', locals: { card: card } %>
             </a>
+          <% else %>
+            <%= render partial: '/cards/card_pointed', locals: { card: card } %>
           <% end %>
         <% end %>
       </div>
