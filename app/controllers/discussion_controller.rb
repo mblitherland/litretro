@@ -3,6 +3,7 @@ class DiscussionController < ApplicationController
 
   def index
     @retro = Retro.find(params[:id])
+    @comment = Comment.new
 
     @all_cards = []
     @retro.columns.each do |column|

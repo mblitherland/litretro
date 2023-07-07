@@ -30,6 +30,12 @@ class CardsController < ApplicationController
       participant.votes -= 1
       card.save
       participant.save
+
+      card.broadcast_replace_to(
+        "card_#{card.id}",
+        partial: '/cards/votes',
+        locals: { votes: card.votes }
+      )
     end
     redirect_to "/pointing/#{card.column.retro.id}"
   end

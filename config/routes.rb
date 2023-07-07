@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :retros do
-    resources :columns do
-      resources :cards
-    end
+    resources :columns
     resources :icebreakers
     resources :participants
   end
@@ -20,6 +18,7 @@ Rails.application.routes.draw do
   get '/complete/:id', to: 'complete#index'
   post '/cards', to: 'cards#create'
   get '/cards/:id/vote/:participant_id', to: 'cards#vote'
+  post '/comments', to: 'comments#create'
 
   # Defines the root path route ("/")
   # root "articles#index"
