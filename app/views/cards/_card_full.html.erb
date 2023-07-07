@@ -1,11 +1,8 @@
 <div class="card card-<%= card.color %> mb-2" style="max-width: 350px; margin: auto;">
   <div class="card-header-sm text-end p-1">
-    <%= card.votes %> votes, <%= card.column_desc %>
+    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>, <%= card.column_desc %>
   </div>
   <div class="card-body">
     <h5 class="card-title text-start"><%= card.title %></h5>
-    <% if card.discussion %>
-      <p class="card-text text-start mt-3"><%= card.discussion %></p>
-    <% end %>
   </div>
 </div>

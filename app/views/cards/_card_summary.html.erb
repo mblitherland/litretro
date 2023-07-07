@@ -1,0 +1,10 @@
+<div class="card mb-2" style="max-width: 1000px; margin: auto;">
+  <div class="card-header-sm text-end p-1">
+    <%= card.column_desc %>,
+    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-start"><%= card.title %></h5>
+    <%= render partial: "/discussion/comments", locals: { comments: card.comments } %>
+  </div>
+</div>

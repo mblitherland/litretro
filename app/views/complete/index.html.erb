@@ -2,4 +2,8 @@
 
 <div class="p-2 text-center">
   <h4>Your retro is complete</h4>
+
+  <% @all_cards.sort_by(&:votes).reverse.each do |card| %>
+    <%= render partial: "/cards/card_summary", locals: { card: card } %>
+  <% end %>
 </div>

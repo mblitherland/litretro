@@ -1,46 +1,55 @@
 # README
 
-## States for retros
+Welcome to Litretro. The open-source, easy to use software for small teams
+to hold their Retrospectives.
 
-0) new - can add columns and users
-1) icebreaker
-2) started - users can add cards
-3) grouping
-4) pointing
-5) discussion
-6) complete
+## Running the software
 
-## Need to add models
+With the repository checked out you should be able to start the software
+simply with `docker-compose up`. In this mode the software is somewhat
+ephemeral. The docker files should provide sufficient information for
+a system administrator to perform a more permanent installation.
 
-1) icebreaker - foreign key to retros
-    - description
-2) icebreaker response
-3) column - foreign key to retros
-4) sticky
-5) retro_invitee
+## Requirements to install
 
+By default Litretro is configured to work with Postgresql, but any 
+database supported by ActiveRecord will do.
 
-## This is what the readme told me that I should but here, but it's not the boss of me
+You'll need a modern Ruby, and Yarn to precompile the assets.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I may make a more complete install guide some day but with the above and
+the contents of the `Dockerfile` and `docker-compose.yml`, you should be
+able to get things working fairly easy. Securing your data and your
+web interface is up to you, however.
 
-Things you may want to cover:
+## Getting help
 
-* Ruby version
+Please create an issue on the
+(GitHub page)[https://github.com/michaellitherland/litretro/issues].
 
-* System dependencies
+## Contributing
 
-* Configuration
+You can make a PR against the
+(GitHub repository)[https://github.com/michaellitherland/litretro],
+but I would encourage you to open an issue to discuss it first. I have
+a pretty good idea of features I want to add and the future direction
+for development, so some additions may not be incorporated into the
+main repo, and I wouldn't want to waste anybody's time. You are, of course
+welcome to fork the repo and maintain your own copy with any features you
+like.
 
-* Database creation
+## Version History
 
-* Database initialization
+| Date | Version | Description |
+|------|---------|-------------|
+| 2023-07-09 | 1.0 | Functionally completely release |
 
-* How to run the test suite
+## Todos
 
-* Services (job queues, cache servers, search engines, etc.)
+1) Remove participants from retros
+2) View all retros (rather than just 6 most recent)
+3) Suggest previous list of participants for new retros
+4) Search retros (on what?)
+5) Have the `Discussion` page not refresh when you add comments
+6) User delete retros
 
-* Deployment instructions
-
-* ...
