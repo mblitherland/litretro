@@ -7,6 +7,7 @@ class CardsController < ApplicationController
     if @retro.user_allowed(current_user.id)
       card = Card.new(card_params)
       card.user_id = current_user.id
+      card.votes = 0
 
       @retro.columns.each do |column|
         if column.name == card.column_desc

@@ -46,6 +46,7 @@ like.
 
 ## Todos
 
+0) New users should be immediately "verified" for retros they're already participants in
 1) Remove participants from retros
 2) View all retros (rather than just 6 most recent)
 3) Suggest previous list of participants for new retros
