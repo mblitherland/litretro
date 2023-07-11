@@ -44,6 +44,10 @@ like.
 |------|---------|-------------|
 | 2023-07-09 | 1.0 | Functionally completely release |
 
+<div class="aside">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+
 ## Todos
 
 0) New users should be immediately "verified" for retros they're already participants in
@@ -53,7 +57,13 @@ like.
 4) Search retros (on what?)
 5) Have the `Discussion` page not refresh when you add comments
 6) User delete retros
+7) Maybe an option to hide the votes of others on the voting page(?)
+8) Edit/delete cards
+9) Modal or animation around the "move the next phase" dialogue
+10) Turbo streams is being funky
+11) You can enter blank comments and card titles
+12) Hide entries with no votes on discussion page(?)
 
-<div class="aside">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-</div>
+## Todones
+
+
