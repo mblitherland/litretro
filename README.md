@@ -66,4 +66,5 @@ like.
 
 ## Todones
 
+0) New users should be immediately "verified" for retros they're already participants in
 
