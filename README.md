@@ -50,17 +50,16 @@ like.
 
 ## Todos
 
-0) New users should be immediately "verified" for retros they're already participants in
-1) Remove participants from retros
+1) Enable host to remove participants from retros
 2) View all retros (rather than just 6 most recent)
 3) Suggest previous list of participants for new retros
-4) Search retros (on what?)
+4) Search retros (? On what?)
 5) Have the `Discussion` page not refresh when you add comments
 6) User delete retros
 7) Maybe an option to hide the votes of others on the voting page(?)
 8) Edit/delete cards
 9) Modal or animation around the "move the next phase" dialogue
-10) Turbo streams is being funky
+10) Turbo streams is being funky (Might be my VM)
 11) You can enter blank comments and card titles
 12) Hide entries with no votes on discussion page(?)
 
