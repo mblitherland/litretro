@@ -3,16 +3,20 @@ class CommentsController < ApplicationController
 
   def create
     card = Card.find(params['comment']['card_id'])
-    if card.column.retro.user_allowed(current_user.id)
-      comment = Comment.new(comment_params)
-      comment.user_id = current_user.id
-      card.comments.append(comment)
 
-      card.broadcast_replace_to(
-        "discussion_#{card.id}",
-        partial: '/discussion/comments',
-        locals: { comments: card.comments }
-      )
+    if card.column.retro.user_allowed(current_user.id)
+      params = comment_params
+      if !params['comment'].empty?
+        comment = Comment.new(params)
+        comment.user_id = current_user.id
+        card.comments.append(comment)
+
+        card.broadcast_replace_to(
+          "discussion_#{card.id}",
+          partial: '/discussion/comments',
+          locals: { comments: card.comments }
+        )
+      end
 
       redirect_to "/discussion/#{card.column.retro.id}"
     else

@@ -5,13 +5,16 @@ class CardsController < ApplicationController
     @retro = Retro.find(params['card'][:retro_id])
 
     if @retro.user_allowed(current_user.id)
-      card = Card.new(card_params)
-      card.user_id = current_user.id
-      card.votes = 0
+      params = card_params
+      if !params['title'].empty?
+        card = Card.new(params)
+        card.user_id = current_user.id
+        card.votes = 0
 
-      @retro.columns.each do |column|
-        if column.name == card.column_desc
-          column.cards.append(card)
+        @retro.columns.each do |column|
+          if column.name == card.column_desc
+            column.cards.append(card)
+          end
         end
       end
 
