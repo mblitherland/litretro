@@ -25,13 +25,13 @@ web interface is up to you, however.
 ## Getting help
 
 Please create an issue on the
-(GitHub page)[https://github.com/michaellitherland/litretro/issues].
+[GitHub issues page](https://github.com/michaellitherland/litretro/issues).
 
 ## Contributing
 
-You can make a PR against the
-(GitHub repository)[https://github.com/michaellitherland/litretro],
-but I would encourage you to open an issue to discuss it first. I have
+You can open a PR against the
+[GitHub repository](https://github.com/michaellitherland/litretro),
+but I would encourage you to create an issue to discuss it first. I have
 a pretty good idea of features I want to add and the future direction
 for development, so some additions may not be incorporated into the
 main repo, and I wouldn't want to waste anybody's time. You are, of course
@@ -43,14 +43,19 @@ like.
 | Date | Version | Description |
 |------|---------|-------------|
 | 2023-07-09 | 1.0 | Functionally completely release |
+| 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
+| ??? | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
+
+## License information
 
 <div class="aside">
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 </div>
 
+Read `LICENSE` or visit the above link for more information.
+
 ## Todos
 
-1) Enable host to remove participants from retros
 2) View all retros (rather than just 6 most recent)
 3) Suggest previous list of participants for new retros
 4) Search retros (? On what?)
@@ -60,10 +65,17 @@ like.
 8) Edit/delete cards
 9) Modal or animation around the "move the next phase" dialogue
 10) Turbo streams is being funky (Might be my VM)
-11) You can enter blank comments and card titles
-12) Hide entries with no votes on discussion page(?)
+14) Maybe have each card come up on its own discussion page(?)
+
+## Todoing
+
+1) Enable host to remove participants from retros
 
 ## Todones
 
 0) New users should be immediately "verified" for retros they're already participants in
+11) You can enter blank comments and card titles
+12) Hide entries with no votes on discussion page(?)
+    - I was unsure about that, but I'm going to do it for now and just present a list of them in the summary
+13) Add information about cookies on the registration page
 

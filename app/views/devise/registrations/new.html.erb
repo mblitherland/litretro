@@ -3,7 +3,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
   
     <h4>Sign up</h4>
-  
+
     <div class="input-group mb-3">
       <%= f.label :email, class: "input-group-text" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -29,6 +29,11 @@
         <div class="form-text">(<%= @minimum_password_length %> characters minimum)</div>
       <% end %>
     </div>
+  
+    <p class="text-danger">
+    To use Litretro the application requires a session cookie stored on your computer. By registering
+    an account, you acknowledge and agree to this.
+    </p>
   
     <div>
       <%= f.submit "Sign up", class: "my-2 btn btn-dark" %>
