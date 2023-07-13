@@ -44,7 +44,7 @@ like.
 |------|---------|-------------|
 | 2023-07-09 | 1.0 | Functionally completely release |
 | 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
-| ??? | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
+| 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 
 ## License information
 
@@ -56,26 +56,26 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todos
 
-2) View all retros (rather than just 6 most recent)
-3) Suggest previous list of participants for new retros
-4) Search retros (? On what?)
-5) Have the `Discussion` page not refresh when you add comments
-6) User delete retros
-7) Maybe an option to hide the votes of others on the voting page(?)
-8) Edit/delete cards
-9) Modal or animation around the "move the next phase" dialogue
-10) Turbo streams is being funky (Might be my VM)
-14) Maybe have each card come up on its own discussion page(?)
+- 2: View all retros (rather than just 6 most recent)
+- 3: Suggest previous list of participants for new retros
+- 4: Search retros (? On what?)
+- 5: Have the `Discussion` page not refresh when you add comments
+- 6: User delete retros
+- 7: Maybe an option to hide the votes of others on the voting page(?)
+- 8: Edit/delete cards
+- 9: Modal or animation around the "move the next phase" dialogue
+- 10: Turbo streams is being funky (Might be my VM)
+- 14: Maybe have each card come up on its own discussion page(?)
 
 ## Todoing
 
-1) Enable host to remove participants from retros
+- 1: Enable host to remove participants from retros
 
 ## Todones
 
-0) New users should be immediately "verified" for retros they're already participants in
-11) You can enter blank comments and card titles
-12) Hide entries with no votes on discussion page(?)
+- 0: New users should be immediately "verified" for retros they're already participants in
+- 11: You can enter blank comments and card titles
+- 12: Hide entries with no votes on discussion page(?)
     - I was unsure about that, but I'm going to do it for now and just present a list of them in the summary
-13) Add information about cookies on the registration page
+- 13: Add information about cookies on the registration page
 
