@@ -22,6 +22,10 @@ the contents of the `Dockerfile` and `docker-compose.yml`, you should be
 able to get things working fairly easy. Securing your data and your
 web interface is up to you, however.
 
+There is a sample Nginx configuration that might help, particularly with
+the turbostreams (interactivity) features, assuming you'd want to put
+your rails behind a reverse proxy.
+
 ## Getting help
 
 Please create an issue on the
