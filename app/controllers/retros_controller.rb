@@ -41,7 +41,6 @@ class RetrosController < ApplicationController
       # If any participants haven't been verified yet, now's a good time to check
       verify_participants(@retro.participants)
 
-      # TODO: maybe move this to the model
       @retro.broadcast_update_to(
         "retro_#{@retro.id}",
         partial: 'common/show_redirect',

@@ -1,12 +1,22 @@
 <% if page != retro.state %>
-  <% if retro.state != "setup" %>
-    <div class="action text-center">
-      <%= button_to "Move to current stage", "/#{retro.state}/#{retro.id}", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+  <div class="modal show" tabindex="-1" id="redirectModal" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          The organizer has updated the retro.
+        </div>
+        <div class="modal-body">
+          <% if retro.state != "setup" %>
+            <div class="action text-center m-3">
+              <%= button_to "Move to current stage", "/#{retro.state}/#{retro.id}", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+            </div>
+          <% else %>
+            <div class="action text-center m-3">
+              <%= button_to "See your retros", "/retros", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% else %>
-    <div class="action text-center">
-      <%= button_to "See your retros", "/retros", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
-    </div>
-  <% end %>
-  <hr />
+  </div>
 <% end %>

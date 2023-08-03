@@ -69,21 +69,22 @@ Read `LICENSE` or visit the above link for more information.
 - 6: User delete retros
 - 7: Maybe an option to hide the votes of others on the voting page(?)
 - 8: Edit/delete cards
-- 10: Turbo streams is being funky (Might be my VM)
-    - It's doing the same thing on a new machine, not sure the cause of the issue
-    - I think this might be something I'm doing wrong
 - 14: Maybe have each card come up on its own discussion page(?)
 - 16: Join retro with link without having to sign up...
+- 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 
 ## Todoings
 
-- 9: Modal or animation around the "move the next phase" dialogue
-    - I think this needs to be a bit more in-your-face
-    - The button now shows in more situations where appropriate, looking at making it a modal
+- 10: Turbo streams is being funky (Might be my VM)
+    - It's doing the same thing on a new machine, not sure the cause of the issue
+    - I think this might be something I'm doing wrong
 
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
+- 9: Modal or animation around the "move the next phase" dialogue
+    - I think this needs to be a bit more in-your-face
+    - The button now shows in more situations where appropriate, looking at making it a modal
 - 11: You can enter blank comments and card titles
 - 12: Hide entries with no votes on discussion page(?)
     - I was unsure about that, but I'm going to do it for now and just present a list of them in the summary
