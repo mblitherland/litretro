@@ -79,6 +79,7 @@ Read `LICENSE` or visit the above link for more information.
 
 - 9: Modal or animation around the "move the next phase" dialogue
     - I think this needs to be a bit more in-your-face
+    - The button now shows in more situations where appropriate, looking at making it a modal
 
 ## Todones
 

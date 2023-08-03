@@ -41,18 +41,17 @@ class RetrosController < ApplicationController
       # If any participants haven't been verified yet, now's a good time to check
       verify_participants(@retro.participants)
 
-      redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
-
-      # TODO: maybe move this to the model, except the redir_location needs implemented there
+      # TODO: maybe move this to the model
       @retro.broadcast_update_to(
         "retro_#{@retro.id}",
         partial: 'common/show_redirect',
         locals: {
-          state: @retro.state,
-          redir_location: redir_location
+          page: nil,
+          retro: @retro
         }
       )
 
+      redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
       redirect_to redir_location
     else
       render :new, status: :unprocessable_entity

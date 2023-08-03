@@ -1,6 +1,12 @@
-<% if state != "setup" %>
-  <div class="action text-center">
-    <%= button_to "Move to current stage", redir_location, method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
-  </div>
+<% if page != retro.state %>
+  <% if retro.state != "setup" %>
+    <div class="action text-center">
+      <%= button_to "Move to current stage", "/#{retro.state}/#{retro.id}", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+    </div>
+  <% else %>
+    <div class="action text-center">
+      <%= button_to "See your retros", "/retros", method: :get, class: "btn btn-success btn-lg px-4 gap-3 m-3" %>
+    </div>
+  <% end %>
   <hr />
 <% end %>

@@ -1,6 +1,7 @@
 <%= turbo_stream_from "retro_#{@retro.id}" %>
   
 <div id="retro_<%= @retro.id %>">
+  <%= render partial: "/common/show_redirect", locals: { retro: @retro, page: 'welcome' } %>
 </div>
 
 <div class="px-4 py-5 my-5 text-center">
