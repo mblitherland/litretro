@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   def create
     @retro = Retro.find(params['card'][:retro_id])
 
-    if @retro.user_allowed(current_user.id)
+    if @retro.state == 'started' && @retro.user_allowed(current_user.id)
       params = card_params
       if !params['title'].empty?
         card = Card.new(params)
@@ -29,7 +29,7 @@ class CardsController < ApplicationController
     # Good luck figuring out both a card and participant id
     card = Card.find(params['id'])
     participant = Participant.find(params['participant_id'])
-    if participant.votes > 0
+    if card.column.retro.state == "pointing" && participant.votes > 0
       card.votes += 1
       participant.votes -= 1
       card.save

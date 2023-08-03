@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     card = Card.find(params['comment']['card_id'])
 
-    if card.column.retro.user_allowed(current_user.id)
+    if card.column.retro.state == "discussion" && card.column.retro.user_allowed(current_user.id)
       params = comment_params
       if !params['comment'].empty?
         comment = Comment.new(params)
