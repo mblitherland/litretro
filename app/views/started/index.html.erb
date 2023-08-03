@@ -2,6 +2,7 @@
 <% current_participant = @retro.current_participant(current_user.id) %>
 
 <div id="retro_<%= @retro.id %>">
+  <%= render partial: "/common/show_redirect", locals: { retro: @retro, page: 'started' } %>
 </div>
 
 <div class="p-2 text-center">
