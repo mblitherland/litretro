@@ -1,4 +1,5 @@
 <%= turbo_stream_from "retro_#{@retro.id}" %>
+
 <% current_participant = @retro.current_participant(current_user.id) %>
 <% if !current_participant.nil? %>
   <%= turbo_stream_from "participant_#{current_participant.id}" %>
