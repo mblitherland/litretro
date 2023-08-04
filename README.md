@@ -49,7 +49,7 @@ like.
 | 2023-07-09 | 1.0 | Functionally completely release |
 | 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
-| TBD | 1.0.3 | Addresses several staging issues - see below (15,9) |
+| 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 
 ## License information
 
@@ -72,12 +72,11 @@ Read `LICENSE` or visit the above link for more information.
 - 14: Maybe have each card come up on its own discussion page(?)
 - 16: Join retro with link without having to sign up...
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
+- 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 
 ## Todoings
 
-- 10: Turbo streams is being funky (Might be my VM)
-    - It's doing the same thing on a new machine, not sure the cause of the issue
-    - I think this might be something I'm doing wrong
+Probably participant management next
 
 ## Todones
 
@@ -85,6 +84,8 @@ Read `LICENSE` or visit the above link for more information.
 - 9: Modal or animation around the "move the next phase" dialogue
     - I think this needs to be a bit more in-your-face
     - The button now shows in more situations where appropriate, looking at making it a modal
+- 10: Turbo streams is being funky
+    - I think this might be something I'm doing wrong (spoiler: I was)
 - 11: You can enter blank comments and card titles
 - 12: Hide entries with no votes on discussion page(?)
     - I was unsure about that, but I'm going to do it for now and just present a list of them in the summary

@@ -13,7 +13,7 @@
         <%= render partial: "/cards/card_full", locals: { card: card } %>
       </div>
       <div class="col-12 col-lg-8">
-        <%= turbo_stream_from "discussion_#{card.id}" %>
+        <%= turbo_stream_from "card_#{card.id}" %>
 
         <%= form_with model: @comment do |f| %>
           <%= f.hidden_field :card_id, value: card.id %>

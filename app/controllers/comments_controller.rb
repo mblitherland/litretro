@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         card.comments.append(comment)
 
         card.broadcast_update_to(
-          "discussion_#{card.id}",
+          "card_#{card.id}",
           partial: '/discussion/comments',
           locals: { comments: card.comments }
         )
