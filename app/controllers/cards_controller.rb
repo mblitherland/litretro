@@ -35,7 +35,7 @@ class CardsController < ApplicationController
       card.save
       participant.save
 
-      card.broadcast_replace_to(
+      card.broadcast_update_to(
         "card_#{card.id}",
         partial: '/cards/votes',
         locals: { votes: card.votes }

@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
         comment.user_id = current_user.id
         card.comments.append(comment)
 
-        card.broadcast_replace_to(
-          "discussion_#{card.id}",
+        card.broadcast_update_to(
+          "card_#{card.id}",
           partial: '/discussion/comments',
           locals: { comments: card.comments }
         )
