@@ -67,6 +67,20 @@ class RetrosController < ApplicationController
     end
   end
 
+  def add_guest_link
+    @retro = Retro.find(params[:id])
+    @tab = 'guest'
+
+    render :show
+  end
+
+  def remove_guest_link
+    @retro = Retro.find(params[:id])
+    @tab = 'guest'
+
+    render :show
+  end
+
   private
 
   def retro_params
@@ -75,12 +89,12 @@ class RetrosController < ApplicationController
 
   def verify_participants(participants)
     participants.each do |participant|
-      if participant.user_id.nil?
-        user ||= User.where(email: participant.email).first
-        if user
-          participant.user_id = user.id
-          participant.save!
-        end
+      next if participant.user_id.nil?
+
+      user ||= User.where(email: participant.email).first
+      if user
+        participant.user_id = user.id
+        participant.save!
       end
     end
   end

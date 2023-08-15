@@ -50,6 +50,7 @@ like.
 | 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
+| TBD | 1.1 | Guest links - see below (19,16) |
 
 ## License information
 
@@ -70,13 +71,19 @@ Read `LICENSE` or visit the above link for more information.
 - 7: Maybe an option to hide the votes of others on the voting page(?)
 - 8: Edit/delete cards
 - 14: Maybe have each card come up on its own discussion page(?)
-- 16: Join retro with link without having to sign up...
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
+- 20: Mark cards "complete" once they've been discussed to clear up that view...
 
 ## Todoings
 
 Probably participant management next
+
+- 16: Join retro with link without having to sign up...
+    - a: create a "guest link" with a new UUID for each retro
+    - b: have that link resolve to a new controller to handle adding a temp user to the retro
+    - c: watch access that guests have to edit profile...
+    - d: MAKE SURE GUESTS CAN'T CREATE RETROS
 
 ## Todones
 
@@ -93,4 +100,5 @@ Probably participant management next
 - 15: You can vote after the retro has moved on if you can access the voting page
     - This probably applies to any page were you to navigate directly to it
     - Fixed for "started", "pointing", and "discussion"
+- 19: Make the retro setup page a little more managable, maybe through tabs
 
