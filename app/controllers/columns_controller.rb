@@ -19,11 +19,10 @@ class ColumnsController < ApplicationController
           name: header,
           rank: i += 1
         })
-
       end
+      redirect_to "/retros/#{@retro.id}/theme"
     else
       redirect_to retros_path, status: :forbidden
     end
-    redirect_to @retro
   end
 end

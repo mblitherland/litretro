@@ -13,9 +13,9 @@ class IcebreakersController < ApplicationController
       end
       @retro.icebreaker.question = params[:icebreaker][:question]
       @retro.icebreaker.save
+      redirect_to "/retros/#{@retro.id}/icebreaker"
     else
       redirect_to retros_path, status: :forbidden
     end
-    redirect_to @retro
   end
 end

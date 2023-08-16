@@ -70,14 +70,26 @@ class RetrosController < ApplicationController
   def add_guest_link
     @retro = Retro.find(params[:id])
     @tab = 'guest'
-
+    # TODO: add logic
     render :show
   end
 
   def remove_guest_link
     @retro = Retro.find(params[:id])
     @tab = 'guest'
+    # TODO: add logic
+    render :show
+  end
 
+  def icebreaker_tab
+    @retro = Retro.find(params[:id])
+    @tab = 'icebreaker'
+    render :show
+  end
+
+  def theme_tab
+    @retro = Retro.find(params[:id])
+    @tab = 'theme'
     render :show
   end
 
