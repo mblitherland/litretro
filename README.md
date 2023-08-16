@@ -26,6 +26,10 @@ There is a sample Nginx configuration that might help, particularly with
 the turbostreams (interactivity) features, assuming you'd want to put
 your rails behind a reverse proxy.
 
+If you wish to enable guest links check out the configuration values
+`config.disable_guests` and `config.url_prefix` in the 
+`environments/<environment>.rb` file you deployment is using.
+
 ## Getting help
 
 Please create an issue on the
@@ -74,6 +78,7 @@ Read `LICENSE` or visit the above link for more information.
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
+- 21: Make the guest link something that can be turned off
 
 ## Todoings
 

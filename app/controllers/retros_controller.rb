@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class RetrosController < ApplicationController
   before_action :authenticate_user!
 
@@ -70,14 +72,16 @@ class RetrosController < ApplicationController
   def add_guest_link
     @retro = Retro.find(params[:id])
     @tab = 'guest'
-    # TODO: add logic
+    @retro[:guest_link] = SecureRandom.uuid
+    @retro.save!
     render :show
   end
 
   def remove_guest_link
     @retro = Retro.find(params[:id])
     @tab = 'guest'
-    # TODO: add logic
+    @retro[:guest_link] = nil
+    @retro.save!
     render :show
   end
 
