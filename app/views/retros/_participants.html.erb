@@ -1,0 +1,31 @@
+<p>
+  To allow guest users that aren't registered by email, please use the Guests tab.
+</p>
+<% if @retro.participants.length > 0 %>
+  <ul class="list-group">
+    <%= render @retro.participants %>
+  </ul>
+<% else %>
+  <div class="border rounded p-2">
+    <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
+  </div>
+<% end %>
+
+<p>
+  Add participants by email. They will have to create an account here that matches.<br />
+  <strong>Be sure to add yourself if you wish to add thoughts and vote!</strong>
+</p>
+
+<%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
+  <div>
+    <%= f.label :email, "Email or emails, separate multiples with a comma:", class: "form-label" %><br />
+    <%= f.text_area :email, class: "form-control" %>
+    <% @retro.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
+  </div>
+<% end %>

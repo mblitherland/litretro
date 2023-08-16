@@ -1,0 +1,31 @@
+<% if @retro.columns.length > 0 %>
+  <ul class="list-group">
+    <%= render @retro.columns.order(rank: :asc) %>
+  </ul>
+<% else %>
+  <div class="border rounded p-2">
+    <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
+  </div>
+<% end %>
+
+<%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
+  <div>
+    <%= f.label :curated, "Select from a pre-defined theme:", class: "form-label" %><br />
+    <%= f.select :curated, [ 
+      "Mad, Sad, Glad",
+      "Liked, Lacked, Longed for, Learned",
+      "Drop, Add, Keep, Improve",
+      "What went well, What did not go as well, What will we do differently",
+      "Wind, Anchors, Rocks, Land",
+      "Start, Stop, Continue"
+    ], {}, { class: "form-select" } %>
+  </div>
+  <div>
+    <%= f.label :supplied, "Or create one of your own, comma separated:", class: "form-label" %><br />
+    <%= f.text_field :supplied, class: "form-control" %>
+    <p class="form-text">Not more than six categories, please.</p>
+  </div>
+  <div>
+    <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary" %>
+  </div>
+<% end %>
