@@ -1,0 +1,21 @@
+<div class="p-2 text-center">
+  <% if @retro.state == 'complete' %>
+    <%= render "complete/report", all_cards: @all_cards %>
+  <% else %>
+    <h4>
+      You have been invited to join a retrospective called <strong><%= @retro.description %></strong>.
+    </h4>
+    <% if current_user.nil? %>
+      <p>We did not find a current user</p>
+      <p>
+        If you already have an account with this Litretro instance you can log in to
+        your account or create a new one and then hit the guest link again and save
+        this retro to your account. If you wish to join the retro but remain a guest
+        please let us know your name and we'll take you to your retro.
+      </p>
+    <% else %>
+      <p>We found a current user</p>
+      <p>Button here to join the retro</p>
+    <% end %>
+  <% end  %>
+</div>

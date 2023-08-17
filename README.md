@@ -85,10 +85,14 @@ Read `LICENSE` or visit the above link for more information.
 Probably participant management next
 
 - 16: Join retro with link without having to sign up...
-    - a: create a "guest link" with a new UUID for each retro
     - b: have that link resolve to a new controller to handle adding a temp user to the retro
     - c: watch access that guests have to edit profile...
     - d: MAKE SURE GUESTS CAN'T CREATE RETROS
+    - e: someone with the guest link can
+        - 1: if they have an account, add themselves as a participant
+        - 2: enter their friendly name, which will create a guest account and be added to retro
+    - f: if the retro is complete be bounced to retro summary
+        - 1: They cannot be added as a participant either as a guest or registered user
 
 ## Todones
 
@@ -105,5 +109,8 @@ Probably participant management next
 - 15: You can vote after the retro has moved on if you can access the voting page
     - This probably applies to any page were you to navigate directly to it
     - Fixed for "started", "pointing", and "discussion"
+- 16: Join retro with link without having to sign up...
+    - a: create a "guest link" with a new UUID for each retro
+    - g: when the disable_guests configuration is set to "true" the guest controller is disabled
 - 19: Make the retro setup page a little more managable, maybe through tabs
 
