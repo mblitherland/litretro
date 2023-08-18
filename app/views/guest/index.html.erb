@@ -2,7 +2,7 @@
   <% if @retro.state == 'complete' %>
     <%= render "complete/report", all_cards: @all_cards %>
   <% else %>
-    <h4>
+    <h4 class="m-3">
       You have been invited to join a retrospective called <strong><%= @retro.description %></strong>.
     </h4>
     <% if current_user.nil? %>

@@ -72,7 +72,7 @@ class RetrosController < ApplicationController
   def add_guest_link
     @retro = Retro.find(params[:id])
     @tab = 'guest'
-    @retro[:guest_link] = SecureRandom.uuid
+    @retro[:guest_link] ||= SecureRandom.uuid
     @retro.save!
     render :show
   end
