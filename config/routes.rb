@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/complete/:id', to: 'complete#index'
   get '/discussion/:id', to: 'discussion#index'
   get '/guest/:id', to: 'guest#index'
+  get '/guest/:id/join_gueest', to: 'guest#join_guest'
+  get '/guest/:id/join_registered', to: 'guest#join_registered'
   get '/pointing/:id', to: 'pointing#index'
   get '/retros/:id/add_guest_link', to: 'retros#add_guest_link'
   get '/retros/:id/icebreaker', to: 'retros#icebreaker_tab'

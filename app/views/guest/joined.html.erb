@@ -1,0 +1,13 @@
+<div class="p-2 text-center">
+  <h4 class="m-3">You have joined <strong><%= @retro.description %></strong></h4>
+  <p>
+    <% if @retro.state == 'setup' %>
+      You have joined this retro, but it has not yet started. You can 
+      view your <a href="/retros">retros</a>.
+    <% else %>
+      You have joined this retro and it is in progress.
+      <a href="<%= "/#{@retro.state}/#{@retro.id}" %>">Click here</a> to join it.
+    <% end %>
+  </p>
+
+</div>

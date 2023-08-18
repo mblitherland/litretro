@@ -3,9 +3,19 @@
     <%= render "complete/report", all_cards: @all_cards %>
   <% else %>
     <h4 class="m-3">
-      You have been invited to join a retrospective called <strong><%= @retro.description %></strong>.
+      You have been invited to join a retrospective called <strong><%= @retro.description %></strong>
     </h4>
-    <% if current_user.nil? %>
+    <% if @already_participant %>
+      <p>
+        <% if @retro.state == 'setup' %>
+          You are already a participant of this retro, but it has not yet started. You can 
+          view your <a href="/retros">retros</a>.
+        <% else %>
+          You are already a participant of this retro and it is in progress.
+          <a href="<%= "/#{@retro.state}/#{@retro.id}" %>">Click here</a> to join it.
+        <% end %>
+      </p>
+    <% elsif current_user.nil? %>
       <p>We did not find a current user</p>
       <p>
         If you already have an account with this Litretro instance you can log in to
@@ -14,8 +24,8 @@
         please let us know your name and we'll take you to your retro.
       </p>
     <% else %>
-      <p>We found a current user</p>
-      <p>Button here to join the retro</p>
+      <p>You are signed in as <%= current_user.email %>.</p>
+      <%= link_to "Join this retro as a participant", "/guest/#{@retro.guest_link}/join_registered", class: "btn btn-secondary" %>
     <% end %>
   <% end  %>
 </div>
