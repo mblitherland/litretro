@@ -13,21 +13,21 @@
       <div class="input-group">
         <%= f.label :state, "Set retro stage:", class: "input-group-text" %>
         <%= f.select :state, [
-          "setup",
-          "welcome",
-          "started",
+          [ "Setup - configure the retro. Participants cannot access", "setup" ],
+          [ "Welcome - display the welcome screen and ice-breaker", "welcome" ],
+          [ "Started - allow the participants to create cards", "started" ],
           # "grouping",
-          "pointing",
-          "discussion",
-          "complete"
+          [ "Pointing - the participants can vote on cards to discuss", "pointing" ],
+          [ "Discussion - discuss the cards that received votes", "discussion" ],
+          [ "Complete - display the summary report of the retro", "complete" ]
         ], {}, { class: "form-select" } %>
       </div>
-      <div>
-        <%= f.submit "Update state", class: "my-2 btn btn-secondary" %>
+      <div class="my-2">
+        <%= f.submit "Update state", class: "btn btn-secondary" %>
+        <% if @retro.state != "setup" %>
+          <a href="/<%= @retro.state %>/<%= @retro.id %>" class="btn btn-secondary">Join your retro in progress</a>
+        <% end %>
       </div>
-      <% if @retro.state != "setup" %>
-        <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
-      <% end %>
     <% end %>
   <% end %>
 

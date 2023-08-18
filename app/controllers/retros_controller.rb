@@ -52,8 +52,7 @@ class RetrosController < ApplicationController
         }
       )
 
-      redir_location = @retro.state == 'setup' ? '/retros' : "/#{@retro.state}/#{@retro.id}"
-      redirect_to redir_location
+      redirect_to "/#{@retro.state}/#{@retro.id}"
     else
       render :new, status: :unprocessable_entity
     end
