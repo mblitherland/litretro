@@ -14,7 +14,7 @@ class ParticipantsController < ApplicationController
       end
       redirect_to @retro
     else
-      redirect_to retros_path, status: :forbidden
+      redirect_to retros_path, alert: 'Not permitted'
     end
   end
 

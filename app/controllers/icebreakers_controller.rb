@@ -15,7 +15,7 @@ class IcebreakersController < ApplicationController
       @retro.icebreaker.save
       redirect_to "/retros/#{@retro.id}/icebreaker"
     else
-      redirect_to retros_path, status: :forbidden
+      redirect_to retros_path, alert: 'Not permitted'
     end
   end
 end

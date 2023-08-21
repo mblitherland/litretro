@@ -22,13 +22,17 @@ class RetrosController < ApplicationController
   end
 
   def create
-    @retro = Retro.new(retro_params)
-    @retro[:user_id] = current_user.id
-
-    if @retro.save
-      redirect_to @retro
+    if current_user.guest
+      redirect_to retros_path, alert: 'Guest users may not create retros'
     else
-      render :new, status: :unprocessable_entity
+      @retro = Retro.new(retro_params)
+      @retro[:user_id] = current_user.id
+
+      if @retro.save
+        redirect_to @retro
+      else
+        render :new, alert: 'Error creating retro'
+      end
     end
   end
 
@@ -54,7 +58,7 @@ class RetrosController < ApplicationController
 
       redirect_to "/#{@retro.state}/#{@retro.id}"
     else
-      render :new, status: :unprocessable_entity
+      render :new, alert: 'Not permitted'
     end
   end
 
@@ -62,9 +66,9 @@ class RetrosController < ApplicationController
     @retro = Retro.find(params[:id])
     if @retro[:user_id] == current_user.id
       @retro.destroy
-      redirect_to retros_path, status: :see_other
+      redirect_to retros_path, notice: 'Retro deleted'
     else
-      redirect_to retros_path, status: :forbidden
+      redirect_to retros_path, alert: 'Not permitted'
     end
   end
 

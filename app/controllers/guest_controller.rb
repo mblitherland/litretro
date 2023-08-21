@@ -8,7 +8,7 @@ class GuestController < ApplicationController
     @already_participant = false
 
     if @retro.nil?
-      redirect_to '/', status: 403
+      redirect_to '/', alert: 'Guest access disabled'
     else
       unless current_user.nil?
         @already_participant = current_participant?
@@ -45,7 +45,7 @@ class GuestController < ApplicationController
       })
       redirect_to "/guest/#{@retro.guest_link}/join_registered"
     else
-      redirect_to '/', status: 403
+      redirect_to '/', alert: 'Guest access disabled'
     end
   end
 
@@ -65,7 +65,7 @@ class GuestController < ApplicationController
       end
       render 'joined'
     else
-      redirect_to '/', status: 403
+      redirect_to '/', alert: 'Guest access disabled'
     end
   end
 
@@ -77,8 +77,8 @@ class GuestController < ApplicationController
 
   def disabled?
     if Rails.configuration.disable_guests
-      redirect_to '/', status: 403 if Rails.configuration.disable_guests
-      return true
+      redirect_to '/', alert: 'Guest access disabled'
+      true
     end
     false
   end

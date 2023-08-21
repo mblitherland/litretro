@@ -54,7 +54,7 @@ like.
 | 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
-| TBD | 1.1 | Guest links - see below (19,16) |
+| TBD | 1.1 | Guest links - see below (19,16,21,22) |
 
 ## License information
 
@@ -78,21 +78,13 @@ Read `LICENSE` or visit the above link for more information.
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
-- 21: Make the guest link something that can be turned off
 
 ## Todoings
 
 Probably participant management next
 
 - 16: Join retro with link without having to sign up...
-    - b: have that link resolve to a new controller to handle adding a temp user to the retro
     - c: watch access that guests have to edit profile...
-    - d: MAKE SURE GUESTS CAN'T CREATE RETROS
-    - e: someone with the guest link can
-        - 1: if they have an account, add themselves as a participant
-        - 2: enter their friendly name, which will create a guest account and be added to retro
-    - f: if the retro is complete be bounced to retro summary
-        - 1: They cannot be added as a participant either as a guest or registered user
 
 ## Todones
 
@@ -111,6 +103,15 @@ Probably participant management next
     - Fixed for "started", "pointing", and "discussion"
 - 16: Join retro with link without having to sign up...
     - a: create a "guest link" with a new UUID for each retro
+    - b: have that link resolve to a new controller to handle adding a temp user to the retro
+    - d: MAKE SURE GUESTS CAN'T CREATE RETROS
+    - e: someone with the guest link can
+        - 1: if they have an account, add themselves as a participant
+        - 2: enter their friendly name, which will create a guest account and be added to retro
+    - f: if the retro is complete be bounced to retro summary
+        - 1: They cannot be added as a participant either as a guest or registered user
     - g: when the disable_guests configuration is set to "true" the guest controller is disabled
 - 19: Make the retro setup page a little more managable, maybe through tabs
+- 21: Make the guest link something that can be turned off
+- 22: Errors are not handled consistently or well anywhere in the app
 

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     card = Card.find(params['comment']['card_id'])
 
-    if card.column.retro.state == "discussion" && card.column.retro.user_allowed(current_user.id)
+    if card.column.retro.state == 'discussion' && card.column.retro.user_allowed(current_user.id)
       params = comment_params
       if !params['comment'].empty?
         comment = Comment.new(params)
@@ -17,10 +17,8 @@ class CommentsController < ApplicationController
           locals: { comments: card.comments }
         )
       end
-
-      redirect_to "/discussion/#{card.column.retro.id}"
     else
-      redirect_to "/retros", status: 403
+      redirect_to '/retros', alert: 'Not permitted'
     end
   end
 

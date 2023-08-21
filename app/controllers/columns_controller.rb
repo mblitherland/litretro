@@ -22,7 +22,7 @@ class ColumnsController < ApplicationController
       end
       redirect_to "/retros/#{@retro.id}/theme"
     else
-      redirect_to retros_path, status: :forbidden
+      redirect_to retros_path, alert: 'Not permitted'
     end
   end
 end
