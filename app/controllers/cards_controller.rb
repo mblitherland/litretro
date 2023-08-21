@@ -20,7 +20,7 @@ class CardsController < ApplicationController
 
       redirect_to "/started/#{@retro.id}"
     else
-      redirect_to "/retros", status: 403
+      redirect_to "/retros", alert: 'Not permitted'
     end
   end
 

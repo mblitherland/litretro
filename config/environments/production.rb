@@ -3,6 +3,11 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Make sure you set this to where you've hosted the application
+  # and with the right protocol if you want the guest links to work
+  config.disable_guests = false
+  config.url_prefix = 'https://example.com'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

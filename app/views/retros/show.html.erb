@@ -13,121 +13,53 @@
       <div class="input-group">
         <%= f.label :state, "Set retro stage:", class: "input-group-text" %>
         <%= f.select :state, [
-          "setup",
-          "welcome",
-          "started",
+          [ "Setup - configure the retro. Participants cannot access", "setup" ],
+          [ "Welcome - display the welcome screen and ice-breaker", "welcome" ],
+          [ "Started - allow the participants to create cards", "started" ],
           # "grouping",
-          "pointing",
-          "discussion",
-          "complete"
+          [ "Pointing - the participants can vote on cards to discuss", "pointing" ],
+          [ "Discussion - discuss the cards that received votes", "discussion" ],
+          [ "Complete - display the summary report of the retro", "complete" ]
         ], {}, { class: "form-select" } %>
       </div>
-      <div>
-        <%= f.submit "Update state", class: "my-2 btn btn-secondary" %>
+      <div class="my-2">
+        <%= f.submit "Update state", class: "btn btn-secondary" %>
+        <% if @retro.state != "setup" %>
+          <a href="/<%= @retro.state %>/<%= @retro.id %>" class="btn btn-secondary">Join your retro in progress</a>
+        <% end %>
       </div>
-      <% if @retro.state != "setup" %>
-        <a href="/<%= @retro.state %>/<%= @retro.id %>">Join your retro in progress</a>
-      <% end %>
     <% end %>
-    <div class="opacity-75">
-      <em>Starting the retro will finalize the settings below</em>
-    </div>
   <% end %>
 
-  <div class="border rounded p-3 mt-3">
-    <h4>Participants</h4>
-    <% if @retro.participants.length > 0 %>
-      <ul class="list-group">
-        <%= render @retro.participants %>
-      </ul>
-    <% else %>
-      <div class="border rounded p-2">
-        <p class="opacity-75"><em>No participants yet, that'll be pretty boring.</em></p>
-      </div>
-    <% end %>
-    
-    <p>
-      Add participants by email. They will have to create an account here that matches.<br />
-      <strong>Be sure to add yourself if you wish to add thoughts and vote!</strong>
-    </p>
-
-    <%= form_with model: [ @retro, @retro.participants.build ] do |f| %>
-      <div>
-        <%= f.label :email, "Email or emails, separate multiples with a comma:", class: "form-label" %><br />
-        <%= f.text_area :email, class: "form-control" %>
-        <% @retro.errors.full_messages_for(:email).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      </div>
-
-      <div>
-        <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
-      </div>
-    <% end %>
-  </div>
-
-
-  <div class="border rounded p-3 mt-3">
-    <h4>Retro Theme</h4>
-    <% if @retro.columns.length > 0 %>
-      <ul class="list-group">
-        <%= render @retro.columns.order(rank: :asc) %>
-      </ul>
-    <% else %>
-      <div class="border rounded p-2">
-        <p class="opacity-75"><em>You'll need to pick a retro theme!</em></p>
-      </div>
-    <% end %>
-
-    <%= form_with model: [ @retro, @retro.columns.build ] do |f| %>
-      <div>
-        <%= f.label :curated, "Select from a pre-defined theme:", class: "form-label" %><br />
-        <%= f.select :curated, [ 
-          "Mad, Sad, Glad",
-          "Liked, Lacked, Longed for, Learned",
-          "Drop, Add, Keep, Improve",
-          "What went well, What did not go as well, What will we do differently",
-          "Wind, Anchors, Rocks, Land",
-          "Start, Stop, Continue"
-        ], {}, { class: "form-select" } %>
-      </div>
-      <div>
-        <%= f.label :supplied, "Or create one of your own, comma separated:", class: "form-label" %><br />
-        <%= f.text_field :supplied, class: "form-control" %>
-        <p class="form-text">Not more than six categories, please.</p>
-      </div>
-      <div>
-        <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary" %>
-      </div>
-    <% end %>
-  </div>
-
-  
-  <div class="border rounded p-3 mt-3">
-    <h4>Ice-breaker</h4>
-    <div class="border rounded p-2">
-      <% if @retro.icebreaker && !@retro.icebreaker.question.empty? %>
-        <%= @retro.icebreaker.question %>
-      <% else %>
-        <p class="opacity-75"><em>No ice-breaker set, how will the ice ever be broken?</em></p>
+  <nav>
+    <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
+      <button class="nav-link<%= (@tab.nil? || @tab == 'participants') ? ' active' : '' %>" id="nav-participants-tab" data-bs-toggle="tab" data-bs-target="#nav-participants" type="button" role="tab" aria-controls="nav-participants" aria-selected="true">Participants</button>
+      <% if !Rails.configuration.disable_guests %>
+        <button class="nav-link<%= @tab == 'guest' ? ' active' : '' %>" id="nav-guest-tab" data-bs-toggle="tab" data-bs-target="#nav-guest" type="button" role="tab" aria-controls="nav-guest" aria-selected="false">Guests</button>
       <% end %>
+      <button class="nav-link<%= @tab == 'theme' ? ' active' : '' %>" id="nav-theme-tab" data-bs-toggle="tab" data-bs-target="#nav-theme" type="button" role="tab" aria-controls="nav-theme" aria-selected="false">Retro Theme</button>
+      <button class="nav-link<%= @tab == 'icebreaker' ? ' active' : '' %>" id="nav-icebreaker-tab" data-bs-toggle="tab" data-bs-target="#nav-icebreaker" type="button" role="tab" aria-controls="nav-icebreaker" aria-selected="false">Ice-Breaker</button>
+    </div>
+  </nav>
+
+  <div class="tab-content p-3 border-start border-end border-bottom rounded-bottom" id="nav-tabContent">
+    <div class="tab-pane fade<%= (@tab.nil? || @tab == 'participants') ? ' show active' : '' %>" id="nav-participants" role="tabpanel" aria-labelledby="nav-participants-tab" tab-index="0">
+      <%= render "participants", retro: @retro %>
     </div>
 
-    Add an ice-breaker question if you wish.
-
-    <%= form_with model: [ @retro, Icebreaker.new ] do |f| %>
-      <div>
-        <%= f.label :question, "Question or discussion point:", class: "form-label" %><br />
-        <%= f.text_area :question, class: "form-control" %>
-        <% @retro.errors.full_messages_for(:question).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      </div>
-
-      <div>
-        <%= f.submit "Create or update ice-breaker", class: "my-2 btn btn-secondary" %>
+    <% if !Rails.configuration.disable_guests %>
+      <div class="tab-pane fade<%= @tab == 'guest' ? ' show active' : '' %>" id="nav-guest" role="tabpanel" aria-labelledby="nav-guest-tab" tab-index="0">
+        <%= render "guests", retro: @retro %>
       </div>
     <% end %>
+
+    <div class="tab-pane fade<%= @tab == 'theme' ? ' show active' : '' %>" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab" tab-index="0">
+      <%= render "theme", retro: @retro %>
+    </div>
+
+    <div class="tab-pane fade<%= @tab == 'icebreaker' ? ' show active' : '' %>" id="nav-icebreaker" role="tabpanel" aria-labelledby="nav-icebreaker-tab" tab-index="0">
+      <%= render "icebreaker", retro: @retro %>
+    </div>
   </div>
 
   <br />

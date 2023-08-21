@@ -1,0 +1,23 @@
+<div class="border rounded p-2">
+  <% if @retro.icebreaker && !@retro.icebreaker.question.empty? %>
+    <%= @retro.icebreaker.question %>
+  <% else %>
+    <p class="opacity-75"><em>No ice-breaker set, how will the ice ever be broken?</em></p>
+  <% end %>
+</div>
+
+Add an ice-breaker question if you wish.
+
+<%= form_with model: [ @retro, Icebreaker.new ] do |f| %>
+  <div>
+    <%= f.label :question, "Question or discussion point:", class: "form-label" %><br />
+    <%= f.text_area :question, class: "form-control" %>
+    <% @retro.errors.full_messages_for(:question).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Create or update ice-breaker", class: "my-2 btn btn-secondary" %>
+  </div>
+<% end %>

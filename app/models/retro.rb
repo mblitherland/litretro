@@ -36,14 +36,12 @@ class Retro < ApplicationRecord
       6
     when 3
       4
-    when 4
-      3
     when 5..6
       # 5 doesn't go into 12, so treat it the same as 6
       2
     else
       # No good way to deal with a large number of columns in grid, so revert to
-      # something I'd consider 'optimal'
+      # something I'd consider 'optimal'. The default when 4 columns
       3
     end
   end

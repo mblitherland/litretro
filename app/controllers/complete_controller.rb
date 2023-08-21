@@ -12,7 +12,7 @@ class CompleteController < ApplicationController
     if @retro.user_allowed(current_user.id)
       render
     else
-      redirect_to "/retros", status: 403
+      redirect_to '/retros', alert: 'Not permitted'
     end
   end
 end

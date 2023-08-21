@@ -1,0 +1,40 @@
+<div class="p-2 text-center">
+  <% if @retro.state == 'complete' %>
+    <%= render "complete/report", all_cards: @all_cards %>
+  <% else %>
+    <h4 class="m-3">
+      You have been invited to join a retrospective called <strong><%= @retro.description %></strong>
+    </h4>
+    <div class="m-auto w-75">
+      <% if @already_participant %>
+        <p>
+          <% if @retro.state == 'setup' %>
+            You are already a participant of this retro, but it has not yet started. You can 
+            view your <a href="/retros">retros</a>.
+          <% else %>
+            You are already a participant of this retro and it is in progress.
+            <a href="<%= "/#{@retro.state}/#{@retro.id}" %>">Click here</a> to join it.
+          <% end %>
+        </p>
+      <% elsif current_user.nil? %>
+        <p>We did not find a current user</p>
+        <p class="text-start">
+          If you already have an account with this Litretro instance you can log in to
+          your account or create a new one and then hit the guest link again and save
+          this retro to your account. If you wish to join the retro but remain a guest
+          please let us know your name and we'll take you to your retro.
+        </p>
+        <%= form_with url: "/guest/#{@retro.guest_link}/join_guest" do |f| %>
+          <div class="input-group m-3">
+            <%= f.label :name, class: "input-group-text" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <%= f.submit "Join the retro", class: "btn btn-secondary" %>
+        <% end %>
+      <% else %>
+        <p>You are signed in as <%= current_user.email %>.</p>
+        <%= link_to "Join this retro as a participant", "/guest/#{@retro.guest_link}/join_registered", class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  <% end  %>
+</div>

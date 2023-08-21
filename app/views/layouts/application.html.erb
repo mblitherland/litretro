@@ -29,7 +29,9 @@
             </ul>
             <p class="navbar-text float-right">
             <% if user_signed_in? %>
-              <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
+              <% unless current_user.guest %>
+                <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
+              <% end %>
               <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-link" %>
             <% else %>
               <%= link_to "Sign up", new_user_registration_path, class: "navbar-link" %> |
@@ -46,7 +48,7 @@
           <p class="alert alert-success"><%= notice %></p>
         <% end %>
         <% if alert %>
-          <p class="aslert alert-danger"><%= alert %></p>
+          <p class="alert alert-danger"><%= alert %></p>
         <% end %>
         <%= yield %>
       </div>

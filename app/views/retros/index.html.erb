@@ -1,15 +1,17 @@
 <div class="px-4 py-5">
 
   <div class="row g-5">
-    <div class="col-12 col-lg-6">
-      <h3>Retros you lead</h3>
-      <div class="list-group">
-        <% @retros.each do |retro| %>
-          <%= render partial: "summary", locals: { retro: retro, owner: true } %>
-        <% end %>
+    <% if user_signed_in? && !current_user.guest %>
+      <div class="col-12 col-lg-6">
+        <h3>Retros you lead</h3>
+        <div class="list-group">
+          <% @retros.each do |retro| %>
+            <%= render partial: "summary", locals: { retro: retro, owner: true } %>
+          <% end %>
+        </div>
+        <%= link_to "Why not create a new Retro?", new_retro_path %>
       </div>
-      <%= link_to "Why not create a new Retro?", new_retro_path %>
-    </div>
+    <% end %>
     <div class="col-12 col-lg-6">
       <h3>Retros you participate in</h3>
       <% if @guest_retros.empty? %>

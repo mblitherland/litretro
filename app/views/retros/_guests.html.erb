@@ -1,0 +1,29 @@
+<p>
+  To have participants register by email, please add them in the participants tab.
+</p>
+
+<% if @retro.guest_link.nil? %>
+  <p>
+    Adding a guest link will allow a participant to join the retro with just a link, but it will be a
+    temporary account. Anybody with the link will be able to participate in the retro and see the results.
+    The link will not work to join the retro once the retro is complete, but will allow anybody with
+    the link to view the retro results.
+  </p>
+  <%= link_to "Create guest link", "/retros/#{@retro.id}/add_guest_link", class: "btn btn-secondary" %>
+<% else %>
+  <script>
+    function copyLink() {
+      navigator.clipboard.writeText("<%= "#{Rails.configuration.url_prefix}/guest/#{@retro.guest_link}" %>");
+    }
+  </script>
+  <div class="input-group mt-3 mb-3">
+    <input type="text" class="form-control" value="<%= "#{Rails.configuration.url_prefix}/guest/#{@retro.guest_link}" %>" readonly />
+    <button class="btn btn-outline-secondary" type="button" onclick="copyLink(); this.innerHTML='Copied!';">Copy URL</button>
+  </div>
+  <p>
+    Deleting the guest link will stop guest users from joining the retro, but won't block ones already
+    in. A retro that is complete won't allow for guests to join, but will allow anyone with the link
+    to see the completed retro.
+  </p>
+  <%= link_to "Delete guest link", "/retros/#{@retro.id}/remove_guest_link", class: "btn btn-secondary" %>
+<% end %>

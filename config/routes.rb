@@ -9,16 +9,24 @@ Rails.application.routes.draw do
     resources :participants
   end
 
+  # Alphabetize by URL with POST for a given controller after GET
   get '/active', to: 'active#index'
-  get '/welcome/:id', to: 'welcome#index'
+  get '/cards/:id/vote/:participant_id', to: 'cards#vote'
+  post '/cards', to: 'cards#create'
+  post '/comments', to: 'comments#create'
+  get '/complete/:id', to: 'complete#index'
+  get '/discussion/:id', to: 'discussion#index'
+  get '/guest/:id', to: 'guest#index'
+  get '/guest/:id/join_registered', to: 'guest#join_registered'
+  post '/guest/:id/join_guest', to: 'guest#join_guest'
+  get '/pointing/:id', to: 'pointing#index'
+  get '/retros/:id/add_guest_link', to: 'retros#add_guest_link'
+  get '/retros/:id/icebreaker', to: 'retros#icebreaker_tab'
+  get '/retros/:id/remove_guest_link', to: 'retros#remove_guest_link'
+  get '/retros/:id/theme', to: 'retros#theme_tab'
   get '/started/:id', to: 'started#index'
   post '/started/:id', to: 'started#create'
-  get '/pointing/:id', to: 'pointing#index'
-  get '/discussion/:id', to: 'discussion#index'
-  get '/complete/:id', to: 'complete#index'
-  post '/cards', to: 'cards#create'
-  get '/cards/:id/vote/:participant_id', to: 'cards#vote'
-  post '/comments', to: 'comments#create'
+  get '/welcome/:id', to: 'welcome#index'
 
   # Defines the root path route ("/")
   # root "articles#index"
