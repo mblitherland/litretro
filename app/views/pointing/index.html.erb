@@ -21,6 +21,13 @@
     <% @retro.columns.each do |column| %>
       <div class="col-12 col-md-<%= @retro.grid_value %>">
         <h4><%= column.name %></h4>
+        <% if column.cards.length == 0 %>
+          <div class="card mb-2" style="max-width: 350px; margin: auto;">
+            <div class="card-body">
+              <p class="opacity-75 text-start">No cards in this category</p>
+            </div>
+          </div>
+        <% end %>
         <% column.cards.sort_by{ |c| c.created_at.to_i }.each do |card| %>
           <% if !current_participant.nil? %>
             <a href="/cards/<%= card.id %>/vote/<%= current_participant.id %>" class="list-group-item list-group-item-action">
