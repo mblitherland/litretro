@@ -55,7 +55,7 @@ like.
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
-| 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26) |
+| 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 
 ## License information
 
