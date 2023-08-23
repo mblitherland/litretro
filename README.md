@@ -55,7 +55,7 @@ like.
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
-| TBD | 1.1.1 | Address mixed issues - see below (24,26) |
+| 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26) |
 
 ## License information
 
@@ -83,7 +83,7 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
-- 27: Updating the retro theme will delete any cards based upon the current theme
+Probably some general hosting improvements next
 
 ## Todones
 
@@ -117,4 +117,5 @@ Read `LICENSE` or visit the above link for more information.
 - 22: Errors are not handled consistently or well anywhere in the app
 - 24: You should be able to start a retro with the guest link in place
 - 26: Visual improvements on the started page (card creation)
+- 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)
 
