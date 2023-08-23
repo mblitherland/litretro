@@ -55,6 +55,7 @@ like.
 | 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
+| TBD | 1.1.1 | Address mixed issues - see below (24,26) |
 
 ## License information
 
@@ -78,10 +79,11 @@ Read `LICENSE` or visit the above link for more information.
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 23: About page, GH link
+- 25: Detailed summary with information about card and comment creators
 
 ## Todoings
 
-Probably participant management next
+- 27: Updating the retro theme will delete any cards based upon the current theme
 
 ## Todones
 
@@ -113,4 +115,6 @@ Probably participant management next
 - 19: Make the retro setup page a little more managable, maybe through tabs
 - 21: Make the guest link something that can be turned off
 - 22: Errors are not handled consistently or well anywhere in the app
+- 24: You should be able to start a retro with the guest link in place
+- 26: Visual improvements on the started page (card creation)
 

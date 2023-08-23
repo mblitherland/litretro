@@ -4,7 +4,7 @@
   <h4><%= @retro.description %></h4>
   <p><%= @retro.retro_date %></p>
 
-  <% if @retro.participants.length == 0 || @retro.columns.length == 0 %>
+  <% if (@retro.participants.length == 0 && @retro.guest_link.nil?) || @retro.columns.length == 0 %>
     <div class="opacity-75">
       <em>You must specify participants and a theme to start the retro</em>
     </div>

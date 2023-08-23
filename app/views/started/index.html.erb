@@ -1,5 +1,8 @@
 <%= turbo_stream_from "retro_#{@retro.id}" %>
-<% current_participant = @retro.current_participant(current_user.id) %>
+<% 
+  current_participant = @retro.current_participant(current_user.id)
+  colors = [ 'blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal' ]
+%>
 
 <div id="retro_<%= @retro.id %>">
   <%= render partial: "/common/show_redirect", locals: { retro: @retro, page: 'started' } %>
@@ -17,30 +20,48 @@
     <div class="row g-5">
       <div class="col-12 col-lg-6">
         <h5>Share a thought</h5>
+        <script>
+          function setCardColor(color) {
+            document.getElementById("newCard").className = "card mb-2 m-auto card-" + color;
+          }
+        </script>
         <%= form_with model: @card do |f| %>
           <%= f.hidden_field :retro_id, value: @retro.id %>
-          <div class="row mb-3">
-            <% [ 'blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal' ].each do |c| %>
-              <div class="col-4">
-                <div class="card-<%= c %> m-1 rounded">
-                  <%= f.radio_button :color, c, value: c, class: "form-check-input my-3" %>
-                  <%= f.label :color, c, class: "form-check-label my-3" %>
+          <div class="card mb-2 m-auto card-<%= @card.color %>" id="newCard" style="max-width: 650px;"> 
+            <div class="card-header-sm text-end">
+              <div class="row p-1">
+                <div class="col-4"></div>
+                <div class="col-3">
+                  <%= f.label :column_desc, "Category:", class: "col-form-label col-form-label-sm" %>
+                </div>
+                <div class="col-5">
+                  <%= f.select :column_desc, @retro.columns.map{ |c| c.name }, {}, { class: "form-select form-select-sm" } %>
                 </div>
               </div>
-            <% end %>
+            </div>
+            <div class="card-body text-start">
+              <%= f.label :title, "Your thought:", class: "form-label" %>
+              <%= f.text_area :title, rows: 5, class: "form-control" %>
+            </div>
           </div>
-          <div class="input-group mb-3">
-            <%= f.label :column_desc, "Category:", class: "input-group-text" %>
-            <%= f.select :column_desc, @retro.columns.map{ |c| c.name }, {}, { class: "form-select" } %>
+          <div class="text-start">
+            <div class="dropdown">
+              <%= f.submit "Create card", class: "my-2 btn btn-secondary" %>
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Select your sticky-note color
+              </button>
+              <ul class="dropdown-menu">
+              <% colors.each do |c| %>
+                <li>
+                  <div class="card-<%= c %> m-1 rounded">
+                    <%= f.radio_button :color, c, value: c, class: "form-check-input m-2", onClick: "setCardColor('#{c}')"  %>
+                    <%= f.label :color, c, class: "form-check-label m-2" %>
+                  </div>
+                </li>
+              <% end %>
+              </ul>
+            </div>
           </div>
-          <div class="input-group mb-3">
-            <%= f.label :title, "Your thought:", class: "input-group-text" %>
-            <%= f.text_field :title, class: "form-control" %>
-          </div>
-          <div>
-            <%= f.submit "Share your thought", class: "my-2 btn btn-secondary" %>
-          </div>
-  
         <% end %>
       </div>
   
