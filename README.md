@@ -56,6 +56,7 @@ like.
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
+| TBD | 1.1.2 | Issues below (28,29,30) |
 
 ## License information
 
@@ -80,10 +81,12 @@ Read `LICENSE` or visit the above link for more information.
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 23: About page, GH link
 - 25: Detailed summary with information about card and comment creators
+- 31: Show friendly name on participants page
 
 ## Todoings
 
 Probably some general hosting improvements next
+
 
 ## Todones
 
@@ -118,4 +121,8 @@ Probably some general hosting improvements next
 - 24: You should be able to start a retro with the guest link in place
 - 26: Visual improvements on the started page (card creation)
 - 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)
+- 28: Discussion form doesn't clear after post
+    - This works now, but has unpermitted parameters
+- 29: Make label on sticky-note color select toggle radio button
+- 30: Save the last color selected and reselect that
 
