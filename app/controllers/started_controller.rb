@@ -5,7 +5,7 @@ class StartedController < ApplicationController
     @retro = Retro.find(params[:id])
 
     @card = Card.new
-    @card.color = 'yellow'
+    @card.color = current_user.last_color
     @user_cards = []
 
     @retro.columns.each do |column|
@@ -14,7 +14,6 @@ class StartedController < ApplicationController
       column.cards.each do |card|
         if card.user_id == current_user.id
           @user_cards.append(card)
-          @card.color = card.color
         end
       end
     end

@@ -6,6 +6,8 @@ class CardsController < ApplicationController
 
     if @retro.state == 'started' && @retro.user_allowed(current_user.id)
       params = card_params
+      current_user.last_color = params[:color]
+      current_user.save
       if !params['title'].empty?
         card = Card.new(params)
         card.user_id = current_user.id
