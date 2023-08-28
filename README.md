@@ -56,7 +56,7 @@ like.
 | 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
-| TBD | 1.1.2 | Issues below (28) |
+| TBD | 1.1.2 | Issues below (28,29) |
 
 ## License information
 
@@ -88,7 +88,7 @@ Read `LICENSE` or visit the above link for more information.
 
 Probably some general hosting improvements next
 
-- 29: Make label on sticky-note color select toggle radio button
+- 31: Show friendly name on participants page
 
 ## Todones
 
@@ -125,5 +125,6 @@ Probably some general hosting improvements next
 - 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)
 - 28: Discussion form doesn't clear after post
     - This works now, but has unpermitted parameters
+- 29: Make label on sticky-note color select toggle radio button
 
 

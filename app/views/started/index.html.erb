@@ -53,10 +53,8 @@
               <ul class="dropdown-menu">
               <% colors.each do |c| %>
                 <li>
-                  <div class="card-<%= c %> m-1 rounded">
-                    <%= f.radio_button :color, c, value: c, class: "form-check-input m-2", onClick: "setCardColor('#{c}')"  %>
-                    <%= f.label :color, c, class: "form-check-label m-2" %>
-                  </div>
+                  <%= f.radio_button :color, c, value: c, class: "form-check-input mt-2 m-1", onClick: "setCardColor('#{c}')"  %>
+                  <%= f.label :color, c, value: c, class: "form-check-label mt-1 card-#{c} p-1 rounded w-75" %>
                 </li>
               <% end %>
               </ul>
