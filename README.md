@@ -84,6 +84,7 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
+Probably going to work on participant management
 
 ## Todones
 
