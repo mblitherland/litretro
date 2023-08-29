@@ -57,7 +57,7 @@ like.
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
-| TBD | 1.2.0 | Edit cards (8) |
+| 2023-08-29 | 1.2.0 | Edit cards (8,32,6) |
 
 ## License information
 
@@ -73,7 +73,6 @@ Read `LICENSE` or visit the above link for more information.
 - 2: View all retros (rather than just 6 most recent)
 - 3: Suggest previous list of participants for new retros
 - 4: Search retros (? On what?)
-- 6: User delete retros
 - 7: Maybe an option to hide the votes of others on the voting page(?)
 - 14: Maybe have each card come up on its own discussion page(?)
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
@@ -85,12 +84,12 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
-- 32: Revisit parameters for #28
 
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
 - 5: Have the `Discussion` page not refresh when you add comments
+- 6: User delete retros (this was already done, but I'm going to make it nicer)
 - 8: Edit/delete cards
 - 9: Modal or animation around the "move the next phase" dialogue
     - I think this needs to be a bit more in-your-face
@@ -125,4 +124,5 @@ Read `LICENSE` or visit the above link for more information.
     - This works now, but has unpermitted parameters (see 32)
 - 29: Make label on sticky-note color select toggle radio button
 - 30: Save the last color selected and reselect that
+- 32: Revisit parameters for #28
 
