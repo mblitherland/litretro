@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    card = Card.find(params['card_id'])
+    card = Card.find(params['comment']['card_id'])
 
     if card.column.retro.state == 'discussion' && card.column.retro.user_allowed(current_user.id)
       params = comment_params
@@ -25,6 +25,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:card_id, :comment)
+    params.require(:comment).permit(:card_id, :comment)
   end
 end

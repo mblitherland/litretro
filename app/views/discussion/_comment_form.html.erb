@@ -1,4 +1,4 @@
-<%= form_with url: "/comments" do |f| %>
+<%= form_with model: Comment.new, url: "/comments" do |f| %>
   <%= f.hidden_field :card_id, value: card.id %>
   <div class="input-group mb-2">
     <%= f.label :comment, "Comment:", class: "input-group-text" %>
