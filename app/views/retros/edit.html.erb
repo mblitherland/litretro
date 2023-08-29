@@ -3,9 +3,16 @@
 
   <%= render "form", retro: @retro %>
   <%= link_to "Back to your retro", retro_path(@retro) %>
-  <br />
-  <%= link_to "Delete all of this retro's data", retro_path(@retro), data: {
+  
+  <hr />
+
+  <h4>Forget this retro</h4>
+
+  <%= link_to "Delete all of this retro's data",
+    retro_path(@retro),
+    data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>
+    },
+    class: "btn btn-warning btn-lg" %>
 </div>

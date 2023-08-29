@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get '/retros/:id/remove_guest_link', to: 'retros#remove_guest_link'
   get '/retros/:id/theme', to: 'retros#theme_tab'
   get '/started/:id', to: 'started#index'
+  get '/started/:id/delete_card/:card_id', to: 'started#delete_card'
+  get '/started/:id/edit_card/:card_id', to: 'started#edit_card'
   post '/started/:id', to: 'started#create'
   get '/welcome/:id', to: 'welcome#index'
 

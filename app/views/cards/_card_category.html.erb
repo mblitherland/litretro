@@ -4,5 +4,10 @@
   </div>
   <div class="card-body">
     <h5 class="card-title text-start"><%= card.title %></h5>
+    <%= link_to "Edit", "/started/#{retro_id}/edit_card/#{card.id}", class: "btn btn-sm btn-light me-1" %>
+    <%= link_to "Delete", "/started/#{retro_id}/delete_card/#{card.id}", class: "btn btn-sm btn-light ms-1", data: {
+                    turbo_method: :get,
+                    turbo_confirm: "Are you sure?"
+                  } %>
   </div>
 </div>
