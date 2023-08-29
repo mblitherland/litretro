@@ -57,6 +57,7 @@ like.
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
+| TBD | 1.2.0 | Edit cards (8) |
 
 ## License information
 
@@ -74,7 +75,6 @@ Read `LICENSE` or visit the above link for more information.
 - 4: Search retros (? On what?)
 - 6: User delete retros
 - 7: Maybe an option to hide the votes of others on the voting page(?)
-- 8: Edit/delete cards
 - 14: Maybe have each card come up on its own discussion page(?)
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
@@ -85,13 +85,13 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
-Probably some general hosting improvements next
-
+- 32: Revisit parameters for #28
 
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
 - 5: Have the `Discussion` page not refresh when you add comments
+- 8: Edit/delete cards
 - 9: Modal or animation around the "move the next phase" dialogue
     - I think this needs to be a bit more in-your-face
     - The button now shows in more situations where appropriate, looking at making it a modal
@@ -122,7 +122,7 @@ Probably some general hosting improvements next
 - 26: Visual improvements on the started page (card creation)
 - 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)
 - 28: Discussion form doesn't clear after post
-    - This works now, but has unpermitted parameters
+    - This works now, but has unpermitted parameters (see 32)
 - 29: Make label on sticky-note color select toggle radio button
 - 30: Save the last color selected and reselect that
 
