@@ -1,6 +1,7 @@
 <li class="list-group-item">
 <%= participant.email %>
 <% if participant.user_id %>
+  (Name: <%= participant.user.name %>)
   <span class="opacity-75"><sm> - verified</sm></span>
 <% end %>
 </li>
