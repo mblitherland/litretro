@@ -48,7 +48,6 @@ class Retro < ApplicationRecord
 
   def user_allowed(user_id)
     allowed_users = participants.map(&:user_id).reject(&:nil?)
-    allowed_users.append(user_id)
-    return allowed_users.include? user_id
+    allowed_users.include? user_id
   end
 end
