@@ -58,6 +58,7 @@ like.
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
 | 2023-08-29 | 1.2.0 | Edit cards (8,32,6) |
+| TBD | 1.3 | Participation management (31,1) |
 
 ## License information
 
@@ -69,7 +70,6 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todos
 
-- 1: Enable host to remove participants from retros
 - 2: View all retros (rather than just 6 most recent)
 - 3: Suggest previous list of participants for new retros
 - 4: Search retros (? On what?)
@@ -80,7 +80,6 @@ Read `LICENSE` or visit the above link for more information.
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 23: About page, GH link
 - 25: Detailed summary with information about card and comment creators
-- 31: Show friendly name on participants page
 
 ## Todoings
 
@@ -89,6 +88,7 @@ Probably going to work on participant management
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
+- 1: Enable host to remove participants from retros
 - 5: Have the `Discussion` page not refresh when you add comments
 - 6: User delete retros (this was already done, but I'm going to make it nicer)
 - 8: Edit/delete cards
@@ -125,5 +125,6 @@ Probably going to work on participant management
     - This works now, but has unpermitted parameters (see 32)
 - 29: Make label on sticky-note color select toggle radio button
 - 30: Save the last color selected and reselect that
+- 31: Show friendly name on participants page
 - 32: Revisit parameters for #28
 
