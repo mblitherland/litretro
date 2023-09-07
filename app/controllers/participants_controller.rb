@@ -18,6 +18,17 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def destroy
+    @retro = Retro.find(params[:retro_id])
+    if @retro[:user_id] == current_user.id
+      participant = Participant.find(params[:id])
+      participant.delete
+      redirect_to @retro
+    else
+      redirect_to retros_path, alert: 'Not permitted'
+    end
+  end
+
   private
 
   def participant_params

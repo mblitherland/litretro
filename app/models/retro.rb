@@ -19,11 +19,9 @@ class Retro < ApplicationRecord
 
   def current_participant(user_id)
     participants.each do |participant|
-      if participant.user_id == user_id
-        return participant
-      end
+      return participant if participant.user_id == user_id
     end
-    return nil
+    nil
   end
 
   # Do your best to give a reasonable Bootstrap grid value based upon the number
@@ -46,9 +44,10 @@ class Retro < ApplicationRecord
     end
   end
 
-  def user_allowed(user_id)
+  def user_allowed(id)
     allowed_users = participants.map(&:user_id).reject(&:nil?)
+    # Add the host user_id as they can see it, even if they can't make cards
     allowed_users.append(user_id)
-    return allowed_users.include? user_id
+    allowed_users.include? id
   end
 end
