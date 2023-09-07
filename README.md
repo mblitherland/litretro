@@ -58,7 +58,7 @@ like.
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
 | 2023-08-29 | 1.2.0 | Edit cards (8,32,6) |
-| TBD | 1.3 | Participation management (31,1,33) |
+| 2023-09-07 | 1.3 | Participation management (31,1,33) |
 
 ## License information
 
@@ -83,7 +83,7 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
-Probably going to work on participant management
+Probably going to work more on participant management, and general hosting
 
 ## Todones
 
