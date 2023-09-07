@@ -6,7 +6,7 @@
   <% end %>
   <%= link_to "remove",
     "/retros/#{participant.retro.id}/participants/#{participant.id}",
-    data: { turbo_confirm: "This will remove the participant and any of their cards, are you sure?", turbo_method: :delete },
+    data: { turbo_confirm: "This will remove the participant, are you sure?", turbo_method: :delete },
     class: "btn btn-warning btn-sm",
     style: "--bs-btn-padding-y: 0;" %>
 </li>

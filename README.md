@@ -58,7 +58,7 @@ like.
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
 | 2023-08-29 | 1.2.0 | Edit cards (8,32,6) |
-| TBD | 1.3 | Participation management (31,1) |
+| TBD | 1.3 | Participation management (31,1,33) |
 
 ## License information
 
@@ -127,4 +127,5 @@ Probably going to work on participant management
 - 30: Save the last color selected and reselect that
 - 31: Show friendly name on participants page
 - 32: Revisit parameters for #28
+- 33: After fixing a security issue hosts can no longer view their retro if they're not manually added
 
