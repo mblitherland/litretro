@@ -57,7 +57,7 @@ like.
 | 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
 | 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
-| 2023-08-29 | 1.2.0 | Edit cards (8,32,6) |
+| 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 
 ## License information
