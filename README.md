@@ -59,7 +59,7 @@ like.
 | 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
 | 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
-| TBD | 1.3.1 | Misc issues (35,34) |
+| 2023-09-13 | 1.3.1 | Misc issues (35,34) |
 
 ## License information
 
@@ -86,8 +86,6 @@ Read `LICENSE` or visit the above link for more information.
 ## Todoings
 
 Probably going to work more on participant management, and general hosting
-
-- 34: A user can delete their comments
 
 ## Todones
 
@@ -132,5 +130,6 @@ Probably going to work more on participant management, and general hosting
 - 31: Show friendly name on participants page
 - 32: Revisit parameters for #28
 - 33: After fixing a security issue hosts can no longer view their retro if they're not manually added
+- 34: A user can delete their comments
 - 35: Make various forms look nicer
 
