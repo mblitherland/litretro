@@ -1,4 +1,4 @@
-<div class="px-4 py-5">
+<div class="m-auto px-4 py-5" style="max-width: 576px;">
   <h2>Edit your Retro</h2>
 
   <%= render "form", retro: @retro %>
@@ -14,5 +14,5 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
     },
-    class: "btn btn-warning btn-lg" %>
+    class: "my-2 btn btn-warning" %>
 </div>

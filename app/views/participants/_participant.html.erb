@@ -7,6 +7,5 @@
   <%= link_to "remove",
     "/retros/#{participant.retro.id}/participants/#{participant.id}",
     data: { turbo_confirm: "This will remove the participant, are you sure?", turbo_method: :delete },
-    class: "btn btn-warning btn-sm",
-    style: "--bs-btn-padding-y: 0;" %>
+    class: "badge text-bg-warning rounded-pill link-underline-warning" %>
 </li>

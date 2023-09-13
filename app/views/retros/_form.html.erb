@@ -1,21 +1,21 @@
 <%= form_for @retro do |f| %>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description, autofocus: true, class: "w-75" %>
+  <div class="mb-3">
+    <%= f.label :description, class: "form-label" %><br />
+    <%= f.text_field :description, autofocus: true, class: "form-control" %>
     <% @retro.errors.full_messages_for(:description).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :retro_date %><br />
-    <%= f.date_field :retro_date %>
+  <div class="mb-3">
+    <%= f.label :retro_date, class: "form-label" %><br />
+    <%= f.date_field :retro_date, class: "form-control" %>
     <% @retro.errors.full_messages_for(:retro_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit class: "my-2" %>
+  <div class="mb-3">
+    <%= f.submit class: "my-2 btn btn-dark" %>
   </div>
 <% end %>

@@ -10,11 +10,17 @@
     Remaining items
   </div>
   <div class="card-body">
-    <dl class="row">
-      <% @all_cards.select{ |card| card.votes == 0 }.sort_by(&:column_desc).each do |card| %>
-        <dt class="col-sm-3 text-start"><%= card.column_desc %></dt>
-        <dd class="col-sm-9 text-start"><%= card.title %></dd>
-      <% end %>
-    </dl>
+    <% if @all_cards.select{ |card| card.votes == 0}.length == 0 %>
+      <div class="m-auto">
+        <p><em>All cards were discussed.</em></p>
+      </div>
+    <% else %>
+      <dl class="row">
+        <% @all_cards.select{ |card| card.votes == 0 }.sort_by(&:column_desc).each do |card| %>
+          <dt class="col-sm-3 text-start"><%= card.column_desc %></dt>
+          <dd class="col-sm-9 text-start"><%= card.title %></dd>
+        <% end %>
+      </dl>
+    <% end %>
   </div>
 </div>
