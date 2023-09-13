@@ -24,6 +24,10 @@
           this retro to your account. If you wish to join the retro but remain a guest
           please let us know your name and we'll take you to your retro.
         </p>
+        <p class="text-danger">
+          Litretro requires a session cookie stored on your computer. By registering
+          an account, you acknowledge and agree to this.
+        </p>
         <%= form_with url: "/guest/#{@retro.guest_link}/join_guest" do |f| %>
           <div class="input-group m-3">
             <%= f.label :name, class: "input-group-text" %>
