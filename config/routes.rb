@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/cards/:id/vote/:participant_id', to: 'cards#vote'
   post '/cards', to: 'cards#create'
   post '/comments', to: 'comments#create'
+  delete '/comments/:id', to: 'comments#delete'
   get '/complete/:id', to: 'complete#index'
   get '/discussion/:id', to: 'discussion#index'
   get '/guest/:id', to: 'guest#index'

@@ -5,6 +5,6 @@
   </div>
   <div class="card-body">
     <h5 class="card-title text-start"><%= card.title %></h5>
-    <%= render partial: "/discussion/comments", locals: { comments: card.comments } %>
+    <%= render partial: "/discussion/comments", locals: { comments: card.comments, user_id: nil } %>
   </div>
 </div>
