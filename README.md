@@ -60,6 +60,7 @@ like.
 | 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
+| TBD | 1.3.2 | Misc issues (23) |
 
 ## License information
 
@@ -79,13 +80,14 @@ Read `LICENSE` or visit the above link for more information.
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
-- 23: About page, GH link
 - 25: Detailed summary with information about card and comment creators
 - 36: It would be nice for a previously submitted discussion form to receive focus after submit
 
 ## Todoings
 
 Probably going to work more on participant management, and general hosting
+
+- 23: About page, GH link
 
 ## Todones
 
