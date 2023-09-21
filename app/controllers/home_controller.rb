@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @custom = Customization.get_custom('home')
   end
 
   def about

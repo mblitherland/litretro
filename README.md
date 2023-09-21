@@ -46,6 +46,32 @@ main repo, and I wouldn't want to waste anybody's time. You are, of course
 welcome to fork the repo and maintain your own copy with any features you
 like.
 
+## Customizations
+
+There is a model providing you the ability to customize some text on some
+pages. There is not a UI for doing this and because there isn't a concept
+of an "administrative" user for the software, there may never be, but it
+is easy to do from the rails console. Just do the following:
+
+```ruby
+c = Customization.new
+c.key = "about"
+c.content = "<p>This is a custom blurb for the <a href=\"/about\">about</a> page</p>"
+c.save
+
+```
+The content you create is assumed to be html-safe. Please don't hack your own
+server doing this.
+
+The pages that currently have customization logic in them are:
+
+| Page | Url | Key | Description |
+|------|-----|-----|-------------|
+| About | /about | about | Injects content above the rest of the about blurb |
+| Home | /home | home | Replaces the text below the title |
+| New retro | /retros/new | new_retro | Injects content above the 'Create Retro' form |
+
+
 ## Version History
 
 | Date | Version | Description |
@@ -87,8 +113,6 @@ Read `LICENSE` or visit the above link for more information.
 
 Probably going to work more on participant management, and general hosting
 
-- 23: About page, GH link
-
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
@@ -122,6 +146,7 @@ Probably going to work more on participant management, and general hosting
 - 19: Make the retro setup page a little more managable, maybe through tabs
 - 21: Make the guest link something that can be turned off
 - 22: Errors are not handled consistently or well anywhere in the app
+- 23: About page, GH link
 - 24: You should be able to start a retro with the guest link in place
 - 26: Visual improvements on the started page (card creation)
 - 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)

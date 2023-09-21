@@ -28,9 +28,6 @@
               </li>
             </ul>
             <ul class="navbar-nav float-right">
-              <li class="nav-item active">
-                <a class="nav-link" href="/about">About</a>
-              </li>
               <% if user_signed_in? %>
                 <% unless current_user.guest %>
                   <li class="nav-item active">
@@ -48,6 +45,9 @@
                   <%= link_to "Login", new_user_session_path, class: "nav-link" %>
                 </li>
               <% end %>
+              <li class="nav-item active">
+                <a class="nav-link" href="/about">About</a>
+              </li>
             </ul>
           </div>
         </div>
