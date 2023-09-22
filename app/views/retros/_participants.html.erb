@@ -26,6 +26,25 @@
   </div>
 
   <div>
-    <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
+    <div class="dropdown">
+      <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Select participants from previous retros
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <%= f.radio_button :prior, "None", value: "", class: "form-check-input mt-2 m1" %>
+          <%= f.label :prior, "None", value: "", class: "form-check-label mt-1 card p-1 rounded" %>
+        <% @retros.each do |retro| %>
+          <% priors = retro.participants.map { |prior| prior.email }.reject { |email| email.starts_with?("guest_") }.join(", ") %>
+          <% if !priors.empty? %>
+            <li>
+              <%= f.radio_button :prior, priors, value: retro.id, class: "form-check-input mt-2 m1" %>
+              <%= f.label :prior, "#{retro.retro_date}: #{priors}", value: retro.id, class: "form-check-label mt-1 card p-1 rounded" %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
