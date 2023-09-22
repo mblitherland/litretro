@@ -30,6 +30,9 @@ If you wish to enable guest links check out the configuration values
 `config.disable_guests` and `config.url_prefix` in the 
 `environments/<environment>.rb` file you deployment is using.
 
+Other sample files in the repo are for a .env that you can use with
+docker and a systemd service file.
+
 ## Getting help
 
 Please create an issue on the
@@ -86,12 +89,18 @@ The pages that currently have customization logic in them are:
 | 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
-| TBD | 1.3.2 | Misc issues (23) |
+| TBD | 1.3.2 | Misc issues (23,37) |
 
 ## License information
 
 <div class="aside">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<p>This work is licensed under a 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+</a>.</p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
 </div>
 
 Read `LICENSE` or visit the above link for more information.
@@ -159,4 +168,5 @@ Probably going to work more on participant management, and general hosting
 - 33: After fixing a security issue hosts can no longer view their retro if they're not manually added
 - 34: A user can delete their comments
 - 35: Make various forms look nicer
+- 37: Added the ability to add custom language to some pages through the database
 
