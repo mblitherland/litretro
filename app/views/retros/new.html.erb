@@ -1,5 +1,9 @@
 <div class="m-auto px-4 py-5" style="max-width: 576px;">
   <h2>Create a new Retro</h2>
 
+  <% if @custom %>
+    <%= @custom %>
+  <% end %>
+
   <%= render "form", retro: @retro %>
 </div>

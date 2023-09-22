@@ -18,6 +18,7 @@ class RetrosController < ApplicationController
   end
 
   def new
+    @custom = Customization.get_custom('new_retro')
     @retro = Retro.new
   end
 

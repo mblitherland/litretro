@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   # Alphabetize by URL with POST for a given controller after GET
+  get '/about', to: 'home#about'
   get '/active', to: 'active#index'
   get '/cards/:id/vote/:participant_id', to: 'cards#vote'
   post '/cards', to: 'cards#create'

@@ -30,6 +30,9 @@ If you wish to enable guest links check out the configuration values
 `config.disable_guests` and `config.url_prefix` in the 
 `environments/<environment>.rb` file you deployment is using.
 
+Other sample files in the repo are for a .env that you can use with
+docker and a systemd service file.
+
 ## Getting help
 
 Please create an issue on the
@@ -46,6 +49,32 @@ main repo, and I wouldn't want to waste anybody's time. You are, of course
 welcome to fork the repo and maintain your own copy with any features you
 like.
 
+## Customizations
+
+There is a model providing you the ability to customize some text on some
+pages. There is not a UI for doing this and because there isn't a concept
+of an "administrative" user for the software, there may never be, but it
+is easy to do from the rails console. Just do the following:
+
+```ruby
+c = Customization.new
+c.key = "about"
+c.content = "<p>This is a custom blurb for the <a href=\"/about\">about</a> page</p>"
+c.save
+
+```
+The content you create is assumed to be html-safe. Please don't hack your own
+server doing this.
+
+The pages that currently have customization logic in them are:
+
+| Page | Url | Key | Description |
+|------|-----|-----|-------------|
+| About | /about | about | Injects content above the rest of the about blurb |
+| Home | /home | home | Replaces the text below the title |
+| New retro | /retros/new | new_retro | Injects content above the 'Create Retro' form |
+
+
 ## Version History
 
 | Date | Version | Description |
@@ -60,11 +89,18 @@ like.
 | 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
+| 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 
 ## License information
 
 <div class="aside">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<p>This work is licensed under a 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+</a>.<br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
 </div>
 
 Read `LICENSE` or visit the above link for more information.
@@ -79,7 +115,6 @@ Read `LICENSE` or visit the above link for more information.
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
-- 23: About page, GH link
 - 25: Detailed summary with information about card and comment creators
 - 36: It would be nice for a previously submitted discussion form to receive focus after submit
 
@@ -120,6 +155,7 @@ Probably going to work more on participant management, and general hosting
 - 19: Make the retro setup page a little more managable, maybe through tabs
 - 21: Make the guest link something that can be turned off
 - 22: Errors are not handled consistently or well anywhere in the app
+- 23: About page, GH link
 - 24: You should be able to start a retro with the guest link in place
 - 26: Visual improvements on the started page (card creation)
 - 27: Updating the retro theme will delete any cards based upon the current theme (added warning dialogue)
@@ -132,4 +168,5 @@ Probably going to work more on participant management, and general hosting
 - 33: After fixing a security issue hosts can no longer view their retro if they're not manually added
 - 34: A user can delete their comments
 - 35: Make various forms look nicer
+- 37: Added the ability to add custom language to some pages through the database
 
