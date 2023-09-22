@@ -89,7 +89,7 @@ The pages that currently have customization logic in them are:
 | 2023-08-29 | 1.2 | Edit cards (8,32,6) |
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
-| TBD | 1.3.2 | Misc issues (23,37) |
+| 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 
 ## License information
 
@@ -97,10 +97,10 @@ The pages that currently have customization logic in them are:
 <p>This work is licensed under a 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
-</a>.</p>
+</a>.<br />
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-</a>
+</a></p>
 </div>
 
 Read `LICENSE` or visit the above link for more information.
