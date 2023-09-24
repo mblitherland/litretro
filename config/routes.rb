@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/guest/:id', to: 'guest#index'
   get '/guest/:id/join_registered', to: 'guest#join_registered'
   post '/guest/:id/join_guest', to: 'guest#join_guest'
+  get '/participants/:id/prior/:prior_id', to: 'participants#add_prior'
   get '/pointing/:id', to: 'pointing#index'
   get '/retros/:id/add_guest_link', to: 'retros#add_guest_link'
   get '/retros/:id/icebreaker', to: 'retros#icebreaker_tab'

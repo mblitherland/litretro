@@ -29,6 +29,21 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def add_prior
+    @retro = Retro.find(params[:id])
+    if @retro[:user_id] == current_user.id
+      @prior = Retro.find(params[:prior_id])
+      if @prior[:user_id] == current_user.id
+        # TODO: loop through prior participants and selectively add them
+        redirect_to @retro
+      else
+        redirect_to retros_path, alert: 'Not permitted'
+      end
+    else
+      redirect_to retros_path, alert: 'Not permitted'
+    end
+  end
+
   private
 
   def participant_params
