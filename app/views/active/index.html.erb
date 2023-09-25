@@ -3,7 +3,9 @@
     <h4>No active retros right now</h4>
     <p class="opacity-75">
     You can fix this by viewing <a href="/retros">your retros</a>
-    or creating a <a href="/retros/new">new one</a>.
+    <% if !current_user.guest %>
+      or creating a <a href="/retros/new">new one</a>.
+    <% end %>
     </p>
   <% else %>
     <h4>You have a few active retros</h4>

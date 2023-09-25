@@ -5,12 +5,7 @@ class ParticipantsController < ApplicationController
     @retro = Retro.find(params[:retro_id])
     if @retro[:user_id] == current_user.id
       params[:participant][:email].split(%r{,\s*}) do |email|
-        user ||= User.where(email: email).first
-        @retro.participants.create({
-          retro_id: params[:retro_id],
-          email: email,
-          user_id: user ? user[:id] : nil
-        })
+        add_participant(email)
       end
       redirect_to @retro
     else
@@ -32,9 +27,13 @@ class ParticipantsController < ApplicationController
   def add_prior
     @retro = Retro.find(params[:id])
     if @retro[:user_id] == current_user.id
-      @prior = Retro.find(params[:prior_id])
-      if @prior[:user_id] == current_user.id
-        # TODO: loop through prior participants and selectively add them
+      previous = Retro.find(params[:prior_id])
+      if previous[:user_id] == current_user.id
+        previous.participants.each do |prior|
+          next if prior.email.starts_with?('guest_')
+
+          add_participant(prior.email)
+        end
         redirect_to @retro
       else
         redirect_to retros_path, alert: 'Not permitted'
@@ -48,5 +47,17 @@ class ParticipantsController < ApplicationController
 
   def participant_params
     params.require(:participant).permit(:email)
+  end
+
+  def add_participant(email)
+    current = @retro.participants.map(&:email).reject { |e| e.starts_with?('guest_') }
+    return if current.include? email
+
+    user ||= User.where(email: email).first
+    @retro.participants.create({
+      retro_id: @retro.id,
+      email: email,
+      user_id: user ? user[:id] : nil
+    })
   end
 end
