@@ -27,5 +27,45 @@
 
   <div>
     <%= f.submit "Add participant(s)", class: "my-2 btn btn-secondary" %>
+    <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#priorParticipantsModal">
+      Select participants from previous retros
+    </button>
+
+    <div class="modal modal-lg fade" id="priorParticipantsModal" tabindex="-1" aria-labelledby="priorParticipantsModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Copy prior participants to current retro</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th></th>
+                  <th>Participants</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @retros.each do |retro| %>
+                  <% priors = retro.participants.map { |prior| prior.email }.reject { |email| email.starts_with?("guest_") }.sort.join(", ") %>
+                  <% if !priors.empty? %>
+                    <tr>
+                      <td><%= link_to "Copy", "/participants/#{@retro.id}/prior/#{retro.id}", class: "btn btn-secondary" %></td>
+                      <td><%= retro.retro_date %></td>
+                      <td><%= priors %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

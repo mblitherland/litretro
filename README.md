@@ -90,6 +90,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-07 | 1.3 | Participation management (31,1,33) |
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
 | 2023-09-22 | 1.3.2 | Misc issues (23,37) |
+| 2023-09-25 | 1.3.3 | Add prior users (3) |
 
 ## License information
 
@@ -108,7 +109,6 @@ Read `LICENSE` or visit the above link for more information.
 ## Todos
 
 - 2: View all retros (rather than just 6 most recent)
-- 3: Suggest previous list of participants for new retros
 - 4: Search retros (? On what?)
 - 7: Maybe an option to hide the votes of others on the voting page(?)
 - 14: Maybe have each card come up on its own discussion page(?)
@@ -120,12 +120,13 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todoings
 
-Probably going to work more on participant management, and general hosting
+Probably more polish for the discussion page, or report information for the host.
 
 ## Todones
 
 - 0: New users should be immediately "verified" for retros they're already participants in
 - 1: Enable host to remove participants from retros
+- 3: Suggest previous list of participants for new retros
 - 5: Have the `Discussion` page not refresh when you add comments
 - 6: User delete retros (this was already done, but I'm going to make it nicer)
 - 8: Edit/delete cards
