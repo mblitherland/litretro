@@ -7,7 +7,7 @@ class ParticipantsController < ApplicationController
       params[:participant][:email].split(%r{,\s*}) do |email|
         add_participant(email)
       end
-      redirect_to @retro
+      redirect_to @retro, notice: 'Partipant list updated'
     else
       redirect_to retros_path, alert: 'Not permitted'
     end
@@ -18,7 +18,7 @@ class ParticipantsController < ApplicationController
     if @retro[:user_id] == current_user.id
       participant = Participant.find(params[:id])
       participant.delete
-      redirect_to @retro
+      redirect_to @retro, notice: 'Participant removed'
     else
       redirect_to retros_path, alert: 'Not permitted'
     end
@@ -34,7 +34,7 @@ class ParticipantsController < ApplicationController
 
           add_participant(prior.email)
         end
-        redirect_to @retro
+        redirect_to @retro, notice: 'Participant list updated'
       else
         redirect_to retros_path, alert: 'Not permitted'
       end

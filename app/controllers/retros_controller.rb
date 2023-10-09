@@ -17,15 +17,6 @@ class RetrosController < ApplicationController
     @retro = Retro.find(params[:id])
 
     @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
-    # TODO: Not sure this will be my approach
-    # participants = Participant
-    #   .where.not("email LIKE ?", "guest_%")
-    #   .joins(:retro)
-    #   .where(retro: { user_id: current_user.id })
-    #   .order(retro_date: :desc)
-    #   .limit(10)
-    # @participant_emails = participants
-    #   .map { |participant| participant['email'] }
   end
 
   def new
