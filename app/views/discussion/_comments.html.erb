@@ -2,11 +2,13 @@
   <% comments.each do |comment| %>
     <li class="text-start">
       <%= comment.comment %>
-      <% if user_id && comment.user_id == user_id %>
-        <%= link_to "remove",
-          "/comments/#{comment.id}",
-          data: { turbo_confirm: "This will remove the comment, are you sure?", turbo_method: :delete },
-          class: "badge text-bg-secondary rounded-pill link-underline-secondary" %>
+      <% if false %>
+        <% if user_id && comment.user_id == user_id %>
+          <%= link_to "remove",
+            "/comments/#{comment.id}",
+            data: { turbo_confirm: "This will remove the comment, are you sure?", turbo_method: :delete },
+            class: "badge text-bg-secondary rounded-pill link-underline-secondary" %>
+        <% end %>
       <% end %>
     </li>
   <% end %>

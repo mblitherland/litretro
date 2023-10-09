@@ -13,10 +13,12 @@ class CommentsController < ApplicationController
 
         card.broadcast_update_to(
           "card_#{card.id}",
-          partial: '/discussion/comment_form',
-          locals: { card: card, user_id: current_user.id }
+          partial: '/discussion/comments',
+          locals: { comments: card.comments, user_id: current_user.id }
         )
       end
+
+      render partial: '/discussion/comment_form', locals: { card: card }
     else
       redirect_to '/retros', alert: 'Not permitted'
     end
@@ -30,8 +32,8 @@ class CommentsController < ApplicationController
 
       card.broadcast_update_to(
         "card_#{card.id}",
-        partial: '/discussion/comment_form',
-        locals: { card: card, user_id: current_user.id }
+        partial: '/discussion/comments',
+        locals: { comments: card.comments, user_id: current_user.id }
       )
     else
       redirect_to '/retros', alert: 'Not permitted'
