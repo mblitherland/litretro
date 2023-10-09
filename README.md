@@ -91,6 +91,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-13 | 1.3.1 | Misc issues (35,34) |
 | 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
+| 2023-10-00 | 1.3.4 | Fixed issue related to retro management (39) |
 
 ## License information
 
@@ -116,11 +117,14 @@ Read `LICENSE` or visit the above link for more information.
 - 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 25: Detailed summary with information about card and comment creators
-- 36: It would be nice for a previously submitted discussion form to receive focus after submit
 
 ## Todoings
 
 Probably more polish for the discussion page, or report information for the host.
+
+- 36: It would be nice for a previously submitted discussion form to receive focus after submit
+- 40: Does the remove link go to the wrong comment on the discussion page with multiple users?
+- 38: Make a rake task to automate cleaning up old retros
 
 ## Todones
 
@@ -170,4 +174,5 @@ Probably more polish for the discussion page, or report information for the host
 - 34: A user can delete their comments
 - 35: Make various forms look nicer
 - 37: Added the ability to add custom language to some pages through the database
+- 39: Prior participants logic broke the retro show page
 
