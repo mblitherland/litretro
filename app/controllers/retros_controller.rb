@@ -86,28 +86,32 @@ class RetrosController < ApplicationController
 
   def add_guest_link
     @retro = Retro.find(params[:id])
-    @tab = 'guest'
     @retro[:guest_link] ||= SecureRandom.uuid
     @retro.save!
+    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
+    @tab = 'guest'
     render :show
   end
 
   def remove_guest_link
     @retro = Retro.find(params[:id])
-    @tab = 'guest'
     @retro[:guest_link] = nil
     @retro.save!
+    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
+    @tab = 'guest'
     render :show
   end
 
   def icebreaker_tab
     @retro = Retro.find(params[:id])
+    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
     @tab = 'icebreaker'
     render :show
   end
 
   def theme_tab
     @retro = Retro.find(params[:id])
+    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
     @tab = 'theme'
     render :show
   end
