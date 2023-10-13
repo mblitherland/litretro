@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   post '/guest/:id/join_guest', to: 'guest#join_guest'
   get '/participants/:id/prior/:prior_id', to: 'participants#add_prior'
   get '/pointing/:id', to: 'pointing#index'
+  get '/retros/guest_offset/:offset', to: 'retros#guest_offset'
+  get '/retros/retro_offset/:offset', to: 'retros#retro_offset'
   get '/retros/:id/add_guest_link', to: 'retros#add_guest_link'
   get '/retros/:id/icebreaker', to: 'retros#icebreaker_tab'
   get '/retros/:id/remove_guest_link', to: 'retros#remove_guest_link'

@@ -92,7 +92,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
-| TBD | 1.4 | DB cleanup and discussion improvements (36, 18) |
+| TBD | 1.4 | DB cleanup and discussion improvements (36,18,2) |
 
 ## License information
 
@@ -110,16 +110,14 @@ Read `LICENSE` or visit the above link for more information.
 
 ## Todos
 
-- 2: View all retros (rather than just 6 most recent)
-- 4: Search retros (? On what?)
-- 7: Maybe an option to hide the votes of others on the voting page(?)
 - 14: Maybe have each card come up on its own discussion page(?)
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 25: Detailed summary with information about card and comment creators
+- 34: A user can delete their comments
 - 40: Does the remove link go to the wrong comment on the discussion page with multiple users? (YES)
 - 41: Just to keep in mind, forms should really provide more feedback
-- 42: Restore the ability to remove comments from the discussion page (see 40)
+- 42: Restore the ability to remove comments from the discussion page (see 34, 40)
 
 ## Todoings
 
@@ -131,6 +129,8 @@ Probably more polish for the discussion page, or report information for the host
 
 - 0: New users should be immediately "verified" for retros they're already participants in
 - 1: Enable host to remove participants from retros
+- 2: View all retros (rather than just 6 most recent)
+    - Added a 'load more' widget to the retros overview
 - 3: Suggest previous list of participants for new retros
 - 5: Have the `Discussion` page not refresh when you add comments
 - 6: User delete retros (this was already done, but I'm going to make it nicer)
@@ -174,9 +174,15 @@ Probably more polish for the discussion page, or report information for the host
 - 31: Show friendly name on participants page
 - 32: Revisit parameters for #28
 - 33: After fixing a security issue hosts can no longer view their retro if they're not manually added
-- 34: A user can delete their comments
 - 35: Make various forms look nicer
 - 36: It would be nice for a previously submitted discussion form to receive focus after submit
 - 37: Added the ability to add custom language to some pages through the database
 - 39: Prior participants logic broke the retro show page
+
+## Todonts
+
+These are things I probably won't do.
+
+- 4: Search retros (? On what?)
+- 7: Maybe an option to hide the votes of others on the voting page(?)
 

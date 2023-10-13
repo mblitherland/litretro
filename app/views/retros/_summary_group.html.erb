@@ -1,0 +1,10 @@
+<% retros.each do |retro| %>
+  <%= render partial: "summary", locals: { retro: retro, owner: owner } %>
+<% end %>
+<% if offset != 0 %>
+  <%= turbo_frame_tag "#{owner ? 'retro' : 'guest'}_offset_#{offset}" do %>
+    <%= link_to "View more", "/retros/#{owner ? 'retro' : 'guest'}_offset/#{offset}", class: "p-1" %>
+  <% end %>
+<% else %>
+  <p>There are no older retros available.</p>
+<% end %>

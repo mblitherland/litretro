@@ -4,12 +4,10 @@
     <% if user_signed_in? && !current_user.guest %>
       <div class="col-12 col-lg-6">
         <h3>Retros you lead</h3>
+        <%= link_to "Create a new Retro?", new_retro_path %>
         <div class="list-group">
-          <% @retros.each do |retro| %>
-            <%= render partial: "summary", locals: { retro: retro, owner: true } %>
-          <% end %>
+          <%= render partial: "summary_group", locals: { retros: @retros, owner: true, offset: @retros_offset } %>
         </div>
-        <%= link_to "Why not create a new Retro?", new_retro_path %>
       </div>
     <% end %>
     <div class="col-12 col-lg-6">
@@ -18,9 +16,7 @@
         <p>Embarrassingly, there's nothing here...</p>
       <% else %>
         <div class="list-group">
-          <% @guest_retros.each do |retro| %>
-            <%= render partial: "summary", locals: { retro: retro, owner: false } %>
-          <% end %>
+          <%= render partial: "summary_group", locals: { retros: @guest_retros, owner: false, offset: @guest_offset } %>
         </div>
       <% end %>
     </div>
