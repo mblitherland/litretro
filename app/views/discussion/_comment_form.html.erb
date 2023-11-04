@@ -1,10 +1,12 @@
-<%= form_with model: Comment.new, url: "/comments" do |f| %>
-  <%= f.hidden_field :card_id, value: card.id %>
-  <div class="input-group mb-2">
-    <%= f.label :comment, "Comment:", class: "input-group-text" %>
-    <%= f.text_field :comment, class: "form-control" %>
-    <%= f.submit "Save", class: "btn btn-secondary" %>
-  </div>
-<% end %>
+<%= turbo_frame_tag "card_form_#{card.id}" do %>
 
-<%= render partial: "/discussion/comments", locals: { comments: card.comments, user_id: user_id } %>
+  <%= form_with model: Comment.new, url: "/comments" do |f| %>
+    <%= f.hidden_field :card_id, value: card.id %>
+    <div class="input-group mb-2">
+      <%= f.label :comment, "Comment:", class: "input-group-text" %>
+      <%= f.text_field :comment, class: "form-control", autofocus: true %>
+      <%= f.submit "Save", class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+
+<% end %>

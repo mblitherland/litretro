@@ -1,0 +1,3 @@
+<%= turbo_frame_tag "#{owner ? 'retro' : 'guest'}_offset_#{last_offset}" do %>
+  <%= render partial: "summary_group", locals: { retros: retros, owner: owner, offset: offset } %>
+<% end %>

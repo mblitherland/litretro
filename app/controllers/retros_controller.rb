@@ -3,29 +3,45 @@ require 'securerandom'
 class RetrosController < ApplicationController
   before_action :authenticate_user!
 
+  Page_size = 5
+
   def index
-    @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
-    # @guest_retros = []
-    @guest_retros = Retro
-      .where.not(user_id: current_user.id)
-      .joins(:participants)
-      .where(participants: { email: current_user.email })
-      .order(retro_date: :desc).limit(6)
+    retros = get_retros
+    @retros = retros[0, Page_size]
+    @retros_offset = retros[Page_size] ? Page_size : 0
+    guest_retros = get_guest_retros
+    @guest_retros = guest_retros[0, Page_size]
+    @guest_offset = guest_retros[Page_size] ? Page_size : 0
+  end
+
+  def retro_offset
+    offset = params[:offset].to_i
+    retros = get_retros(offset)
+    render partial: 'summary_offset',
+      locals: { 
+        retros: retros[0, Page_size],
+        owner: true,
+        offset: retros[Page_size] ? offset + Page_size : 0,
+        last_offset: offset
+      }
+  end
+
+  def guest_offset
+    offset = params[:offset].to_i
+    retros = get_guest_retros(offset)
+    render partial: 'summary_offset',
+      locals: { 
+        retros: retros[0, Page_size],
+        owner: false,
+        offset: retros[Page_size] ? offset + Page_size : 0,
+        last_offset: offset
+      }
   end
 
   def show
     @retro = Retro.find(params[:id])
 
     @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
-    # TODO: Not sure this will be my approach
-    # participants = Participant
-    #   .where.not("email LIKE ?", "guest_%")
-    #   .joins(:retro)
-    #   .where(retro: { user_id: current_user.id })
-    #   .order(retro_date: :desc)
-    #   .limit(10)
-    # @participant_emails = participants
-    #   .map { |participant| participant['email'] }
   end
 
   def new
@@ -120,6 +136,20 @@ class RetrosController < ApplicationController
 
   def retro_params
     params.require(:retro).permit(:description, :retro_date, :state)
+  end
+
+  def get_retros(offset = 0)
+    Retro.where(user_id: current_user.id).order(retro_date: :desc).offset(offset).limit(Page_size + 1)
+  end
+
+  def get_guest_retros(offset = 0)
+    Retro
+      .where.not(user_id: current_user.id)
+      .joins(:participants)
+      .where(participants: { email: current_user.email })
+      .order(retro_date: :desc)
+      .offset(offset)
+      .limit(Page_size + 1)
   end
 
   def verify_participants(participants)
