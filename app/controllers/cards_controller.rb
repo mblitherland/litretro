@@ -40,8 +40,7 @@ class CardsController < ApplicationController
       card.broadcast_update_to(
         "card_#{card.id}",
         partial: '/cards/votes',
-        locals: { votes: card.votes },
-        target: "vote_#{card.id}"
+        locals: { votes: card.votes }
       )
     end
     redirect_to "/pointing/#{card.column.retro.id}"

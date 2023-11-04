@@ -92,7 +92,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
-| TBD | 1.4 | DB cleanup and discussion improvements (36,18,2) |
+| TBD | 1.4 | DB cleanup and discussion improvements (36,2) |
 
 ## License information
 
@@ -112,6 +112,10 @@ Read `LICENSE` or visit the above link for more information.
 
 - 14: Maybe have each card come up on its own discussion page(?)
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
+- 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
+    - Narrator voice: Turns out there was an easy and idiomatic way to do this.
+    - It's not working :sob:. Why did I think it was?
+    - I'll revisit this after 1.4 is released
 - 20: Mark cards "complete" once they've been discussed to clear up that view...
 - 25: Detailed summary with information about card and comment creators
 - 34: A user can delete their comments
@@ -158,8 +162,6 @@ Probably more polish for the discussion page, or report information for the host
     - f: if the retro is complete be bounced to retro summary
         - 1: They cannot be added as a participant either as a guest or registered user
     - g: when the disable_guests configuration is set to "true" the guest controller is disabled
-- 18: The broadcast_update_to for card is overloaded for both discussion and vote components. This can be problematic and there has to be an idiomatic way to address this
-    - Narrator voice: Turns out there was an easy and idiomatic way to do this.
 - 19: Make the retro setup page a little more managable, maybe through tabs
 - 21: Make the guest link something that can be turned off
 - 22: Errors are not handled consistently or well anywhere in the app
