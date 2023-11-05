@@ -92,7 +92,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-22 | 1.3.2 | Misc issues (23,37) |
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
-| TBD | 1.4 | DB cleanup and discussion improvements (36,2) |
+| 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
 
 ## License information
 
