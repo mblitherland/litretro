@@ -15,9 +15,6 @@ source("https://rubygems.org") {
   # Use the Puma web server [https://github.com/puma/puma]
   gem "puma", ">= 5.6.7"
 
-  # add unicorn gem for deployment in the readiverse
-  gem 'unicorn'
-
   # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
   gem "jsbundling-rails"
 

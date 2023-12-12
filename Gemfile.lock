@@ -1,4 +1,7 @@
 GEM
+  specs:
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.7.2)
@@ -68,6 +71,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    appenv (1.0.0)
+      activesupport
     bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -230,24 +235,25 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
-  capybara
-  cssbundling-rails
-  debug
-  devise (~> 4.9)
-  jbuilder
-  jsbundling-rails
-  pg (~> 1.1)
-  puma (>= 5.6.7)
-  rails (~> 7.0.7, >= 7.0.7.2)
-  selenium-webdriver
-  sprockets-rails
-  stimulus-rails
-  turbo-rails
-  tzinfo-data
-  unicorn (~> 6.1)
-  web-console
-  webdrivers
+  appenv (= 1.0.0)!
+  bootsnap!
+  capybara!
+  cssbundling-rails!
+  debug!
+  devise (~> 4.9)!
+  jbuilder!
+  jsbundling-rails!
+  pg (~> 1.1)!
+  puma (>= 5.6.7)!
+  rails (~> 7.0.7, >= 7.0.7.2)!
+  selenium-webdriver!
+  sprockets-rails!
+  stimulus-rails!
+  turbo-rails!
+  tzinfo-data!
+  unicorn (~> 6.1)!
+  web-console!
+  webdrivers!
 
 RUBY VERSION
    ruby 3.0.2p107

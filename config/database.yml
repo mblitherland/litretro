@@ -9,8 +9,8 @@ default: &default
   encoding: unicode
   pool: <%= (Litretro::Env.pgpool_size || 5).to_i %>
   timeout: 5000
-  username: <%= Litretro::Env.pguser || 'litrero' %>
-  password: <%= Litretro::Env.pgpassword %>
+  username: <%= Litretro::Env.pguser || 'litretro' %>
+  password: <%= Litretro::Env.pgpassword || 'password' %>
   host: <%= Litretro::Env.pghost || 'localhost' %>
 
 development:
