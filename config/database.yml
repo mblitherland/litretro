@@ -7,11 +7,11 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= (Litretro::Env.pgpool_size || 5).to_i %>
   timeout: 5000
-  username: <%= ENV.fetch("LITRETRO_DATABASE_USER") { "litretro" } %>
-  password: <%= ENV.fetch("LITRETRO_DATABASE_PASSWORD") { "password" } %>
-  host: <%= ENV.fetch("LITRETRO_DATABASE_HOST") { "localhost" } %>
+  username: <%= Litretro::Env.pguser || 'litretro' %>
+  password: <%= Litretro::Env.pgpassword || 'password' %>
+  host: <%= Litretro::Env.pghost || 'localhost' %>
 
 development:
   <<: *default
@@ -26,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: litretro_production
+  database: <% Litretro::Env.pgdatabase || 'litretro_production' %>
