@@ -93,7 +93,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
-| 2024-02-?? | 1.5 | Card grouping functionality (43) |
+| 2024-02-?? | 1.5 | Card grouping functionality (45, 43) |
 
 ## License information
 
@@ -124,6 +124,7 @@ Read `LICENSE` or visit the above link for more information.
 - 40: Does the remove link go to the wrong comment on the discussion page with multiple users? (YES)
 - 41: Just to keep in mind, forms should really provide more feedback
 - 42: Restore the ability to remove comments from the discussion page (see 34, 40)
+- 44: Should I just add the host to the retro by default?
 
 ## Todoings
 
@@ -182,6 +183,8 @@ Probably more polish for the discussion page, or report information for the host
 - 36: It would be nice for a previously submitted discussion form to receive focus after submit
 - 37: Added the ability to add custom language to some pages through the database
 - 39: Prior participants logic broke the retro show page
+- 45: You can't navigate from links on dynamically extended lists, like "my retros"
+    - try data-turbo="false"
 
 ## Todonts
 
