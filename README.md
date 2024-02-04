@@ -93,6 +93,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
+| 2024-02-?? | 1.5 | Card grouping functionality (43) |
 
 ## License information
 
@@ -116,9 +117,10 @@ Read `LICENSE` or visit the above link for more information.
     - Narrator voice: Turns out there was an easy and idiomatic way to do this.
     - It's not working :sob:. Why did I think it was?
     - I'll revisit this after 1.4 is released
-- 20: Mark cards "complete" once they've been discussed to clear up that view...
+- 20: Mark cards "complete" once they've been discussed to clear up that view... (?)
 - 25: Detailed summary with information about card and comment creators
 - 34: A user can delete their comments
+- 38: Make a rake task to automate cleaning up old retros
 - 40: Does the remove link go to the wrong comment on the discussion page with multiple users? (YES)
 - 41: Just to keep in mind, forms should really provide more feedback
 - 42: Restore the ability to remove comments from the discussion page (see 34, 40)
@@ -127,7 +129,7 @@ Read `LICENSE` or visit the above link for more information.
 
 Probably more polish for the discussion page, or report information for the host.
 
-- 38: Make a rake task to automate cleaning up old retros
+- 43: Add grouping functionality
 
 ## Todones
 
