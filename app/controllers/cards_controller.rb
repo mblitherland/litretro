@@ -38,7 +38,7 @@ class CardsController < ApplicationController
       participant.save
 
       card.broadcast_update_to(
-        "card_#{card.id}",
+        "point_card_#{card.id}",
         partial: '/cards/votes',
         locals: { votes: card.votes }
       )
