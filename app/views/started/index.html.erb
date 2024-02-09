@@ -67,7 +67,7 @@
         <h5>Your thoughts so far</h5>
         <% if !@user_cards.nil? %>
           <% @user_cards.sort_by{ |c| c.created_at.to_i }.reverse.each do |card| %>
-            <%= render partial: '/cards/card_category', locals: { card: card, retro_id: @retro.id } %>
+            <%= render partial: '/started/card_category', locals: { card: card, retro_id: @retro.id } %>
           <% end %>
         <% end %>
       </div>

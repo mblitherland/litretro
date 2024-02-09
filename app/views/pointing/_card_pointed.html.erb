@@ -3,7 +3,7 @@
 <div class="card card-<%= card.color %> mb-2" style="max-width: 350px; margin: auto;">
   <div class="card-header-sm text-start p-1">
     <div id="card_<%= card.id %>">
-      <%= render partial: "/cards/votes", locals: { votes: card.votes } %>
+      <%= render partial: "/pointing/votes", locals: { votes: card.votes } %>
     </div>
   </div>
   <div class="card-body">

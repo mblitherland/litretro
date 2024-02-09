@@ -10,7 +10,7 @@
   <% @all_cards.sort_by(&:votes).reverse.each do |card| %>
     <div class="row border-bottom mb-2">
       <div class="col-12 col-lg-4">
-        <%= render partial: "/cards/card_full", locals: { card: card } %>
+        <%= render partial: "/discussion/card_full", locals: { card: card } %>
       </div>
       <div class="col-12 col-lg-8">
         <%= render partial: "/discussion/comment_form", locals: { card: card } %>
