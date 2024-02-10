@@ -7,7 +7,11 @@
 <div class="p-2 text-center">
   <h4>Group similar topics</h4>
 
-  <em>Under construction :grimace:</em>
+  <em>Under construction - this will probably break other parts of the retro if you use it.</em>
+
+  <% @parent_cards.each do |card| %>
+    <%= render partial: '/grouping/card_group', locals: { card: card } %>
+  <% end %>
 
   <%= render partial: '/common/advance_retro', locals: { next_state: 'pointing' } %>
 

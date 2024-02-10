@@ -121,6 +121,8 @@ Read `LICENSE` or visit the above link for more information.
 - 41: Just to keep in mind, forms should really provide more feedback
 - 42: Restore the ability to remove comments from the discussion page (see 34, 40)
 - 44: Should I just add the host to the retro by default?
+- 46: Retro is setup state shouldn't allow users to see any of the retro screens
+    - Maybe another "hidden" or blocked state? Would be redundant
 
 ## Todoings
 

@@ -4,6 +4,11 @@ class GroupingController < ApplicationController
   def index
     @retro = Retro.find(params[:id])
 
+    @parent_cards = []
+    @retro.columns.each do |column|
+      @parent_cards += column.cards.select { |card| card.parent_card.nil? }
+    end
+
     if @retro.user_allowed(current_user.id)
       render
     else

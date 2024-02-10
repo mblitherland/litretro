@@ -1,0 +1,17 @@
+
+<div class="card mb-2" style="max-width: 1000px; margin: auto;">
+  <div class="card-body">
+    <h5 class="card-title text-start"><%= card.title %></h5>
+    <% if card.cards.empty? %>
+      <!-- TODO: This is where to put the select for parent card -->
+    <% else %>
+      <% card.cards.each do |child| %>
+        <div class="card mb-2" style="max-width: 1000px; margin: auto;">
+          <div class="card-body">
+            <h6 class="card-title text-start"><%= child.title %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

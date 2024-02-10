@@ -39,7 +39,7 @@ class CardsController < ApplicationController
 
       card.broadcast_update_to(
         "point_card_#{card.id}",
-        partial: '/cards/votes',
+        partial: '/pointing/votes',
         locals: { votes: card.votes }
       )
     end
