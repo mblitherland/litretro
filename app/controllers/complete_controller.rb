@@ -6,7 +6,7 @@ class CompleteController < ApplicationController
 
     @all_cards = []
     @retro.columns.each do |column|
-      @all_cards += column.cards
+      @all_cards += column.cards.select { |card| card.parent_card.nil? }
     end
 
     if @retro.user_allowed(current_user.id)

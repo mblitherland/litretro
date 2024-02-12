@@ -6,9 +6,9 @@
       <!-- TODO: This is where to put the select for parent card -->
     <% else %>
       <% card.cards.each do |child| %>
-        <div class="card mb-2" style="max-width: 1000px; margin: auto;">
-          <div class="card-body">
-            <h6 class="card-title text-start"><%= child.title %></h6>
+        <div class="card mt-1" style="max-width: 1000px; margin: auto;">
+          <div class="card-body text-start">
+            <%= child.title %>
           </div>
         </div>
       <% end %>
