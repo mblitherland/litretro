@@ -94,6 +94,7 @@ The pages that currently have customization logic in them are:
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
 | 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
+| 2024-02-?? | 1.5.1 | Improved group functionality (50) |
 
 ## License information
 
@@ -125,11 +126,13 @@ Read `LICENSE` or visit the above link for more information.
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure wht, if anything, I should do about that
-- 49: I might make the groups a little prettier in a subsequent update
+- 51: ...
 
 ## Todoings
 
-TBD
+Grouping work
+
+- 49: Make the groups a little prettier in a subsequent update
 
 ## Todones
 
@@ -190,6 +193,7 @@ TBD
 - 43: Add grouping functionality
 - 45: You can't navigate from links on dynamically extended lists, like "my retros"
     - try data-turbo="false"
+- 50: Better wording on the grouping page
 
 ## Todonts
 

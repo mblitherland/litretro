@@ -7,15 +7,15 @@
 <div class="p-2 text-center">
   <h4>Group similar topics</h4>
 
-  <em>Under construction - this will probably break other parts of the retro if you use it.</em>
-
   <% if @retro.user_id == current_user.id %>
+    <p>Lead your team in discussing how to group your cards for voting.</p>
     <%= turbo_stream_from "host_group_retro_#{@retro.id}" %>
 
     <div id="host_group_retro_<%= @retro.id %>">
       <%= render partial: "/grouping/all_cards", locals: { retro: @retro, owner: true } %>
     </div>
   <% else %>
+    <p>Your retro host is grouping your cards now.</p>
     <%= turbo_stream_from "user_group_retro_#{@retro.id}" %>
 
     <div id="user_group_retro_<%= @retro.id %>">
