@@ -1,8 +1,8 @@
 
-<div class="card card-<%= card.color %> mb-2" style="max-width: 1000px; margin: auto;">
-  <div class="card-body text-start">
-    <h5 class="card-title"><%= card.title %></h5>
-    <% if card.cards.empty? %>
+<div class="card mb-2" style="max-width: 1000px; margin: auto;">
+  <% if card.cards.empty? %>
+    <div class="card-body text-start card-<%= card.color %>">
+      <h5 class="card-title"><%= card.title %></h5>
       <% if owner %>
         <div class="dropdown">
           <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -20,20 +20,26 @@
           </ul>
         </div>
       <% end %>
-    <% else %>
+    </div>
+  <% else %>
+    <ul class="list-group list-group-flush card-<%= card.color %> text-start">
+      <li class="list-group-item card-<%= card.color %>">
+        <h5 class="card-title"><%= card.title %></h5>
+        <% if owner %>
+          Parent card, may not be grouped. Remove children first.
+        <% end %>
+      </li>
       <% card.cards.each do |child| %>
-        <div class="card card-<%= child.color %> mt-1" style="max-width: 1000px; margin: auto;">
-          <div class="card-body text-start">
-            <%= child.title %>
-            <% if owner %>
-              <%= link_to "ungroup",
-                "/grouping/#{child.id}/unparent",
-                data: { turbo_method: :delete },
-                class: "btn btn-light btn-sm ms-1" %>
-            <% end %>
-          </div>
-        </div>
+        <li class="list-group-item card-<%= child.color %>">
+          <h5 class="card-title"><%= child.title %></h5>
+          <% if owner %>
+            <%= link_to "ungroup",
+              "/grouping/#{child.id}/unparent",
+              data: { turbo_method: :delete },
+              class: "btn btn-light btn-sm ms-1" %>
+          <% end %>
+        </li>
       <% end %>
-    <% end %>
-  </div>
+    </ul>
+  <% end %>
 </div>

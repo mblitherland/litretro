@@ -6,10 +6,10 @@
       <%= render partial: "/pointing/votes", locals: { votes: card.votes } %>
     </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title text-start"><%= card.title %></h5>
+  <ul class="list-group list-group-flush">
+    <%= render partial: "/common/card_tiny", locals: { child: card } %>
     <% card.cards.each do |child| %>
       <%= render partial: "/common/card_tiny", locals: { child: child } %>
     <% end %>
-  </div>
+  </ul>
 </div>
