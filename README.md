@@ -93,7 +93,7 @@ The pages that currently have customization logic in them are:
 | 2023-09-25 | 1.3.3 | Add prior users (3) |
 | 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
-| 2024-02-?? | 1.5 | Card grouping functionality (45, 18, 43) |
+| 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
 
 ## License information
 
@@ -124,12 +124,12 @@ Read `LICENSE` or visit the above link for more information.
 - 46: Retro is setup state shouldn't allow users to see any of the retro screens
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
+- 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure wht, if anything, I should do about that
+- 49: I might make the groups a little prettier in a subsequent update
 
 ## Todoings
 
-Probably more polish for the discussion page, or report information for the host.
-
-- 43: Add grouping functionality
+TBD
 
 ## Todones
 
@@ -187,6 +187,7 @@ Probably more polish for the discussion page, or report information for the host
 - 36: It would be nice for a previously submitted discussion form to receive focus after submit
 - 37: Added the ability to add custom language to some pages through the database
 - 39: Prior participants logic broke the retro show page
+- 43: Add grouping functionality
 - 45: You can't navigate from links on dynamically extended lists, like "my retros"
     - try data-turbo="false"
 
@@ -194,6 +195,6 @@ Probably more polish for the discussion page, or report information for the host
 
 These are things I probably won't do.
 
-- 4: Search retros (? On what?)
+- 4: Search retros (On what?)
 - 7: Maybe an option to hide the votes of others on the voting page(?)
 
