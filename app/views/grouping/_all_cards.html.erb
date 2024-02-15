@@ -1,0 +1,3 @@
+<% retro.columns.flat_map{ |col| col.cards}.select{ |c| c.parent_card.nil? }.each do |parent| %>
+  <%= render partial: '/grouping/card_group', locals: { retro: retro, owner: owner, card: parent } %>
+<% end %>

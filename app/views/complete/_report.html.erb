@@ -3,7 +3,7 @@
 <p>Retro summary</p>
 
 <% @all_cards.select{ |card| card.votes > 0 }.sort_by(&:votes).reverse.each do |card| %>
-  <%= render partial: "/cards/card_summary", locals: { card: card } %>
+  <%= render partial: "/complete/card_summary", locals: { card: card } %>
 <% end %>
 <div class="card mb-2" style="max-width: 1000px; margin: auto;">
   <div class="card-header-sm text-start p-1">

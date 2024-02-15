@@ -7,7 +7,7 @@ class DiscussionController < ApplicationController
 
     @all_cards = []
     @retro.columns.each do |column|
-      @all_cards += column.cards.select{ |card| card.votes > 0 }
+      @all_cards += column.cards.select { |card| card.votes.positive? && card.parent_card.nil? }
     end
 
     if @retro.user_allowed(current_user.id)

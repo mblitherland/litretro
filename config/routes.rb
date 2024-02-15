@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :participants
   end
 
-  # Alphabetize by URL with POST for a given controller after GET
+  # Alphabetize by URL first, followed by method. Well, approximately.
   get '/about', to: 'home#about'
   get '/active', to: 'active#index'
   get '/cards/:id/vote/:participant_id', to: 'cards#vote'
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   delete '/comments/:id', to: 'comments#delete'
   get '/complete/:id', to: 'complete#index'
   get '/discussion/:id', to: 'discussion#index'
+  get '/grouping/:id', to: 'grouping#index'
+  delete '/grouping/:id/unparent', to: 'grouping#unparent'
+  post '/grouping/:id/parent/:parent_card', to: 'grouping#parent'
   get '/guest/:id', to: 'guest#index'
   get '/guest/:id/join_registered', to: 'guest#join_registered'
   post '/guest/:id/join_guest', to: 'guest#join_guest'

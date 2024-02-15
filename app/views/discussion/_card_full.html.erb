@@ -4,5 +4,8 @@
   </div>
   <div class="card-body">
     <h5 class="card-title text-start"><%= card.title %></h5>
+    <% card.cards.each do |child| %>
+      <%= render partial: "/common/card_tiny", locals: { child: child } %>
+    <% end %>
   </div>
 </div>

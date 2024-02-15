@@ -11,15 +11,15 @@
 
       <div class="text-end">
       <% if owner %>
-        <a href="<%= retro_path(retro) %>">Manage</a>
+        <a href="<%= retro_path(retro) %>" data-turbo="false">Manage</a>
         <% if retro.state != "setup" %>
           |
         <% end %>
       <% end %>
       <% if retro.state == "complete" %>
-        <a href="/<%= retro.state %>/<%= retro.id %>">View</a>
+        <a href="/<%= retro.state %>/<%= retro.id %>" data-turbo="false">View</a>
       <% elsif retro.state != "setup" %>
-        <a href="/<%= retro.state %>/<%= retro.id %>">Join</a>
+        <a href="/<%= retro.state %>/<%= retro.id %>" data-turbo="false">Join</a>
       <% end %>
       </div>
     </div>
