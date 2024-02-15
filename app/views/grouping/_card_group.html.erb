@@ -1,14 +1,36 @@
 
-<div class="card mb-2" style="max-width: 1000px; margin: auto;">
-  <div class="card-body">
-    <h5 class="card-title text-start"><%= card.title %></h5>
+<div class="card card-<%= card.color %> mb-2" style="max-width: 1000px; margin: auto;">
+  <div class="card-body text-start">
+    <h5 class="card-title"><%= card.title %></h5>
     <% if card.cards.empty? %>
-      <!-- TODO: This is where to put the select for parent card -->
+      <% if owner %>
+        <div class="dropdown">
+          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Group with another card
+          </button>
+          <ul class="dropdown-menu p-1">
+            <% retro.columns.flat_map{ |col| col.cards}.select{ |card| card.parent_card.nil? }.each do |parent| %>
+            <li>
+              <%= link_to parent.title.length > 64 ? "#{parent.title[0..61]}..." : parent.title,
+                "/grouping/#{card.id}/parent/#{parent.id}",
+                data: { turbo_method: :post },
+                class: "btn mt-1 card-#{parent.color} p-1 w-100 text-start" %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
     <% else %>
       <% card.cards.each do |child| %>
-        <div class="card mt-1" style="max-width: 1000px; margin: auto;">
+        <div class="card card-<%= child.color %> mt-1" style="max-width: 1000px; margin: auto;">
           <div class="card-body text-start">
             <%= child.title %>
+            <% if owner %>
+              <%= link_to "ungroup",
+                "/grouping/#{child.id}/unparent",
+                data: { turbo_method: :delete },
+                class: "btn btn-light btn-sm ms-1" %>
+            <% end %>
           </div>
         </div>
       <% end %>

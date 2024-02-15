@@ -9,8 +9,18 @@
 
   <em>Under construction - this will probably break other parts of the retro if you use it.</em>
 
-  <% @parent_cards.each do |card| %>
-    <%= render partial: '/grouping/card_group', locals: { card: card } %>
+  <% if @retro.user_id == current_user.id %>
+    <%= turbo_stream_from "host_group_retro_#{@retro.id}" %>
+
+    <div id="host_group_retro_<%= @retro.id %>">
+      <%= render partial: "/grouping/all_cards", locals: { retro: @retro, owner: true } %>
+    </div>
+  <% else %>
+    <%= turbo_stream_from "user_group_retro_#{@retro.id}" %>
+
+    <div id="user_group_retro_<%= @retro.id %>">
+      <%= render partial: "/grouping/all_cards", locals: { retro: @retro, owner: false } %>
+    </div>
   <% end %>
 
   <%= render partial: '/common/advance_retro', locals: { next_state: 'pointing' } %>

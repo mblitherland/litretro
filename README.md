@@ -123,6 +123,7 @@ Read `LICENSE` or visit the above link for more information.
 - 44: Should I just add the host to the retro by default?
 - 46: Retro is setup state shouldn't allow users to see any of the retro screens
     - Maybe another "hidden" or blocked state? Would be redundant
+- 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 
 ## Todoings
 
