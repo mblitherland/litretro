@@ -67,11 +67,15 @@
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-body-secondary">
-            <% if user_signed_in? %>
-              Logged in as <%= current_user.email %>
+          <% if user_signed_in? %>
+            <% if current_user.guest %>
+              Logged in as <%= current_user.email.split('@')[0] %>
             <% else %>
-              Litretro
+              Logged in as <%= current_user.email %>
             <% end %>
+          <% else %>
+            Litretro
+          <% end %>
         </span>
       </div>
     </footer>

@@ -1,11 +1,11 @@
 <div class="card card-<%= card.color %> mb-2" style="max-width: 350px; margin: auto;">
   <div class="card-header-sm text-end p-1">
-    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>, <%= card.column_desc %>
+    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>
   </div>
-  <div class="card-body">
-    <h5 class="card-title text-start"><%= card.title %></h5>
+  <ul class="list-group list-group-flush text-start">
+    <%= render partial: "/common/card_tiny", locals: { child: card } %>
     <% card.cards.each do |child| %>
       <%= render partial: "/common/card_tiny", locals: { child: child } %>
     <% end %>
-  </div>
+  </ul>
 </div>
