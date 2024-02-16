@@ -1,43 +1,49 @@
 
-<div class="card mb-2" style="max-width: 1000px; margin: auto;">
+<div class="card mb-3" style="max-width: 1000px; margin: auto;">
   <% if card.cards.empty? %>
     <div class="card-body text-start card-<%= card.color %>">
-      <h5 class="card-title"><%= card.title %></h5>
-      <% if owner %>
-        <div class="dropdown">
-          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Group with another card
-          </button>
-          <ul class="dropdown-menu p-1">
-            <% retro.columns.flat_map{ |col| col.cards}.select{ |card| card.parent_card.nil? }.each do |parent| %>
-            <li>
-              <%= link_to parent.title.length > 64 ? "#{parent.title[0..61]}..." : parent.title,
-                "/grouping/#{card.id}/parent/#{parent.id}",
-                data: { turbo_method: :post },
-                class: "btn mt-1 card-#{parent.color} p-1 w-100 text-start" %>
-            </li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <div class="m-1">
+        <h5 class="card-title"><%= card.title %></h5>
+        <% if owner %>
+          <div class="dropdown">
+            <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Group with another card
+            </button>
+            <ul class="dropdown-menu p-1">
+              <% retro.columns.flat_map{ |col| col.cards}.select{ |card| card.parent_card.nil? }.each do |parent| %>
+              <li>
+                <%= link_to parent.title.length > 64 ? "#{parent.title[0..61]}..." : parent.title,
+                  "/grouping/#{card.id}/parent/#{parent.id}",
+                  data: { turbo_method: :post },
+                  class: "btn mt-1 card-#{parent.color} p-1 w-100 text-start" %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% else %>
     <ul class="list-group list-group-flush card-<%= card.color %> text-start">
       <li class="list-group-item card-<%= card.color %>">
-        <h5 class="card-title"><%= card.title %></h5>
-        <% if owner %>
-          Parent card, may not be grouped. Remove children first.
-        <% end %>
+        <div class="m-1">
+          <h5 class="card-title"><%= card.title %></h5>
+          <% if owner %>
+            Parent card, may not be grouped. Remove children first.
+          <% end %>
+        </div>
       </li>
       <% card.cards.each do |child| %>
-        <li class="list-group-item card-<%= child.color %>">
-          <h5 class="card-title"><%= child.title %></h5>
-          <% if owner %>
-            <%= link_to "ungroup",
-              "/grouping/#{child.id}/unparent",
-              data: { turbo_method: :delete },
-              class: "btn btn-light btn-sm ms-1" %>
-          <% end %>
+        <li class="list-group-item p-3 card-<%= child.color %>">
+          <div class="m-1">
+            <h5 class="card-title"><%= child.title %></h5>
+            <% if owner %>
+              <%= link_to "ungroup",
+                "/grouping/#{child.id}/unparent",
+                data: { turbo_method: :delete },
+                class: "btn btn-light btn-sm" %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>

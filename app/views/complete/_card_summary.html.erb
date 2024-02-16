@@ -1,20 +1,14 @@
-<div class="card mb-2" style="max-width: 1000px; margin: auto;">
-  <div class="card-header-sm text-end p-1">
-    <%= card.column_desc %>,
-    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title text-start"><%= card.title %></h5>
+<div class="card mb-3" style="max-width: 1000px; margin: auto;">
+  <ul class="list-group list-group-flush text-start">
+    <%= render partial: "/complete/card_plain", locals: { child: card } %>
     <% card.cards.each do |child| %>
-      <div class="card mt-1" style="max-width: 1000px; margin: auto;">
-        <div class="card-body text-start">
-          <%= child.title %>
-          <div style="position: absolute; top: 0px; right: 5px;">
-            <%= child.column_desc %>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "/complete/card_plain", locals: { child: child } %>
     <% end %>
+  </ul>
+  <div class="card-body">
     <%= render partial: "/discussion/comments", locals: { comments: card.comments, user_id: nil } %>
+  </div>
+  <div class="card-footer text-end p-1">
+    <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>
   </div>
 </div>

@@ -1,12 +1,12 @@
 <%= turbo_stream_from "point_card_#{card.id}" %>
 
-<div class="card card-<%= card.color %> mb-2" style="max-width: 350px; margin: auto;">
+<div class="card card-<%= card.color %> mb-3" style="max-width: 350px; margin: auto;">
   <div class="card-header-sm text-start p-1">
     <div id="card_<%= card.id %>">
       <%= render partial: "/pointing/votes", locals: { votes: card.votes } %>
     </div>
   </div>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush text-start">
     <%= render partial: "/common/card_tiny", locals: { child: card } %>
     <% card.cards.each do |child| %>
       <%= render partial: "/common/card_tiny", locals: { child: child } %>
