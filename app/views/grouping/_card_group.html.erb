@@ -10,7 +10,7 @@
               Group with another card
             </button>
             <ul class="dropdown-menu p-1">
-              <% retro.columns.flat_map{ |col| col.cards}.select{ |card| card.parent_card.nil? }.each do |parent| %>
+              <% retro.columns.flat_map{ |col| col.cards}.select{ |child| child.parent_card.nil? && card.id != child.id }.each do |parent| %>
               <li>
                 <%= link_to parent.title.length > 64 ? "#{parent.title[0..61]}..." : parent.title,
                   "/grouping/#{card.id}/parent/#{parent.id}",
