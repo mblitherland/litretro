@@ -128,12 +128,11 @@ Read `LICENSE` or visit the above link for more information.
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 52: Update some gems, move version info to its own file
-- 53: Maybe do CSP headers because why not?
-- 54: ...
+- 54: Maybe do CSP headers because why not?
+- 55: ...
 
 ## Todoings
 
-- 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure wht, if anything, I should do about that
 
 ## Todones
 
@@ -194,6 +193,8 @@ Read `LICENSE` or visit the above link for more information.
 - 43: Add grouping functionality
 - 45: You can't navigate from links on dynamically extended lists, like "my retros"
     - try data-turbo="false"
+- 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure wht, if anything, I should do about that
+    - The nested comments are displayed after the ones on the parent card without and distinction
 - 49: Make the groups a little prettier in a subsequent update
 - 50: Better wording on the grouping page
 - 51: The list group styling for grouped cards isn't quite right...

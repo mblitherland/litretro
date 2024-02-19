@@ -6,7 +6,8 @@
     <% end %>
   </ul>
   <div class="card-body">
-    <%= render partial: "/discussion/comments", locals: { comments: card.comments, user_id: nil } %>
+    <% comments = card.comments + card.cards.flat_map{ |c| c.comments } %>
+    <%= render partial: "/discussion/comments", locals: { comments: comments, user_id: nil } %>
   </div>
   <div class="card-footer text-end p-1">
     <%= card.votes %> vote<%= card.votes == 1 ? "" : "s" %>
