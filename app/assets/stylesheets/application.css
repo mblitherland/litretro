@@ -8,3 +8,4 @@
 .card-green { background-color: #75b798; }
 .card-teal { background-color: #79dfc1; }
 .card-textarea { font-size: 1.5em; }
+.card-tiny { border-bottom-color: var(--bs-border-color-translucent); }

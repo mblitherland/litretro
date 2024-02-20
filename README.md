@@ -115,24 +115,26 @@ Read `LICENSE` or visit the above link for more information.
 ## Todos
 
 - 14: Maybe have each card come up on its own discussion page(?)
+    - 20: Mark cards "complete" once they've been discussed to clear up that view... (?)
 - 17: The "move to next phase" modal should darken the background, but bootstrap doesn't like how I add it
-- 20: Mark cards "complete" once they've been discussed to clear up that view... (?)
 - 25: Detailed summary with information about card and comment creators
 - 34: A user can delete their comments
+    - Or just an admin
+    - 40: Does the remove link go to the wrong comment on the discussion page with multiple users? (YES)
+    - 42: Restore the ability to remove comments from the discussion page (see 34, 40)
 - 38: Make a rake task to automate cleaning up old retros
-- 40: Does the remove link go to the wrong comment on the discussion page with multiple users? (YES)
 - 41: Just to keep in mind, forms should really provide more feedback
-- 42: Restore the ability to remove comments from the discussion page (see 34, 40)
 - 44: Should I just add the host to the retro by default?
 - 46: Retro is setup state shouldn't allow users to see any of the retro screens
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 52: Update some gems, move version info to its own file
 - 54: Maybe do CSP headers because why not?
-- 55: ...
+- 57: ...
 
 ## Todoings
 
+Probably GEM updates next
 
 ## Todones
 
@@ -200,6 +202,8 @@ Read `LICENSE` or visit the above link for more information.
 - 50: Better wording on the grouping page
 - 51: The list group styling for grouped cards isn't quite right...
 - 53: Oh no, you can parent cards to themselves...
+- 55: Style for list-group-flush that I didn't like
+- 56: Move issues to their own page
 
 ## Todonts
 
