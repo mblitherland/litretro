@@ -95,7 +95,7 @@ The pages that currently have customization logic in them are:
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
 | 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
 | 2024-02-16 | 1.5.1 | Improved group functionality (50, 49) |
-| 2024-02-?? | 1.5.2 | Group functionality with discussions (53, 48) |
+| 2024-02-20 | 1.5.2 | Group functionality with discussions (53, 48) |
 | 2024-??-?? | 1.5.3 | Gem updates (52) |
 
 ## License information
