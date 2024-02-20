@@ -22,6 +22,8 @@ class GroupingController < ApplicationController
       redirect_to '/retros', alert: "Please don't"
     end
 
+    redirect_to '/retros', alert: 'Error grouping cards' if parent == child
+
     if owner
       parent.cards.append(child)
 

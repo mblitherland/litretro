@@ -95,6 +95,8 @@ The pages that currently have customization logic in them are:
 | 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
 | 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
 | 2024-02-16 | 1.5.1 | Improved group functionality (50, 49) |
+| 2024-02-?? | 1.5.2 | Group functionality with discussions (53, 48) |
+| 2024-??-?? | 1.5.3 | Gem updates (52) |
 
 ## License information
 
@@ -125,12 +127,12 @@ Read `LICENSE` or visit the above link for more information.
 - 46: Retro is setup state shouldn't allow users to see any of the retro screens
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
-- 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure wht, if anything, I should do about that
-- 52: ...
+- 52: Update some gems, move version info to its own file
+- 54: Maybe do CSP headers because why not?
+- 55: ...
 
 ## Todoings
 
-TBD
 
 ## Todones
 
@@ -191,9 +193,13 @@ TBD
 - 43: Add grouping functionality
 - 45: You can't navigate from links on dynamically extended lists, like "my retros"
     - try data-turbo="false"
+- 48: If grouping is done after discussion the discussion posts on the child cards could appear to be lost. I'm not terribly sure what, if anything, I should do about that
+    - The nested comments are displayed after the ones on the parent card without a distinction
+    - Ungrouping the cards will keep the comments with the card they were originally attached to
 - 49: Make the groups a little prettier in a subsequent update
 - 50: Better wording on the grouping page
 - 51: The list group styling for grouped cards isn't quite right...
+- 53: Oh no, you can parent cards to themselves...
 
 ## Todonts
 
