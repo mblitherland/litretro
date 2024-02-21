@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
         card.broadcast_update_to(
           "card_#{card.id}",
           partial: '/discussion/comments',
-          locals: { comments: card.comments, user_id: current_user.id }
+          locals: { comments: card.comments + card.cards.flat_map{ |c| c.comments }, user_id: current_user.id }
         )
       end
 
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       card.broadcast_update_to(
         "card_#{card.id}",
         partial: '/discussion/comments',
-        locals: { comments: card.comments, user_id: current_user.id }
+        locals: { comments: card.comments + card.cards.flat_map{ |c| c.comments }, user_id: current_user.id }
       )
     else
       redirect_to '/retros', alert: 'Not permitted'

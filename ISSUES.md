@@ -20,11 +20,11 @@ These are the issues referenced in the releases portion of the `README`.
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 52: Update some gems, move version info to its own file
 - 54: Maybe do CSP headers because why not?
-- 57: ...
+- 58: ...
 
 ## Todoings
 
-Probably GEM updates next
+Probably Gem updates next
 
 ## Todones
 
@@ -95,6 +95,7 @@ Probably GEM updates next
 - 55: Style for list-group-flush that I didn't like
 - 56: Move issues to their own page
     - Now I can edit issues and view the versions at the same time!
+- 57: Nested comments aren't applied when broadcast
 
 ## Todonts
 
