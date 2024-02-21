@@ -96,7 +96,7 @@ The pages that currently have customization logic in them are:
 | 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
 | 2024-02-16 | 1.5.1 | Improved group functionality (50, 49) |
 | 2024-02-20 | 1.5.2 | Group functionality with discussions (53, 48) |
-| 2024-02-20 | 1.5.3 | Group UI updates, README cleanup (55, 56) |
+| 2024-02-20 | ----- | [Unreleased] Group UI updates, README cleanup (55, 56) |
 | 2024-02-20 | 1.5.4 | Fixing nested comments (57) |
 | 2024-??-?? | 1.6 | [Planning] Gem updates (52) |
 
