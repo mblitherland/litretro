@@ -20,7 +20,8 @@ These are the issues referenced in the releases portion of the `README`.
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 52: Update some gems, move version info to its own file
 - 54: Maybe do CSP headers because why not?
-- 58: ...
+- 58: When there is no retro theme, don't prompt the user that they may overwrite and lose cards
+- 59: ...
 
 ## Todoings
 
