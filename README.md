@@ -68,37 +68,38 @@ server doing this.
 
 The pages that currently have customization logic in them are:
 
-| Page | Url | Key | Description |
-|------|-----|-----|-------------|
-| About | /about | about | Injects content above the rest of the about blurb |
-| Home | /home | home | Replaces the text below the title |
-| New retro | /retros/new | new_retro | Injects content above the 'Create Retro' form |
+| Page      | Url         | Key       | Description                                       |
+| ------    | -----       | -----     | -------------                                     |
+| About     | /about      | about     | Injects content above the rest of the about blurb |
+| Home      | /home       | home      | Replaces the text below the title                 |
+| New retro | /retros/new | new_retro | Injects content above the 'Create Retro' form     |
 
 
 ## Version History
 
-| Date | Version | Description |
-|------|---------|-------------|
-| 2023-07-09 | 1.0 | Functionally completely release |
-| 2023-07-09 | 1.0.1 | Fixed a critical issue related to card votes |
-| 2023-07-13 | 1.0.2 | Addressed several issues - see below (0,11,12,13) |
-| 2023-08-04 | 1.0.3 | Addresses several staging issues - see below (9,10,15) |
-| 2023-08-21 | 1.1 | Guest links - see below (19,16,21,22,5) |
-| 2023-08-23 | 1.1.1 | Address mixed issues - see below (24,26,27) |
-| 2023-08-28 | 1.1.2 | Issues below (28,29,30) |
-| 2023-08-29 | 1.2 | Edit cards (8,32,6) |
-| 2023-09-07 | 1.3 | Participation management (31,1,33) |
-| 2023-09-13 | 1.3.1 | Misc issues (35,34) |
-| 2023-09-22 | 1.3.2 | Misc issues (23,37) |
-| 2023-09-25 | 1.3.3 | Add prior users (3) |
-| 2023-10-06 | 1.3.4 | Fixed issue related to retro management (39) |
-| 2023-11-04 | 1.4 | DB cleanup and discussion improvements (36,2) |
-| 2024-02-14 | 1.5 | Card grouping functionality (45, 18, 43) |
-| 2024-02-16 | 1.5.1 | Improved group functionality (50, 49) |
-| 2024-02-20 | 1.5.2 | Group functionality with discussions (53, 48) |
-| 2024-02-20 | ----- | [Unreleased] Group UI updates, README cleanup (55, 56) |
-| 2024-02-20 | 1.5.4 | Fixing nested comments (57) |
-| 2024-??-?? | 1.6 | [Planning] Gem updates (52) |
+| Date       | Version   | Description                                            |
+| ------     | --------- | -------------                                          |
+| 2023-07-09 | 1.0       | Functionally completely release                        |
+| 2023-07-09 | 1.0.1     | Fixed a critical issue related to card votes           |
+| 2023-07-13 | 1.0.2     | Addressed several issues - see below (0,11,12,13)      |
+| 2023-08-04 | 1.0.3     | Addresses several staging issues - see below (9,10,15) |
+| 2023-08-21 | 1.1       | Guest links - see below (19,16,21,22,5)                |
+| 2023-08-23 | 1.1.1     | Address mixed issues - see below (24,26,27)            |
+| 2023-08-28 | 1.1.2     | Issues below (28,29,30)                                |
+| 2023-08-29 | 1.2       | Edit cards (8,32,6)                                    |
+| 2023-09-07 | 1.3       | Participation management (31,1,33)                     |
+| 2023-09-13 | 1.3.1     | Misc issues (35,34)                                    |
+| 2023-09-22 | 1.3.2     | Misc issues (23,37)                                    |
+| 2023-09-25 | 1.3.3     | Add prior users (3)                                    |
+| 2023-10-06 | 1.3.4     | Fixed issue related to retro management (39)           |
+| 2023-11-04 | 1.4       | DB cleanup and discussion improvements (36,2)          |
+| 2024-02-14 | 1.5       | Card grouping functionality (45, 18, 43)               |
+| 2024-02-16 | 1.5.1     | Improved group functionality (50, 49)                  |
+| 2024-02-20 | 1.5.2     | Group functionality with discussions (53, 48)          |
+| 2024-02-20 | -----     | [Unreleased] Group UI updates, README cleanup (55, 56) |
+| 2024-02-20 | 1.5.4     | Fixing nested comments (57)                            |
+| 2024-04-?? | 1.6.0     | Other column, dark mode, self-as-participant (58-61?)  |
+| 2024-??-?? | 1.?       | [Planning] Gem updates (52)                            |
 
 See `ISSUES.md` for information about the issue numbers referenced above.
 

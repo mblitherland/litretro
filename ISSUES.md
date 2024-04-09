@@ -21,7 +21,10 @@ These are the issues referenced in the releases portion of the `README`.
 - 52: Update some gems, move version info to its own file
 - 54: Maybe do CSP headers because why not?
 - 58: When there is no retro theme, don't prompt the user that they may overwrite and lose cards
-- 59: ...
+- 59: Add an optional "other" category for every retro theme, probably a checkbox, default to on
+- 60: Add retro creator to participant list automatically
+- 61: What's this about bootstrap 5.3+ having easy support for dark mode?
+- 62: ...
 
 ## Todoings
 
