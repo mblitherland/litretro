@@ -24,7 +24,10 @@ These are the issues referenced in the releases portion of the `README`.
 - 59: Add an optional "other" category for every retro theme, probably a checkbox, default to on
 - 60: Add retro creator to participant list automatically
 - 61: What's this about bootstrap 5.3+ having easy support for dark mode?
-- 62: ...
+- 62: Add a thumbs-up when everyone is done voting/giving comments, etc.
+- 63: Put the retro name on each page?
+- 64: Guests can see the settings for a retro if you give them the link to your manage page instead of the guest link.
+- 65: ...
 
 ## Todoings
 
