@@ -26,6 +26,10 @@
     <p class="form-text">Not more than six categories, please.</p>
   </div>
   <div>
-    <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary", data: { turbo_confirm: "Changing the theme of a retro in progess will delete all cards and comments" } %>
+    <% if @retro.columns.length > 0 %>
+      <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary", data: { turbo_confirm: "Changing the theme of a retro in progess will delete all cards and comments" } %>
+    <% else %>
+      <%= f.submit "Create or update theme", class: "my-2 btn btn-secondary" %>
+    <% end %>
   </div>
 <% end %>

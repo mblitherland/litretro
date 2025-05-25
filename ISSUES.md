@@ -15,14 +15,13 @@ These are the issues referenced in the releases portion of the `README`.
 - 38: Make a rake task to automate cleaning up old retros
 - 41: Just to keep in mind, forms should really provide more feedback
 - 44: Should I just add the host to the retro by default?
+    - 60: Add retro creator to participant list automatically
 - 46: Retro is setup state shouldn't allow users to see any of the retro screens
     - Maybe another "hidden" or blocked state? Would be redundant
 - 47: Some partials like show_redirect have `retro: @retro` and there may be some other unnecessary things
 - 52: Update some gems, move version info to its own file
 - 54: Maybe do CSP headers because why not?
-- 58: When there is no retro theme, don't prompt the user that they may overwrite and lose cards
 - 59: Add an optional "other" category for every retro theme, probably a checkbox, default to on
-- 60: Add retro creator to participant list automatically
 - 61: What's this about bootstrap 5.3+ having easy support for dark mode?
 - 62: Add a thumbs-up when everyone is done voting/giving comments, etc.
 - 63: Put the retro name on each page?
@@ -31,7 +30,9 @@ These are the issues referenced in the releases portion of the `README`.
 
 ## Todoings
 
-Probably Gem updates next
+I should do Gem updates next
+
+I think I also want to add a planning poker module.
 
 ## Todones
 
@@ -103,6 +104,7 @@ Probably Gem updates next
 - 56: Move issues to their own page
     - Now I can edit issues and view the versions at the same time!
 - 57: Nested comments aren't applied when broadcast
+- 58: When there is no retro theme, don't prompt the user that they may overwrite and lose cards
 
 ## Todonts
 
