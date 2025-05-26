@@ -41,6 +41,10 @@ class RetrosController < ApplicationController
   def show
     @retro = Retro.find(params[:id])
 
+    if @retro[:user_id] != current_user.id
+      redirect_to retros_path, alert: 'Not permitted'
+    end
+
     @retros = Retro.where(user_id: current_user.id).order(retro_date: :desc).limit(6)
   end
 
@@ -66,6 +70,10 @@ class RetrosController < ApplicationController
 
   def edit
     @retro = Retro.find(params[:id])
+
+    if @retro[:user_id] != current_user.id
+      redirect_to retros_path, alert: 'Not permitted'
+    end
   end
 
   def update

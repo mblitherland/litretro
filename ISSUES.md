@@ -25,12 +25,11 @@ These are the issues referenced in the releases portion of the `README`.
 - 61: What's this about bootstrap 5.3+ having easy support for dark mode?
 - 62: Add a thumbs-up when everyone is done voting/giving comments, etc.
 - 63: Put the retro name on each page?
-- 64: Guests can see the settings for a retro if you give them the link to your manage page instead of the guest link.
 - 65: ...
 
 ## Todoings
 
-I should do Gem updates next
+I should do Gem updates.
 
 I think I also want to add a planning poker module.
 
@@ -105,6 +104,7 @@ I think I also want to add a planning poker module.
     - Now I can edit issues and view the versions at the same time!
 - 57: Nested comments aren't applied when broadcast
 - 58: When there is no retro theme, don't prompt the user that they may overwrite and lose cards
+- 64: Guests can see the settings for a retro if you give them the link to your manage page instead of the guest link.
 
 ## Todonts
 
